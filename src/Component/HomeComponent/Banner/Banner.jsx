@@ -124,11 +124,12 @@ const Banner = ({SlideshowMenu}) => {
 
       <Slider {...settings} className=''>
         {BImage?.map((items, id) => (
-          <img 
-            src={items.img}
-            alt={items.img}
-            className='h-[550px] object-cover'
-          />
+          <div className=' object-cover'>
+            <img 
+              src={items.img}
+              alt={items.img}
+            />
+          </div>
         ))}
 
       </Slider>

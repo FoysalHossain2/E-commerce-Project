@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const ShopRightBottom = () => {
+
+    useEffect(() => {
+
+    }, [])
+    
+
+
   return (
     <>
-    <div className='w-full bg-red-300 h-full'>
+    <div className=''>
 
     </div>
     </>
