@@ -11,18 +11,18 @@ const Banner = ({SlideshowMenu}) => {
   const BImage =[
     {
       id: 1,
-      img: BannerImg2
-    },
-    {
-      id: 1,
       img: BannerImg
     },
     {
-      id: 1,
-      img: BannerImg2
+      id: 2,
+      img: BannerImg
     },
     {
-      id: 1,
+      id: 3,
+      img: BannerImg
+    },
+    {
+      id: 4,
       img: BannerImg
     },
   ]
@@ -124,10 +124,11 @@ const Banner = ({SlideshowMenu}) => {
 
       <Slider {...settings} className=''>
         {BImage?.map((items, id) => (
-          <div className=' object-cover'>
+          <div className='object-cover max-h-[580px]'>
             <img 
               src={items.img}
               alt={items.img}
+              className='object-cover '
             />
           </div>
         ))}

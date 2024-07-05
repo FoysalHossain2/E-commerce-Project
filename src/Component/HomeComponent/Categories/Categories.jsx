@@ -41,6 +41,34 @@ const Categories = () => {
       id: '7',
       img: shirt,
     },
+    {
+      id: '1',
+      img: monitor,
+    },
+    {
+      id: '2',
+      img: pants,
+    },
+    {
+      id: '3',
+      img: phoneStand,
+    },
+    {
+      id: '4',
+      img: shoes,
+    },
+    {
+      id: '5',
+      img: Jaket,
+    },
+    {
+      id: '6',
+      img: Ring,
+    },
+    {
+      id: '7',
+      img: shirt,
+    },
   ]
 
 
@@ -53,7 +81,7 @@ const Categories = () => {
               Categories
             </h1>
 
-            <div className='flex  gap-x-4 '>
+            <div className='flex flex-wrap items-center gap-2'>
               {images?.map((items, id) => (
               <div className=" border px-2 py-2 object-cover" key={items.id}>
                 <img 
