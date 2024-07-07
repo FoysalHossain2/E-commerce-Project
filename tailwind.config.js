@@ -9,8 +9,8 @@ export default {
       'sm' : '567px',
       'md' : '768px',
       'lg' : '1024px',
-      'xl' : '1186px',
-      'xxl' : '1186px',
+      'xl' : '1177px',
+      'xxl' : '1177px',
     },
     extend: {
       fontFamily:{

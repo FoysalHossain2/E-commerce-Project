@@ -69,13 +69,21 @@ const Categories = () => {
       id: '7',
       img: shirt,
     },
+    {
+      id: '6',
+      img: Ring,
+    },
+    {
+      id: '7',
+      img: shirt,
+    },
   ]
 
 
 
   return (
     <>
-    <div className='mt-[45px]'>
+    <div className='mt-[45px] '>
         <div className="container mx-auto">
             <h1 className='font-bold text-[38px] font-DM_Sans text-main_text_color pb-14'>
               Categories
@@ -83,11 +91,11 @@ const Categories = () => {
 
             <div className='flex flex-wrap items-center gap-2'>
               {images?.map((items, id) => (
-              <div className=" border px-2 py-2 object-cover" key={items.id}>
+              <div className=" border px-2 py-2 object-cover" key={id}>
                 <img 
                   src={items.img} 
                   alt={items.ing}
-                  className='w-[140px] h-[140px]'
+                  className='w-[120px] h-[120px]'
                 />
               </div>
               ))}

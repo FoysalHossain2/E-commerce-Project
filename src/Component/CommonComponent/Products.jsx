@@ -4,11 +4,13 @@ import { FiHeart } from 'react-icons/fi'
 import { DiGitCompare } from 'react-icons/di'
 import { IoCart } from 'react-icons/io5'
 
-const Products = ({title,price, image }) => {
+const Products = ({title,price, image, bize }) => {
   return (
     <>
-    <div>
+    <div className='border'>
         <div className='w-[250px] relative overflow-hidden group cursor-pointer'>
+        <div className='absolute top-5 ml-5 '> {bize}</div>
+        
           <div className='w-[250px] h-[250px] object-cover'>
             <img 
               src={image} 

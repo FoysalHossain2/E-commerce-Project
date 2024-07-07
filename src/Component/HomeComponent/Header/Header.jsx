@@ -49,14 +49,13 @@ const Header = () => {
     <>
 
     {/* sideShowMenu overlay part*/}
-
     <div className={`blackOverlay w-full h-full fixed duration-500 `}
     style={{
       visibility: SlideshowMenu ? 'visible' : 'hidden'
     }}
     onClick={HideMenu}
     >
-      <div className='w-[400px] h-full bg-zinc-200 absolute duration-500 overflow-scroll'
+      <div className='w-[300px] h-full bg-zinc-200 absolute duration-500 overflow-scroll'
       style={{
         left: SlideshowMenu ? '0%' : '-100%'
       }}
@@ -66,13 +65,12 @@ const Header = () => {
       </div>
       <button className='ml-[550px] text-white text-[30px]'><RxCross2 /></button>
     </div>
-
      {/* sideShowMenu overlay part*/}
 
 
      {/* Header part */}
-    <div className={`py-2 bg-slate-500`}  >
-      <div className="container mx-auto">
+    <div className={`py-3 bg-white`}  >
+      <div className="container mx-auto ">
         <div className='flex items-center justify-between'>
   
             <div className='flex items-center gap-x-8'> 
@@ -110,16 +108,14 @@ const Header = () => {
                   <LanguageConvert />
                 </div>
 
-              <div className='font-DM_Sans font-bold text-white cursor-pointer'>
-                <p>Return <br /> & Order</p>
-              </div>
-
-              <div className='flex items-center gap-x-1 bg-slate-900 text-white px-[10px] py-1 rounded-xl'>
+              {/* --------------- login part ------------------*/}
+              <div className='flex items-center gap-x-1 bg-slate-800 text-white px-[10px] py-2 rounded-2xl'>
                 <FaUser className='cursor-pointer text-orange-400 text-[24px]' />
-                Login
+                  sing in
               </div>
+              {/* --------------- login part ------------------*/}
 
-              <div className='bg-orange-400 px-[10px] py-1 rounded-xl text-white cursor-pointer'>
+              <div className='bg-orange-400 px-[10px] py-2 rounded-2xl text-white cursor-pointer'>
                 <div className='flex items-center gap-x-2'>  
                   <div className='text-[18px] cursor-pointer'>
                     <FiShoppingCart />
@@ -136,13 +132,15 @@ const Header = () => {
       </div>
     </div>
     {/* Header part */}
+        <hr />
 
 
     {/* sideShowMenu Btn */}
     <div className='bg-[#F6F5FF] py-2 '>
       <div className='container mx-auto'>
-        <div className='text-2xl'>
-          <IoMenu onClick={HandleSideMenu} className='cursor-pointer'  />
+        <div className='flex items-center gap-x-4 text-center'>
+          <IoMenu onClick={HandleSideMenu} className='cursor-pointer text-2xl'  />
+          <p className='font-Josefin__Sans font-bold'>ALL</p>
         </div>
        </div>
 

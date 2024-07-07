@@ -5,7 +5,7 @@ import FooterBottom from './FooterBottom'
 const Footer = () => {
   return (
     <>
-     <div className='bg-slate-700 py-7'>
+     <div className='bg-[#2F2E41]'>
       <FooterTop />
       <FooterBottom />
      </div>

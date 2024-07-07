@@ -15,5 +15,5 @@ const initialState = {
 export const ProductSlice = createSlice({
     name: 'ProductSlice',
     initialState,
-    reducers
+    reducers 
 })

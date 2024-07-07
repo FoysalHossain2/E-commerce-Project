@@ -7,16 +7,16 @@ import Support from '../../../assets/ShippingImg/Support.png'
 const Shipping = () => {
   return (
     <>
-    <div className='pt-16 pb-10'>
+    <div className='py-20 pt-[124px]'>
         <div className="container mx-auto">
-            <div className='flex justify-between items-center py-5 px-4 bg-red-300 rounded-full'>
+            <div className='flex justify-between items-center py-4 px-4 bg-[#fb2e8715] border-b-2 border-button_Color '>
                 <div className='flex items-center gap-x-2'>
                     <img 
                         src={FreeShipping} 
                         alt={FreeShipping} 
                         className='w-10'
                     />
-                    <p>Free Shipping</p>
+                    <p className='font-Josefin__Sans text-lg font-bold'>Free Shipping</p>
                 </div>
                 <div className='flex items-center gap-x-2'>
                     <img 
@@ -24,7 +24,7 @@ const Shipping = () => {
                        alt={Support} 
                         className='w-10'
                     />
-                    <p>99.9% granted product</p>
+                    <p className='font-Josefin__Sans text-lg font-bold'>99.9% granted product</p>
                 </div>
                 <div className='flex items-center gap-x-2'>
                     <img 
@@ -32,7 +32,7 @@ const Shipping = () => {
                         alt={Return} 
                         className='w-10'
                     />
-                    <p>Free & Easy Return</p>
+                    <p className='font-Josefin__Sans text-lg font-bold'>Free & Easy Return</p>
                 </div>
                 <div className='flex items-center gap-x-2'>     
                     <img 
@@ -40,7 +40,7 @@ const Shipping = () => {
                         alt={hoursSupport} 
                         className='w-10'
                     />
-                    <p>24/7 Hour Support</p>
+                    <p className='font-Josefin__Sans text-lg font-bold'>24/7 Hour Support</p>
                 </div>
             </div>
         </div>
