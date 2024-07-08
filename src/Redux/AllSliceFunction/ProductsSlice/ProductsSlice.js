@@ -12,8 +12,16 @@ const initialState = {
     status: ApiStatus.IDLE
 }
 
-export const ProductSlice = createSlice({
-    name: 'ProductSlice',
+export const ProductsSlice = createSlice({
+    name: 'ProductsSlice',
     initialState,
-    reducers 
+    reducer: {
+        SetProduct: (state, action) => {
+            state.data = action.payload
+        }
+    }
 })
+
+
+export const { SetProduct } = ProductsSlice.actions
+export default ProductsSlice.reducer

@@ -41,12 +41,12 @@
 
     }
 
-    .blackOverlay{
+    .blackOverlay {
         background-color: rgba(0, 0, 0, 0.7) !important;
         z-index: 1;
     }
 
-      .hideScrollbar{
+      .hideScrollbar {
         overflow-y: hidden;
     }
 
@@ -54,7 +54,7 @@
         overflow: hidden;
     }
     
-    .textF{
+    .textF {
         font-size: 40px;
     }
 

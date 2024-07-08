@@ -9,8 +9,8 @@ const Shipping = () => {
     <>
     <div className='py-20 pt-[124px]'>
         <div className="container mx-auto">
-            <div className='flex justify-between items-center py-4 px-4 bg-[#fb2e8715] border-b-2 border-button_Color '>
-                <div className='flex items-center gap-x-2'>
+            <div className='md:flex flex-wrap justify-between items-center '>
+                <div className='flex items-center gap-x-2 border py-4 px-4 '>
                     <img 
                         src={FreeShipping} 
                         alt={FreeShipping} 
@@ -18,7 +18,7 @@ const Shipping = () => {
                     />
                     <p className='font-Josefin__Sans text-lg font-bold'>Free Shipping</p>
                 </div>
-                <div className='flex items-center gap-x-2'>
+                <div className='flex items-center gap-x-2 border py-4 px-4'>
                     <img 
                        src={Support} 
                        alt={Support} 
@@ -26,7 +26,7 @@ const Shipping = () => {
                     />
                     <p className='font-Josefin__Sans text-lg font-bold'>99.9% granted product</p>
                 </div>
-                <div className='flex items-center gap-x-2'>
+                <div className='flex items-center gap-x-2  border py-4 px-4'>
                     <img 
                         src={Return} 
                         alt={Return} 
@@ -34,7 +34,7 @@ const Shipping = () => {
                     />
                     <p className='font-Josefin__Sans text-lg font-bold'>Free & Easy Return</p>
                 </div>
-                <div className='flex items-center gap-x-2'>     
+                <div className='flex items-center gap-x-2 border py-4 px-4'>     
                     <img 
                         src={hoursSupport} 
                         alt={hoursSupport} 
@@ -50,3 +50,4 @@ const Shipping = () => {
 }
 
 export default Shipping
+
