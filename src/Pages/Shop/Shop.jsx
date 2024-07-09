@@ -1,7 +1,7 @@
 import React from 'react'
 import BreadCrumb from '../../Component/CommonComponent/BreadCrumb/BreadCrumb'
-import ShopLeft from '../../Component/ShopComponent/ShopLeft'
-import ShopRight from '../../Component/ShopComponent/ShopRight'
+import ShopLeft from '../../Component/ShopComponent/ShopLeft/ShopLeft'
+import ShopRight from '../../Component/ShopComponent/ShopRight/ShopRight'
 
 
 const Shop = () => {
@@ -15,9 +15,9 @@ const Shop = () => {
         <hr />
 
         <div className='py-16 '>
-          <div className="flex items-center flex-row justify-between">
-            <ShopLeft className={'w-[25%]   h-[100vh] '} />
-            <ShopRight className={'w-[73%] h-[100vh]'} />
+          <div className="flex flex-row justify-between">
+            <ShopLeft className='w-[25%]  ' />
+            <ShopRight className='w-[75%] '/>
           </div>
         </div>
       </div>

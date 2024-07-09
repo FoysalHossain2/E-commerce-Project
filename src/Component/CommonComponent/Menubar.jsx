@@ -35,15 +35,15 @@ const Menubar = () => {
         <>
             <div>
                 {/* -----------sing in-----------  */}
-                        <div className='bg-[#222132] py-4 flex items-center gap-x-10'>
-                            <div className='ml-4 bg-white text-button_Color w-8 h-8 rounded-full flex items-center justify-center'>
-                                <FaUser className='text-2xl' />
-                            </div>
-                            <p className='text-white font-Josefin__Sans text-xl'>Sing in</p>
+                    <div className='bg-[#222132] py-4 flex items-center gap-x-6'>
+                        <div className='ml-8 bg-white text-button_Color w-8 h-8 rounded-full flex items-center justify-center'>
+                            <FaUser className='text-[20px]' />
                         </div>
+                        <p className='text-white font-Josefin__Sans text-xl'>Sing in</p>
+                    </div>
                 {/* -----------sing in-----------  */}
             </div>
-            <div className='ml-4'>
+            <div className='ml-8'>
                 <div className="sidebar">
                     <div className="sidebar-header">
                         <h2>Categories</h2>

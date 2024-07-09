@@ -14,20 +14,19 @@ const ShopRightBottom = () => {
 
     const ProductDataFetcher = async () => {
       const Products = await axios.get('https://dummyjson.com/products');
-      setAllProducts(Products.data.products)
+      dispatch(setAllProducts(Products.data.products))
     }
 
     ProductDataFetcher()
   }, [])
 
-  // console.log(AllProducts);
   
 
 
   return (
     <>
     <div>
-      <div className=''>
+      <div className='flex flex-wrap justify-between gap-y-10'>
         {AllProducts?.map((product, id) => (
           <div key={id}>
             <Products

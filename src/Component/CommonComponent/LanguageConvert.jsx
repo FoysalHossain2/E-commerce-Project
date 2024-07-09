@@ -8,7 +8,7 @@ const LanguageConvert = () => {
     <div className=' relative group '>
       <div className='flex items-center gap-x-1 cursor-pointer'>
           <GrLanguage className='text-button_Color text-[20px]' />
-          <p className='font-DM_Sans font-bold text-white'>
+          <p className='font-DM_Sans font-bold text-'>
             EN
           </p>
       </div>

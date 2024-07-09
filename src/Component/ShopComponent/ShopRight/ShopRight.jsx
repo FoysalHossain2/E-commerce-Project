@@ -1,6 +1,6 @@
 import React from 'react'
-import ShopRightTop from '../CommonComponent/ShopRightItem/ShopRightTop'
-import ShopRightBottom from '../CommonComponent/ShopRightItem/ShopRightBottom'
+import ShopRightTop from '../../CommonComponent/ShopRightItem/ShopRightTop'
+import ShopRightBottom from '../../CommonComponent/ShopRightItem/ShopRightBottom'
 
 const ShopRight = ({className}) => {
   return (

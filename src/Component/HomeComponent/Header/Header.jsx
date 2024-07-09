@@ -8,6 +8,7 @@ import { IoMenu } from "react-icons/io5";
 import Menubar from '../../CommonComponent/Menubar';
 import { RxCross2 } from "react-icons/rx";
 import LanguageConvert from '../../CommonComponent/LanguageConvert';
+import { Link } from 'react-router-dom';
 
 
 
@@ -74,12 +75,12 @@ const Header = () => {
         <div className='flex items-center justify-between'>
   
             <div className='flex items-center gap-x-8'> 
-              {/* <img src={logo} alt={logo} /> */}
-              <h1>Logo</h1>
-              <div className='flex items-center'>
-                <SlLocationPin className='text-orange-400' />
-                location
-              </div>
+              {/*----- logo ----- */}
+              <h1 className='text-green-400 font-bold text-3xl'>
+                 <Link to={'/'}>Shop.com</Link>
+              </h1>
+              {/*----- logo -----*/}
+
             </div>
 
             {/*------ Search option --------*/}
@@ -109,13 +110,15 @@ const Header = () => {
                 </div>
 
               {/* --------------- login part ------------------*/}
-              <div className='flex items-center gap-x-1 bg-slate-800 text-white px-[10px] py-2 rounded-2xl'>
-                <FaUser className='cursor-pointer text-orange-400 text-[24px]' />
-                  sing in
+              <div className='flex items-center gap-x-1 bg-slate-800 text-white px-[10px] py-2 rounded-3xl'>
+                <FaUser className='cursor-pointer text-orange-400 text-[23px]' />
+                  <p className='font-bold'>
+                    sing in
+                  </p>
               </div>
               {/* --------------- login part ------------------*/}
 
-              <div className='bg-orange-400 px-[10px] py-2 rounded-2xl text-white cursor-pointer'>
+              <div className='bg-orange-400 px-[10px] py-2 rounded-3xl text-white cursor-pointer'>
                 <div className='flex items-center gap-x-2'>  
                   <div className='text-[18px] cursor-pointer'>
                     <FiShoppingCart />
