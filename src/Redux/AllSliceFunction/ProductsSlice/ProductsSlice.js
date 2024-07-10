@@ -23,5 +23,15 @@ export const ProductsSlice = createSlice({
 })
 
 
+// data fetch with async thunk function
+
+export const FetchDataProduct = () => {
+    return async function (dispatch, getState) {
+        
+    }
+}
+
+
+
 export const { SetProduct } = ProductsSlice.actions
 export default ProductsSlice.reducer
