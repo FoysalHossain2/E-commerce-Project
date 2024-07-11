@@ -9,11 +9,10 @@ const shopByProductBrand = () => {
 
            {/*-------- product filter header ------ */}
           <div className='pb-10'>
-            <h1 className='font-Josefin__Sans font-bold text-2xl text-secondary_text_color'>
+            <h1 className='font-Josefin__Sans font-bold border-b-2 border-black w-[227px] text-2xl text-secondary_text_color'>
               Product Filters
             </h1>
 
-              <hr className='w-[225px]' />
 
           </div>
           {/*-------- product filter header ------ */}

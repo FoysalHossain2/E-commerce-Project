@@ -103,11 +103,13 @@ const Header = () => {
             </div>
             {/*------ Search option --------*/}
 
-            <div className='flex items-center gap-x-10'>
+            <div className='flex items-center gap-x-5'>
 
                 <div>
                   <LanguageConvert />
                 </div>
+
+                <div className='border-r border-gray-400 h-6 w-1'></div>
 
               {/* --------------- login part ------------------*/}
               <div className='flex items-center gap-x-1 bg-slate-800 text-white px-[10px] py-2 rounded-3xl'>
@@ -117,6 +119,8 @@ const Header = () => {
                   </p>
               </div>
               {/* --------------- login part ------------------*/}
+
+              <div className='border-r border-gray-400 h-6 w-1'></div>
 
               <div className='bg-orange-400 px-[10px] py-2 rounded-3xl text-white cursor-pointer'>
                 <div className='flex items-center gap-x-2'>  
@@ -143,7 +147,7 @@ const Header = () => {
       <div className='container mx-auto'>
         <div className='flex items-center gap-x-4 text-center'>
           <IoMenu onClick={HandleSideMenu} className='cursor-pointer text-2xl'  />
-          <p className='font-Josefin__Sans font-bold'>ALL</p>
+          <p className='font-Josefin__Sans font-bold text-[15px]'>ALL  Categories</p>
         </div>
        </div>
 

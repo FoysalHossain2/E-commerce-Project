@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { createContext } from 'react'
 import ShopRightTop from '../../CommonComponent/ShopRightItem/ShopRightTop'
 import ShopRightBottom from '../../CommonComponent/ShopRightItem/ShopRightBottom'
+
+
+// export const ShopPageChangeContext = createContext()
 
 const ShopRight = ({className}) => {
   return (
@@ -8,7 +11,9 @@ const ShopRight = ({className}) => {
     <div className={`${className}`}>
         <ShopRightTop />
 
-        <ShopRightBottom />
+        {/* <ShopPageChangeContext.Provider> */}
+          <ShopRightBottom />
+        {/* </ShopPageChangeContext.Provider> */}
 
     </div>
     </>

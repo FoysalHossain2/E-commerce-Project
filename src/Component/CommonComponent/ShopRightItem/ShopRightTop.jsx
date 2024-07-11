@@ -34,8 +34,10 @@ const ShopRightTop = () => {
             <p className='font-DM_Sans text-secondary_text_color font-medium'>
               View:
             </p>
-            <BsFillGridFill />
-            <FaBars />
+            <div>
+              <BsFillGridFill />
+              <FaBars />
+            </div>
           </div>
       </div>
     </div>
