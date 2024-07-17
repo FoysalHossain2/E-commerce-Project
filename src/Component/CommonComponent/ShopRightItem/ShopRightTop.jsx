@@ -2,7 +2,8 @@ import React from 'react'
 import { BsFillGridFill } from "react-icons/bs";
 import { FaBars } from "react-icons/fa";
 
-const ShopRightTop = () => {
+const ShopRightTop = ({onHandlePageChange, HandleGrideChange, changeIcon, HandleGrideChange2}) => {
+  
   return (
     <>
     <div className='pb-10 flex justify-between'>
@@ -12,7 +13,14 @@ const ShopRightTop = () => {
               <p className='font-DM_Sans text-secondary_text_color font-medium'>
                 PerPage:
               </p>
-              <input type="text" name="" id="" className='border w-12' />
+              <select name="" id="" className='border' onChange={onHandlePageChange}>
+                <option value="15">15</option>
+                <option value="30">30</option>
+                <option value="45">45</option>
+                <option value="60">60</option>
+                <option value="75">75</option>
+              </select>
+
           </div>
 
           <div className='flex items-center gap-x-2'>
@@ -34,9 +42,13 @@ const ShopRightTop = () => {
             <p className='font-DM_Sans text-secondary_text_color font-medium'>
               View:
             </p>
-            <div>
-              <BsFillGridFill />
-              <FaBars />
+            <div className='flex items-center gap-x-3' >
+              <div className={` cursor-pointer text-[18px] ${changeIcon ? '' : 'text-button_Color'}`}   onClick={HandleGrideChange2}>
+                <BsFillGridFill />
+              </div>
+              <div className={` cursor-pointer text-[18px] ${changeIcon ? 'text-button_Color' : ''}`}  onClick={HandleGrideChange}>
+                <FaBars />
+              </div>
             </div>
           </div>
       </div>

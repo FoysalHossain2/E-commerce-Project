@@ -3,6 +3,8 @@ import RootLayouts from './Component/CommonComponent/RootLayouts/RootLayouts'
 import Home from './Pages/Home/Home'
 import Shop from './Pages/Shop/Shop'
 import Contact from './Pages/Contact/Contact'
+import ProductDetails from './Pages/ProductDetails/ProductDetails'
+import NotFoundPage from './Component/CommonComponent/NotFoundPage'
 
 
 const router = createBrowserRouter(
@@ -10,8 +12,10 @@ const router = createBrowserRouter(
     <Route>
       <Route path='/'  element={<RootLayouts />}>
       <Route index element={<Home />} />
-      <Route path='/Shop' element={<Shop />} />
-      <Route path='/Contact' element={<Contact />} />
+      <Route path='/shop' element={<Shop />} />
+      <Route path='/*' element={<NotFoundPage />} />
+      <Route path='/productDetails/:productId' element={<ProductDetails />} />
+      <Route path='/contact' element={<Contact />} />
       </Route>
     </Route>
   )

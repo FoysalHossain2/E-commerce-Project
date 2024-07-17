@@ -14,7 +14,7 @@ const Shop = () => {
         </div>
         <hr />
 
-        <div className='py-16 '>
+        <div className='pt-20 pb-36'>
           <div className="flex flex-row justify-between">
             <ShopLeft className='w-[25%]  ' />
             <ShopRight className='w-[75%] '/>

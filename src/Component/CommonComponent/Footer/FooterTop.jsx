@@ -4,7 +4,7 @@ import FooterItem from '../FooterItem'
 const FooterTop = () => {
   return (
     <>
-     <div className='mt-[40px] '>
+     <div className='pt-14'>
       <div className="container mx-auto">
 
         <div className='text-white'>

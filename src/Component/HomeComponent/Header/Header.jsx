@@ -45,6 +45,21 @@ const Header = () => {
     // setSlideshowMenu(true)
   }
 
+  /**
+   * Search Option
+   */
+  
+  const {data, status} = useSelector((state) => (state.product))
+
+
+  useEffect(() => {
+    if(status === 'IDLE') {
+      setAllProducts(data.products)
+    }
+  }, [data, status, setAllProducts])
+
+
+
 
   return (
     <>

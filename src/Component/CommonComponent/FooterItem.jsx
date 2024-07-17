@@ -5,7 +5,7 @@ const FooterItem = ({allItems=['One', 'Two', 'Three', 'Four', 'Five'], title}) =
     <>
     <div>
         <div className="container mx-auto">
-            <h2 className='font-DM_Sans font-bold pb-4 text-lg'>
+            <h2 className='font-DM_Sans font-bold pb-4 text-lg '>
                 {title}
             </h2>
 

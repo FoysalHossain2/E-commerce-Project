@@ -1,60 +1,114 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Products from '../Products';
+import { FaChevronLeft } from "react-icons/fa";
 import { FetchDataProduct, SetProduct } from '../../../Redux/AllSliceFunction/ProductsSlice/ProductsSlice';
+import LoadingPage from '../../CommonComponent/LoadingPage'
+import NotFoundPage from '../../CommonComponent/NotFoundPage'
+import { ShopPageChangeContext } from '../../ShopComponent/ShopRight/ShopRight';
+
 
 const ShopRightBottom = () => {
 
+  const {PageChange, GrideChange} = useContext(ShopPageChangeContext);
+
   const dispatch = useDispatch();
   const [AllProducts, setAllProducts] = useState([]);
+  const [Page, setPage] = useState(1)
+  // const [Page, setPage] = useState(9)
+
   
   useEffect(() => {
-    dispatch(FetchDataProduct('https://dummyjson.com/products'))
+    dispatch(FetchDataProduct('https://dummyjson.com/products?limit=1000'))
   }, [])
   
 
     const {data, status} = useSelector((state) => (state.product))
-  
+
 
     useEffect(() => {
       if(status === 'IDLE') {
         setAllProducts(data.products)
       }
-    }, [data, status])
-
-    console.log(AllProducts);
-  
-
-  // useEffect(() => {
-
-  //   const ProductDataFetcher = async () => {
-  //     const Products = await axios.get('https://dummyjson.com/products');
-  //     setAllProducts(Products.data.products)
-  //   }
-
-  //   ProductDataFetcher()
-  // }, [])
+    }, [data, status, setAllProducts])
 
   
+
+    const HandleChangePage = (PageNumber) => {
+      if (PageNumber > 0 && PageNumber <= Math.floor(AllProducts.length / PageChange + 1)) {
+        
+        setPage(PageNumber)
+      }
+    }
 
 
   return (
     <>
     <div>
-      <h1>{status}</h1>
-      <div className='flex flex-wrap justify-between gap-y-10'>
-        {AllProducts?.map((product, id) => (
-          <div key={id}>
-            <Products
-              image={product.thumbnail}
-             />
+
+      {status === 'LOADING' 
+      ?  
+      (<LoadingPage />) 
+      
+      : 
+      status === 'ERROR'
+      ?
+      (
+        <NotFoundPage />
+      )
+      :
+      (AllProducts && (
+        <div>
+          <div className={`flex flex-wrap justify-between gap-y-10 ${GrideChange ? 'flex flex-col' : 'flex flex-wrap'}`}>
+            {AllProducts?.slice(Page * PageChange - PageChange , Page * PageChange).map((productItems, id) => (
+              <div key={id} className='w-[30%]'>
+                <Products
+                  image={productItems.thumbnail}
+                  title={productItems.title}
+                  price={`$${Math.round(productItems.price)}`}
+                  productId={productItems.id}
+                />
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+
+            {/*=================== pagination part ================== */}
+            
+            <div className='flex items-center gap-x-10   mt-[70px]'>
+              <div className='w-8 h-8 border flex items-center justify-center cursor-pointer' onClick={() => HandleChangePage(Page - 1)}>
+                < FaChevronLeft/>
+              </div>
+            
+                {AllProducts?.length > 0 && (
+                  <div className='flex items-center gap-x-3 '>
+                    {[...Array(Math.floor(AllProducts.length / PageChange + 1))].map((_, index) => (
+                      <div key={index} className={`w-8 h-8 border flex items-center justify-center cursor-pointer ${index + 1 === Page && 'bg-zinc-400 text-white'}`} onClick={() => HandleChangePage(index + 1)}>
+                        {index + 1}
+                      </div>
+                    ))}
+                  </div>
+                )}
+            
+              <div className='w-15 h-8  border flex items-center justify-center cursor-pointer' onClick={() => HandleChangePage(Page + 1)}>
+                <h1>Next</h1>
+              </div>
+            </div>
+            
+            {/*=================== pagination part ================== */}
+        </div>
+
+      ))
+      }
+
+
     </div>
     </>
   )
 }
 
 export default ShopRightBottom
+
+
+
+
