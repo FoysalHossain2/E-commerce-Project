@@ -9,6 +9,7 @@ import Menubar from '../../CommonComponent/Menubar';
 import { RxCross2 } from "react-icons/rx";
 import LanguageConvert from '../../CommonComponent/LanguageConvert';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 
 
@@ -48,16 +49,21 @@ const Header = () => {
   /**
    * Search Option
    */
+  const [AllProductSearch, setAllProductSearch] = useState([])
   
   const {data, status} = useSelector((state) => (state.product))
 
+  console.log(AllProductSearch);
 
   useEffect(() => {
     if(status === 'IDLE') {
-      setAllProducts(data.products)
+      setAllProductSearch(data.products)
     }
-  }, [data, status, setAllProducts])
+  }, [data, status,])
 
+  const HandleSearch = (e) => {
+    console.log(e.target.value);
+  }
 
 
 
@@ -83,15 +89,15 @@ const Header = () => {
     </div>
      {/* sideShowMenu overlay part*/}
 
-
+  
      {/* Header part */}
-    <div className={`py-3 bg-white`}  >
+    <div className={`py-3 bg-white`} >
       <div className="container mx-auto ">
         <div className='flex items-center justify-between'>
   
             <div className='flex items-center gap-x-8'> 
               {/*----- logo ----- */}
-              <h1 className='text-green-400 font-bold text-3xl'>
+              <h1 className='text-green-400 font-bold text-3xl '>
                  <Link to={'/'}>Shop.com</Link>
               </h1>
               {/*----- logo -----*/}
@@ -100,14 +106,15 @@ const Header = () => {
 
             {/*------ Search option --------*/}
             <div className='flex items-center gap-x-7'>
-                <div className='flex items-center w-[500px] '>
+                <div className='flex items-center w-[200px]  md:w-[500px]'>
                   <input 
                     type="text" 
                     placeholder='Search'
-                    className='bg-slate-200 py-[8px] w-[500px] rounded-l-xl px-2'
+                    className='bg-slate-200 py-[8px] md:w-[500px] rounded-l-2xl px-2'
+                    onChange={HandleSearch}
                   />
 
-                  <div className=' bg-button_Color py-[8px] rounded-r-xl hover:bg-pink-600 '>
+                  <div className=' bg-button_Color py-[8px] rounded-r-2xl hover:bg-pink-600 '>
                     <HiOutlineSearch 
                       className='ml-3 text-[23px] 
                       cursor-pointer mr-3

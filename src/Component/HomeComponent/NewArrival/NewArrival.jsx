@@ -11,14 +11,16 @@ const NewArrival = ({headingTitle}) => {
               {headingTitle ? headingTitle : headingTitle} 
             </h1>
 
-          <div className='flex flex-wrap gap-y-7 justify-between '>
+          <div className='flex flex-wrap  justify-between '>
             {NewArrivalsData?.map((items,id) => (
-              <Products
-               key={id}
-               image={items.img}
-               title={items.title}
-               price={items.price}
-              />
+              <div className='w-[30]'>
+                <Products
+                 key={id}
+                 image={items.img}
+                 title={items.title}
+                 price={items.price}
+                />
+              </div>
             ))}
           </div>
 

@@ -28,6 +28,19 @@ const ProductDetailsRight = ({EachProductsDetailsItem}) => {
         <div className=' line-through'>${EachProductsDetailsItem.price ? EachProductsDetailsItem.price : '$32.00'}</div>
       </div>
 
+      {/*  */}
+        <div className='flex gap-x-20 mt-6'>
+          <div>
+            <p>Brand</p>
+            <p>Category</p>
+          </div>
+           <div>
+              <p>{EachProductsDetailsItem.category}</p>
+              <p>{EachProductsDetailsItem.brand}</p>
+           </div>
+        </div>
+      {/*  */}
+
     </div>
     </>
   )
