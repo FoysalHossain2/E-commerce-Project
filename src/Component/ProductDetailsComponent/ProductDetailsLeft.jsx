@@ -16,14 +16,12 @@ const ProductDetailsLeft = ({EachProductsDetailsImg, status}) => {
                     {status === 'LOADING'
                     ?
                     (
-                        <div className='flex flex-col items-center flex-wrap '>
-                            {[...Array.from({length: 3})].map((_,index) => (
+                        <div className='flex  items-center gap-y-6'>
+                            {EachProductsDetailsImg.images?.map((_,index) => (
                                 <div className={` w-[60px] h-[60px] rounded-md border border-blue-100 p-4 shadow`} key={index}>
                                 <div>
-                                    <div className=" h-[60px] w-full animate-pulse rounded-lg bg-gray-200">
+                                    <div className=" h-[60px] w-full animate-pulse rounded-lg bg-gray-300">
                                         <div className=" my-4 flex h-full animate-pulse flex-col items-center justify-end gap-y-5">
-                                            <div className=" h-[200px] w-[80%]  rounded-md bg-gray-500 "></div>
-                                            <div className="  h-3 w-[80%]  rounded-md bg-gray-300 "></div>
                                         </div>
                                     </div>
                                 </div>
@@ -33,10 +31,12 @@ const ProductDetailsLeft = ({EachProductsDetailsImg, status}) => {
                     )
                     :
 
-                    <div className='w-[60px] flex flex-col gap-y-4 '>
+                    <div >
                         {EachProductsDetailsImg.images?.map((img) => (
-                            <div key={img} className='border w-[60px]'>
-                                <img src={img} alt="" />
+                            <div  className=' flex flex-col gap-y-6 '  key={img}>
+                                <div className=' w-[60px] rounded-sm border p-1'>
+                                    <img src={img} alt="" className='w-[100%] h-[60px] object-contain' />
+                                </div>
                             </div>
                         ))}
                     </div>
@@ -44,18 +44,17 @@ const ProductDetailsLeft = ({EachProductsDetailsImg, status}) => {
                 </div>
 
 
-                <div>
+                <div className='border'>
 
                     {status === 'LOADING'
                         ?
                         (
                             <div className='flex items-center flex-wrap '>
                                 {[...Array.from({length: 1})].map((_,index) => (
-                                    <div className={` w-[400px] rounded-md border border-blue-100 p-4 shadow`} key={index}>
+                                    <div className={` w-[400px] rounded-md  p-4 shadow`} key={index}>
                                     <div>
-                                        <div className=" h-[400px] w-full animate-pulse rounded-lg bg-gray-200">
+                                        <div className=" h-[400px] w-full animate-pulse rounded-lg bg-gray-300">
                                             <div className=" my-4 flex h-full animate-pulse flex-col items-center justify-end gap-y-5">
-                                                <div className=" h-[200px] w-[80%]  rounded-md bg-gray-500"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -65,10 +64,12 @@ const ProductDetailsLeft = ({EachProductsDetailsImg, status}) => {
                             </div>
                         )
                         :
-                        <div >
+                        <div>
                             {EachProductsDetailsImg.images?.slice(0,1).map((image) => (
-                                <div className='border w-[350px] flex items-center justify-center'>
-                                    <img src={image} alt="" className='w-[350px]' />
+                                <div className=' flex items-center justify-center'>
+                                    <div className='w-[400px] py-3'>
+                                        <img src={image} alt="" className='w-[100%]  h-[350px] object-contain' />
+                                    </div>
                                 </div>
                             ))}
                         </div>
