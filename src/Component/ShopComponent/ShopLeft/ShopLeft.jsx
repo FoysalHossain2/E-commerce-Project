@@ -4,6 +4,7 @@ import ShopByDiscountOffer from '../../CommonComponent/ShopLeftItem/ShopByDiscou
 import ShopByPriceFilter from '../../CommonComponent/ShopLeftItem/ShopByPriceFilter'
 import ShopByCategories from '../../CommonComponent/ShopLeftItem/ShopByCategories'
 import ShopByRating from '../../CommonComponent/ShopLeftItem/ShopByRating'
+import ShopByColor from '../../CommonComponent/ShopLeftItem/ShopByColor'
 
 const ShopLeft = ({className}) => {
   return (
@@ -25,6 +26,10 @@ const ShopLeft = ({className}) => {
           </div>
           <div>
             <ShopByCategories />
+          </div>
+
+          <div>
+            <ShopByColor />
           </div>
         </div>
     </div>

@@ -177,3 +177,14 @@ export const Categories =[
     title: 'Watches',
   },
 ]
+
+export const ColorFilter =[
+  {id: 1, ColorCode: '#000000', title: 'Black'},
+  {id: 2, ColorCode: '#FF8686', title: 'Pink'},
+  {id: 3, ColorCode: '#7ED321', title: 'Green'},
+  {id: 4, ColorCode: '#B6B6B6', title: 'Gray'},
+  {id: 5, ColorCode: '#15CBA5', title: 'Blue'},
+  {id: 5, ColorCode: '#C0C0C0', title: 'Silver'},
+  {id: 5, ColorCode: '#C0C0C0', title: 'Silver'},
+  {id: 5, ColorCode: '#C0C0C0', title: 'Silver'},
+]

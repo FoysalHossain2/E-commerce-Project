@@ -5,6 +5,7 @@ import ProductDetailsRight from '../../Component/ProductDetailsComponent/Product
 import { useParams } from 'react-router-dom'
 import { FetchDataProduct } from '../../Redux/AllSliceFunction/ProductsSlice/ProductsSlice'
 import { useDispatch, useSelector } from 'react-redux'
+import ProductAddToCart from '../../Component/ProductDetailsComponent/ProductAddToCart'
 
 
 
@@ -42,9 +43,12 @@ const ProductDetails = () => {
         <hr />
 
         <div className='mt-10 mb-20'>
-          <div className='flex gap-x-12'>
+          <div className='flex lg:flex-row md:flex-col flex-col gap-x-10'>
             <ProductDetailsLeft EachProductsDetailsImg={EachProductsDetails} status={status} />
-            <ProductDetailsRight EachProductsDetailsItem={EachProductsDetails}  />
+            {/* <div className='flex gap-x-1'> */}
+              <ProductDetailsRight EachProductsDetailsItem={EachProductsDetails}  />
+              {/* <ProductAddToCart EachProductsDetailsItem={EachProductsDetails} /> */}
+            {/* </div> */}
           </div>
         </div>
       </div>

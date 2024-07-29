@@ -42,6 +42,8 @@ const ShopRightBottom = () => {
       }
     }
 
+    console.log(AllProducts);
+
 
   return (
     <>
@@ -60,13 +62,14 @@ const ShopRightBottom = () => {
       :
       (AllProducts && (
         <div>
-          <div className={`flex flex-wrap justify-between gap-y-10 ${GrideChange ? 'flex flex-col' : 'flex flex-wrap'}`}>
+          <div className={`flex flex-wrap justify-between gap-y-8 ${GrideChange ? 'flex flex-col' : 'flex flex-wrap'}`}>
             {AllProducts?.slice(Page * PageChange - PageChange , Page * PageChange).map((productItems, id) => (
-              <div key={id} className='w-[30%]'>
+              <div key={id} className='w-[250px] '>
                 <Products
                   image={productItems.thumbnail}
-                  title={productItems.title}
+                  title={productItems. description}
                   price={`$${Math.round(productItems.price)}`}
+                  discountPrice= { Math.round(productItems.price - Math.round((productItems.price * productItems.discountPercentage / 100)))}
                   productId={productItems.id}
                 />
               </div>

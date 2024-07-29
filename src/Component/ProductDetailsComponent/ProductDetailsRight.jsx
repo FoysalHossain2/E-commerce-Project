@@ -27,17 +27,16 @@ const ProductDetailsRight = ({EachProductsDetailsItem}) => {
         <IoStar className='text-yellow-300' />
       </div>
 
-      <div className="border-b w-full mt-5 border-black"></div>
+      <div className="border-b w-full mt-5 border-zinc-300"></div>
 
       {/*======== Price percentage =======*/}
       <div className=' mt-5 '>
         <div className='flex items-center gap-x-3'>
-          <div className='text-button_Color text-[28px]'>
-            ${Math.round(EachProductsDetailsItem.price - Math.round((EachProductsDetailsItem.price * EachProductsDetailsItem.discountPercentage / 100)))
-            ? 
-            Math.round(EachProductsDetailsItem.price - Math.round((EachProductsDetailsItem.price * EachProductsDetailsItem.discountPercentage / 100)))
-            : 
-            '$32.00'}
+          <div className='flex items-center font-DM_Sans'>
+            <p>$</p>
+            <p className='text-button_Color text-[28px]'>
+              { Math.round(EachProductsDetailsItem.price - Math.round((EachProductsDetailsItem.price * EachProductsDetailsItem.discountPercentage / 100)))}
+            </p>
           </div>
           <div>
             -{Math.round(EachProductsDetailsItem.discountPercentage)}%
@@ -51,6 +50,17 @@ const ProductDetailsRight = ({EachProductsDetailsItem}) => {
         </div>
       </div>
       {/*======== Price percentage =======*/}
+
+      {/*========= Color part ==========*/}
+          <div className='mt-6  flex items-center gap-x-4'>
+            <p>Color:</p>
+            <div className='flex items-center gap-x-4 '>
+              <p className='w-6 h-6 bg-green-500 hover:border rounded-md'></p>
+              <p className='w-6 h-6 bg-red-500 hover:border rounded-md'></p>
+              <p className='w-6 h-6 bg-black hover:border rounded-md'></p>
+            </div>
+          </div>
+      {/*========= Color part ==========*/}
 
 
       {/*  */}

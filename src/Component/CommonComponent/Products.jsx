@@ -5,20 +5,21 @@ import { DiGitCompare } from 'react-icons/di'
 import { IoCart } from 'react-icons/io5'
 import { Link, useParams } from 'react-router-dom'
 
-const Products = ({title,price, image, bize , productId}) => {
+const Products = ({title,price, image, bize , productId, discountPrice}) => {
 
 
   return (
     <>
-    <div className=''>
-        <div className='w-[270px] relative overflow-hidden group cursor-pointer border'>
+    <div className='border rounded-md'>
+        <div className='w-[250px] h-[250px]  relative overflow-hidden group cursor-pointer '>
           <div className='absolute top-5 ml-5 '> {bize}</div>
           
           <Link to={`/productDetails/${productId}`}>
-            <div className='w-[250px] h-[250px] object-cover'>
+            <div className=' bg-slate-100'>
               <img 
                 src={image} 
                 alt={image} 
+                className='w-full object-contain'
               />
             </div>
           </Link>
@@ -51,13 +52,20 @@ const Products = ({title,price, image, bize , productId}) => {
               </div>
             {/* ---------------overlay-------------- */}
         </div>
-           <div className=' mt-6 w-[270px] '>
-              <p className='font-medium font-DM_Sans md:text-xl text-[14px] '>
-                {title ? title : 'Title is messing'}
+           <div className=' mt-6 w-[250px] h-[120px]'>
+              <p className='font-medium font-DM_Sans text-[16px] '>
+                {title ? `${title.slice(0,60)}...` : 'Title is messing'}
               </p>
-              <p className='mt-4'>
-                  {price ? price : '$44.00'}
-              </p>
+
+              <div className='mt-4 flex  gap-x-2'>
+                <p className='font-DM_Sans text-button_Color font-semibold text-[23px]'>
+                  ${discountPrice}
+                </p>
+                <p className='line-through text-[14px]'>
+                    {price ? price : '$44.00'}
+                </p>
+              </div>
+
            </div>
     </div>
     </>
