@@ -13,7 +13,7 @@ const NewArrival = ({headingTitle}) => {
 
           <div className='flex flex-wrap  justify-between '>
             {NewArrivalsData?.map((items,id) => (
-              <div className='w-[30]'>
+              <div className='w-[270px]'>
                 <Products
                  key={id}
                  image={items.img}

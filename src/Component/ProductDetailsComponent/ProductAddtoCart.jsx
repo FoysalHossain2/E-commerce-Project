@@ -4,7 +4,7 @@ const ProductAddToCart = ({EachProductsDetailsItem}) => {
     console.log(EachProductsDetailsItem);
   return (
     <>
-    <div className='w-[500px] border rounded-lg'>
+    <div className='w-[550px] border rounded-lg'>
         <div className='ml-4 mr-4'>
             <h1>Buy Now</h1>
 
@@ -42,8 +42,8 @@ const ProductAddToCart = ({EachProductsDetailsItem}) => {
             {/* ============AddToCart Part ============ */}
             <p>ships from Shop.com</p>
 
-            <div className='flex items-center gap-x-2'>
-                <p>Warranty</p>
+            <div className='flex items-'>
+                {/* <p>Warranty</p> */}
                 <p>{EachProductsDetailsItem.warrantyInformation}</p>
             </div>
         </div>

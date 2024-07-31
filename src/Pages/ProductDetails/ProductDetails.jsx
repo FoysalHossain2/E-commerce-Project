@@ -43,12 +43,12 @@ const ProductDetails = () => {
         <hr />
 
         <div className='mt-10 mb-20'>
-          <div className='flex lg:flex-row md:flex-col flex-col gap-x-10'>
+          <div className='flex lg:flex-row md:flex-col flex-col gap-x-8'>
             <ProductDetailsLeft EachProductsDetailsImg={EachProductsDetails} status={status} />
-            {/* <div className='flex gap-x-1'> */}
+            <div className='flex gap-x-4'>
               <ProductDetailsRight EachProductsDetailsItem={EachProductsDetails}  />
-              {/* <ProductAddToCart EachProductsDetailsItem={EachProductsDetails} /> */}
-            {/* </div> */}
+              <ProductAddToCart EachProductsDetailsItem={EachProductsDetails} />
+            </div>
           </div>
         </div>
       </div>
