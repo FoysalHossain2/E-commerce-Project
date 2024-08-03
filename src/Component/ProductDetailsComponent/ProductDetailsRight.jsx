@@ -2,6 +2,7 @@ import React from 'react'
 import { IoStar } from "react-icons/io5";
 import { IoStarOutline } from "react-icons/io5";
 import { IoStarHalfOutline } from "react-icons/io5";
+import ProductRating from '../CommonComponent/ProductRating';
 
 
 const ProductDetailsRight = ({EachProductsDetailsItem}) => {
@@ -19,13 +20,12 @@ const ProductDetailsRight = ({EachProductsDetailsItem}) => {
         {EachProductsDetailsItem.description ? EachProductsDetailsItem.description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'}
       </h1>
       
-      <div className='flex items-center gap-x-2 mt-5'>
-        <IoStar className='text-yellow-300' />
-        <IoStar className='text-yellow-300' />
-        <IoStar className='text-yellow-300' />
-        <IoStar className='text-yellow-300' />
-        <IoStar className='text-yellow-300' />
+      {/*========= rating Review =========*/}
+      <div className=' mt-5'>
+        <ProductRating ratingStar={EachProductsDetailsItem.rating} />
       </div>
+      {/*========= rating Review =========*/}
+
 
       <div className="border-b w-full mt-5 border-zinc-300"></div>
 

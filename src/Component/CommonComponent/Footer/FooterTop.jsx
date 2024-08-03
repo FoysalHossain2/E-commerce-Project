@@ -8,7 +8,7 @@ const FooterTop = () => {
       <div className="container mx-auto">
 
         <div className='text-white'>
-          <div className='flex gap-x-20 '>
+          <div className='flex gap-x-20 max-sm:flex-col'>
             <FooterItem
               title={'Menu'}
               allItems={

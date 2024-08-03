@@ -9,12 +9,12 @@ const Shop = () => {
     <>
     <div>
       <div className="container mx-auto">
-        <div className="py-3">
+        <div className="py-3 max-sm:hidden md:block">
           <BreadCrumb />
         </div>
         <hr />
 
-        <div className='pt-20 pb-36'>
+        <div className='pt-20 pb-36 max-sm:pt-6'>
           <div className="flex flex-row justify-between">
             <ShopLeft className='w-[25%]  hidden md:block' />
             <ShopRight className='w-[75%] '/>

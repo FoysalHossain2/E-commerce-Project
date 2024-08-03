@@ -12,7 +12,7 @@ const Products = ({title,price, image, bize , productId, discountPrice}) => {
     <>
     <div className='border rounded-lg'>
         <div className='w-[270px] h-[270px] xl:w-[270px] lg:w-[240px] md:w-[230px]  
-        xsm:w-[185px] 
+        xsm:w-[180px] 
         max-sm:w-[164px] max-sm:h-[180px] 
         relative overflow-hidden group cursor-pointer '
         >
@@ -57,7 +57,7 @@ const Products = ({title,price, image, bize , productId, discountPrice}) => {
             {/* ---------------overlay-------------- */}
         </div>
            <div className=' mt-1 w-[270px] h-[140px] xl:w-[270px] lg:w-[240px] md:w-[230px] max-sm:w-[170px] px-3
-            xsm:w-[185px] 
+            xsm:w-[180px] 
            '>
 
               <p className='font-medium font-DM_Sans text-[16px] max-sm:text-[12px]'>

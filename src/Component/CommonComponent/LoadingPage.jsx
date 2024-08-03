@@ -6,9 +6,9 @@ const LoadingPage = () => {
     <div>
         <div className="container mx-auto">
           
-          <div className='flex items-center justify-between flex-wrap gap-y-6'>
+          <div className='flex items-center justify-between flex-wrap gap-y-6 max-sm:grid max-sm:grid-cols-2 gap-x-5'>
             {[...Array.from({length: 180})].map((_,index) => (
-                <div className={` w-[30%] rounded-md p-4 shadow`} key={index}>
+                <div className={` w-[30%] max-sm:w-[164px] max-sm:h-[180px] rounded-md p-4 shadow`} key={index}>
                   <div>
                     <div className=" h-[300px] w-full animate-pulse rounded-lg bg-gray-300">
                       <div className=" my-4 flex h-full animate-pulse flex-col items-center justify-end gap-y-5">

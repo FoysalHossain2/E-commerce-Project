@@ -64,12 +64,11 @@ const ShopRightBottom = () => {
         <div>
           <div className={`flex flex-wrap justify-between gap-y-8 
           max-sm:grid max-sm:grid-cols-2 max-sm:gap-x-[100px] max-sm:gap-y-3 max-sm:px-2 
-          
             ${GrideChange ? 'flex flex-col' : 'flex flex-wrap'}`}>
 
             {AllProducts?.slice(Page * PageChange - PageChange , Page * PageChange).map((productItems, id) => (
               <div key={id} className='w-[270px] xl:w-[270px] lg:w-[240px] md:w-[230px] max-sm:w-[164px]
-               xsm:w-[185px]
+               xsm:w-[180px]
               '>
                 <Products
                   image={productItems.thumbnail}
@@ -84,7 +83,7 @@ const ShopRightBottom = () => {
 
             {/*=================== pagination part ================== */}
             
-            <div className='flex items-center gap-x-10   mt-[70px]'>
+            <div className='flex items-center gap-x-10  mt-[70px] max-sm:hidden'>
               <div className='w-8 h-8 border flex items-center justify-center cursor-pointer' onClick={() => HandleChangePage(Page - 1)}>
                 < FaChevronLeft/>
               </div>

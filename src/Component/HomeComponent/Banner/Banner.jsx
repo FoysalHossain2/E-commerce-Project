@@ -4,6 +4,7 @@ import BannerImg2 from '../../../assets/BannerImg2.png'
 import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
+import { Link } from 'react-router-dom';
 
 
 const Banner = ({SlideshowMenu}) => {
@@ -124,13 +125,15 @@ const Banner = ({SlideshowMenu}) => {
 
       <Slider {...settings} className=''>
         {BImage?.map((items, id) => (
-          <div className='object-cover max-h-[580px] bg-center' key={id}>
-            <img 
-              src={items.img}
-              alt={items.img}
-              className='object-cover '
-            />
-          </div>
+            <Link to={'/shop'}  key={id}>
+              <div className='object-cover max-h-[580px] bg-center' >
+                  <img 
+                    src={items.img}
+                    alt={items.img}
+                    className='object-cover '
+                  />
+              </div>
+            </Link>
         ))}
 
       </Slider>

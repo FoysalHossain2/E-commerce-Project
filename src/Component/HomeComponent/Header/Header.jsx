@@ -71,13 +71,13 @@ const Header = () => {
     <>
 
     {/* sideShowMenu overlay part*/}
-    <div className={`blackOverlay w-full h-full fixed duration-500 `}
+    <div className={`blackOverlay w-full h-full fixed duration-500 z-50`}
     style={{
       visibility: SlideshowMenu ? 'visible' : 'hidden'
     }}
     onClick={HideMenu}
     >
-      <div className='w-[300px] h-full bg-zinc-200 absolute duration-500 overflow-scroll'
+      <div className='w-[300px] h-full bg-zinc-200 absolute duration-500 overflow-scroll '
       style={{
         left: SlideshowMenu ? '0%' : '-100%'
       }}
@@ -91,18 +91,19 @@ const Header = () => {
 
   
      {/* Header part */}
-    <div className={`py-3 bg-white`} >
+    <div className={`py-3 bg-white  border`} >
       <div className="container mx-auto ">
-        <div className='flex items-center justify-between'>
+        <div className='flex items-center justify-between '>
   
-            <div className='flex items-center gap-x-8'> 
               {/*----- logo ----- */}
-              <h1 className='text-green-400 font-bold text-3xl '>
+            <div className='flex items-center gap-x-'> 
+                <img src="https://pbs.twimg.com/profile_images/1442946691028570114/GKK_SKdR_400x400.jpg" alt="" className='w-10 h-10' />
+              <h1 className='text-green-400 font-bold  '>
                  <Link to={'/'}>Shop.com</Link>
               </h1>
+            </div>
               {/*----- logo -----*/}
 
-            </div>
 
             {/*------ Search option --------*/}
             <div className='flex items-center gap-x-7'>
@@ -125,7 +126,8 @@ const Header = () => {
             </div>
             {/*------ Search option --------*/}
 
-            <div className='flex items-center gap-x-5'>
+
+            <div className='flex items-center gap-x-5 '>
 
                 <div>
                   <LanguageConvert />
@@ -135,7 +137,7 @@ const Header = () => {
 
               {/* --------------- login part ------------------*/}
               <div className='flex items-center gap-x-1 bg-slate-800 text-white px-[10px] py-2 rounded-3xl'>
-                <FaUser className='cursor-pointer text-orange-400 text-[23px]' />
+                <FaUser className='cursor-pointer text-orange-400 text-[20px]' />
                   <p className='font-bold'>
                     sing in
                   </p>
