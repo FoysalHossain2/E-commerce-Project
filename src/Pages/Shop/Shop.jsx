@@ -9,7 +9,7 @@ const Shop = () => {
     <>
     <div>
       <div className="container mx-auto">
-        <div className="py-3 max-sm:hidden md:block">
+        <div className="py-3 max-sm:hidden max-md:hidden md:hidden lg:block">
           <BreadCrumb />
         </div>
         <hr />
