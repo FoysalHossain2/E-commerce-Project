@@ -4,14 +4,14 @@ const ProductAddToCart = ({EachProductsDetailsItem}) => {
     console.log(EachProductsDetailsItem);
   return (
     <>
-    <div className='w-[550px] border rounded-lg'>
+    <div className='w-[290px] border rounded-lg'>
         <div className='ml-4 mr-4'>
             <h1>Buy Now</h1>
 
             <div className='flex items-center font-DM_Sans'>
                 <p>$</p>
                 <p className='text-[24px]'>
-                    {Math.round(EachProductsDetailsItem.price - Math.round((EachProductsDetailsItem.price * EachProductsDetailsItem.discountPercentage / 100)))}
+                    {Math.ceil(EachProductsDetailsItem.price - Math.floor((EachProductsDetailsItem.price * EachProductsDetailsItem.discountPercentage / 100)))}
                 </p>
             </div>
             <div className='mt-6 font-DM_Sans flex items-center gap-x-3'>

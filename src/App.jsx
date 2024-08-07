@@ -5,6 +5,7 @@ import Shop from './Pages/Shop/Shop'
 import Contact from './Pages/Contact/Contact'
 import ProductDetails from './Pages/ProductDetails/ProductDetails'
 import NotFoundPage from './Component/CommonComponent/NotFoundPage'
+import Cart from './Pages/Cart/Cart'
 
 
 const router = createBrowserRouter(
@@ -15,6 +16,7 @@ const router = createBrowserRouter(
       <Route path='/shop' element={<Shop />} />
       <Route path='/*' element={<NotFoundPage />} />
       <Route path='/productDetails/:productId' element={<ProductDetails />} />
+      <Route path='/cart' element={<Cart />} />
       <Route path='/contact' element={<Contact />} />
       </Route>
     </Route>

@@ -15,8 +15,8 @@ const Shop = () => {
         <hr />
 
         <div className='pt-20 pb-36 max-sm:pt-6'>
-          <div className="flex flex-row justify-between">
-            <ShopLeft className='w-[25%]  hidden md:block' />
+          <div className="flex flex-row justify-between gap-x-8">
+            <ShopLeft className='w-[25%]  hidden md:hidden lg:block' />
             <ShopRight className='w-[75%] '/>
           </div>
         </div>

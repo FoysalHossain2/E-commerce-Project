@@ -34,8 +34,8 @@ const ProductDetailsLeft = ({EachProductsDetailsImg, status}) => {
                         <div>
                             {EachProductsDetailsImg.images?.slice(0,1).map((image) => (
                                 <div className=' flex items-center justify-center' key={image}>
-                                    <div className='w-[360px] h-[350px] py-3'>
-                                        <img src={image} alt="" className='w-full  object-contain' />
+                                    <div className='w-[380px] h-[400px] py-3 '>
+                                        <img src={image} alt="" className='w-full aspect-square  object-contain' />
                                     </div>
                                 </div>
                             ))}

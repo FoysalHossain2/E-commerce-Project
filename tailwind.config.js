@@ -16,7 +16,8 @@ export default {
     extend: {
       fontFamily:{
         DM_Sans:"var(--DM__Sans)",
-        Josefin__Sans:"var(--Josefin__Sans)"
+        Josefin__Sans:"var(--Josefin__Sans)",
+        Roboto: "var(--Roboto)" 
       },
       colors:{
         bg_Primary_color: "var(--bg_Primary_color)",

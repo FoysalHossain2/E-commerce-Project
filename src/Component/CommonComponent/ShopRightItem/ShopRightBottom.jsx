@@ -63,7 +63,10 @@ const ShopRightBottom = () => {
       (AllProducts && (
         <div>
           <div className={`flex flex-wrap justify-between gap-y-8 
-          max-sm:grid max-sm:grid-cols-2 max-sm:gap-x-[100px] max-sm:gap-y-3 max-sm:px-2 
+            max-sm:grid max-sm:grid-cols-2 max-sm:gap-x-[100px] max-sm:gap-y-3 max-sm:px-2 
+            max-md:grid max-md:grid-cols-3 max:-md:gap-x-[180px]
+            md:grid md:grid-cols-3 md:gap-x-[180px] lg:gap-x-4
+            xl:flex xl:flex-row xl:justify-between
             ${GrideChange ? 'flex flex-col' : 'flex flex-wrap'}`}>
 
             {AllProducts?.slice(Page * PageChange - PageChange , Page * PageChange).map((productItems, id) => (
@@ -74,7 +77,7 @@ const ShopRightBottom = () => {
                   image={productItems.thumbnail}
                   title={productItems. description}
                   price={`$${Math.round(productItems.price)}`}
-                  discountPrice= { Math.round(productItems.price - Math.round((productItems.price * productItems.discountPercentage / 100)))}
+                  discountPrice= { Math.round(productItems.price - Math.floor((productItems.price * productItems.discountPercentage / 100)))}
                   productId={productItems.id}
                 />
               </div>
