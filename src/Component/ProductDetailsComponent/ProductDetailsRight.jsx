@@ -1,15 +1,53 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { IoStar } from "react-icons/io5";
 import { IoStarOutline } from "react-icons/io5";
 import { IoStarHalfOutline } from "react-icons/io5";
 import ProductRating from '../CommonComponent/ProductRating';
 import { FaMinus, FaPlus } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import {  useDispatch, useSelector } from 'react-redux'
+import { addToCart } from '../../Redux/AllSliceFunction/AddToCartSlice/AddToCartSlice';
+import { FetchDataProduct } from '../../Redux/AllSliceFunction/ProductsSlice/ProductsSlice';
 
 
 const ProductDetailsRight = ({EachProductsDetailsItem}) => {
 
-  console.log(EachProductsDetailsItem);
+  const dispatch = useDispatch();
+  const naviGate = useNavigate();
+  const [EachCartItem, setEachCartItem] = useState({})
+
+  const {productId} = useParams()
+
+
+  useEffect(() => {
+    dispatch(FetchDataProduct(`https://dummyjson.com/products/${productId}`))
+  }, [])
+  
+    const {data, status} = useSelector((state) => state.product)
+    
+
+
+    useEffect(() => {
+      if (status === "IDLE") {
+        setEachCartItem(data)
+      }
+    }, [data, status])
+    
+
+
+  // HandleAddToCart
+  const HandleAddToCart = () => {
+    dispatch(addToCart(EachCartItem))
+    naviGate('/cart')
+  }
+  console.log(EachCartItem);
+
+  
+
+
+
+
+
 
   return (
     <>
@@ -85,12 +123,10 @@ const ProductDetailsRight = ({EachProductsDetailsItem}) => {
 
       {/*============= addToCart =============*/}
         <div className='flex items-center gap-x-3 mt-4'>
-          <Link to={'/cart'}>
-            <div className='w-[250px] py-3 bg-button_Color text-center font-Roboto font-bold text-white text-[20px] cursor-pointer'>
+            <div className='w-[250px] py-3 bg-button_Color text-center font-Roboto font-bold text-white text-[20px] cursor-pointer' onClick={HandleAddToCart}>
               ADD TO CART 
             </div>
-          </Link>
-          <div className='w-[250px] py-3 bg-green-400 text-center font-Roboto font-bold text-white text-[20px] cursor-pointer'>
+          <div className='w-[250px] py-3 bg-green-600 text-center font-Roboto font-bold text-white text-[20px] cursor-pointer'>
              BUY NOW
           </div>
         </div>
