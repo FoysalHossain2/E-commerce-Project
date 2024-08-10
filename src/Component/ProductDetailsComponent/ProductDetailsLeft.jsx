@@ -18,7 +18,7 @@ const ProductDetailsLeft = ({EachProductsDetailsImg, status}) => {
                         (
                             <div className='flex items-center flex-wrap '>
                                 {[...Array.from({length: 1})].map((_,index) => (
-                                    <div className={` w-[400px] rounded-md  p-4 shadow`} key={index}>
+                                    <div className={` w-[380px] rounded-md  p-4 shadow`} key={index}>
                                     <div>
                                         <div className=" h-[400px] w-full animate-pulse rounded-lg bg-gray-300">
                                             <div className=" my-4 flex h-full animate-pulse flex-col items-center justify-end gap-y-5">

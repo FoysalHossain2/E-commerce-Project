@@ -12,6 +12,7 @@ import { ShopPageChangeContext } from '../../ShopComponent/ShopRight/ShopRight';
 const ShopRightBottom = () => {
 
   const {PageChange, GrideChange} = useContext(ShopPageChangeContext);
+console.log(GrideChange);
 
   const dispatch = useDispatch();
   const [AllProducts, setAllProducts] = useState([]);
@@ -67,7 +68,7 @@ const ShopRightBottom = () => {
             max-md:grid max-md:grid-cols-3 max:-md:gap-x-[180px]
             md:grid md:grid-cols-3 md:gap-x-[180px] lg:gap-x-4
             xl:flex xl:flex-row xl:justify-between
-            ${GrideChange ? 'flex flex-col' : 'flex flex-wrap'}`}>
+            ${GrideChange ? 'grid grid-cols-1' : 'flex flex-wrap'}`}>
 
             {AllProducts?.slice(Page * PageChange - PageChange , Page * PageChange).map((productItems, id) => (
               <div key={id} className='w-[270px] xl:w-[270px] lg:w-[240px] md:w-[230px] max-sm:w-[164px]

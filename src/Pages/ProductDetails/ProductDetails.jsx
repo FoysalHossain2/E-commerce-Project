@@ -43,7 +43,7 @@ const ProductDetails = () => {
         <hr />
 
         <div className='mt-10 mb-20'>
-          <div className='flex justify-between lg:flex-row md:flex-col flex-col gap-x-8'>
+          <div className='flex lg:flex-row md:flex-col flex-col gap-x-8'>
             <ProductDetailsLeft EachProductsDetailsImg={EachProductsDetails} status={status} />
               <ProductDetailsRight EachProductsDetailsItem={EachProductsDetails}  />
           </div>
