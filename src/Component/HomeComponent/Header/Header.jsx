@@ -107,7 +107,7 @@ const Header = () => {
 
   
      {/* Header part */}
-    <div className={`py-4 bg-white border`} >
+    <div className={`py-4 bg-white border `} >
       <div className="container mx-auto ">
         <div className='flex lg:items-center  justify-between  
           max-sm:flex-col max-md:flex-col md:flex-col lg:flex-row 

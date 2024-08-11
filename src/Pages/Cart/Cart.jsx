@@ -1,16 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { FaMinus, FaPlus } from 'react-icons/fa'
 import { MdCancel } from "react-icons/md";
 import {  useDispatch, useSelector } from 'react-redux'
-import { ProductDecrement, ProductIncrement, RemoveCart } from '../../Redux/AllSliceFunction/AddToCartSlice/AddToCartSlice';
+import { GetTotalAmount, ProductDecrement, ProductIncrement, RemoveCart } from '../../Redux/AllSliceFunction/AddToCartSlice/AddToCartSlice';
 
 const Cart = () => {
 
   const dispatch = useDispatch();
   const {CartItem, TotalCartItem, TotalAmount} = useSelector((state) => state.cart)
-  console.log(TotalAmount);
   
-
   console.log(CartItem);
   
 
@@ -28,6 +26,11 @@ const Cart = () => {
   const HandleDecrementItem = (item) => {
     dispatch(ProductDecrement(item))
   }
+
+  useEffect(() => {
+    dispatch(GetTotalAmount())
+  }, [CartItem, dispatch])
+  
 
 
 
@@ -82,7 +85,7 @@ const Cart = () => {
                   </div>
                   <div className='grow basis-60'>
                     <p className='font-DM_Sans text-main_text_color text-base font-bold'>
-                    { Math.round(item.price - Math.floor((item.price * item.discountPercentage / 100)))}
+                      { Math.round(item.price - Math.floor((item.price * item.discountPercentage / 100)))}
                     </p>
                   </div>
                   <div className='grow basis-60'>
@@ -101,7 +104,7 @@ const Cart = () => {
 
                   <div className='grow basis-60'>
                     <p className='font-DM_Sans text-main_text_color text-base font-bold'>
-                      {Math.round(item.CartQuantity * item.price)}
+                      {item.CartQuantity * Math.round(item.price - Math.floor((item.price * item.discountPercentage / 100)))}
                     </p>
                   </div>
                 </div>
@@ -113,12 +116,12 @@ const Cart = () => {
               <div className='w-[340px] bg-[#E8E6F1] h-[300px] px-5'>
                 <div className='flex items-center justify-between mt-8'>
                   <p>SubTotal:</p>
-                  <p>{33}</p>
+                  <p>{TotalCartItem}</p>
                 </div>
                 <div className='border-b-2 border-b-zinc-300 mt-3'></div>
                 <div className='flex items-center justify-between mt-8'>
                   <p>Totals:</p>
-                  <p>$44</p>
+                  <p>{TotalCartItem}</p>
                 </div>
                 <div className='border-b-2 border-b-zinc-300 mt-3'></div>
 
