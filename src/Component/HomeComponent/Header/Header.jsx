@@ -8,14 +8,16 @@ import Menubar from '../../CommonComponent/Menubar';
 import { RxCross2 } from "react-icons/rx";
 import LanguageConvert from '../../CommonComponent/LanguageConvert';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import SearchResult from '../../CommonComponent/SearchResult/SearchResult';
+import { GetTotalAmount } from '../../../Redux/AllSliceFunction/AddToCartSlice/AddToCartSlice';
 
 
 
 const Header = () => {
 
   const [SlideshowMenu, setSlideshowMenu] = useState(false);
+  const dispatch = useDispatch();
 
 
   useEffect(() => {
@@ -62,7 +64,7 @@ const Header = () => {
 
 
   /**
-   * 
+   * search functionality implementation ========
    * @param event  
    */
   const HandleSearch = (event) => {
@@ -78,6 +80,15 @@ const Header = () => {
    }
    
   }
+
+
+  // show Cart items 
+  const {TotalCartItem, TotalAmount, CartItem} = useSelector((state) =>state.cart)
+
+
+  useEffect(() => {
+    dispatch(GetTotalAmount())
+  }, [dispatch, TotalCartItem, TotalAmount, CartItem])
 
   
 
@@ -107,7 +118,8 @@ const Header = () => {
 
   
      {/* Header part */}
-    <div className={`py-4 bg-white border `} >
+    <div className={`py-4
+       bg-white border `} >
       <div className="container mx-auto ">
         <div className='flex lg:items-center  justify-between  
           max-sm:flex-col max-md:flex-col md:flex-col lg:flex-row 
@@ -143,10 +155,14 @@ const Header = () => {
                       {/* ----------- cart ---------------- */}
                       <div className='bg-orange-400 px-[10px] py-[5px] rounded-3xl text-white cursor-pointer'>
                       <div className='flex items-center gap-x-2'>  
-                        <div className='text-[18px] cursor-pointer'>
+                        <div className='text-[18px] cursor-pointer '>
                           <FiShoppingCart />
+                        <span class=" ml-6 flex items-center justify-center rounded-full h-6 w-6 text-white bg-zinc-500">                               
+                            {TotalCartItem}
+                        </span>
                         </div>
-  
+
+
                       </div>
                     </div>
                     {/* ----------- cart ---------------- */}

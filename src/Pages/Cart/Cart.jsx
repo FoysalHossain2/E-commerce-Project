@@ -3,10 +3,12 @@ import { FaMinus, FaPlus } from 'react-icons/fa'
 import { MdCancel } from "react-icons/md";
 import {  useDispatch, useSelector } from 'react-redux'
 import { GetTotalAmount, ProductDecrement, ProductIncrement, RemoveCart } from '../../Redux/AllSliceFunction/AddToCartSlice/AddToCartSlice';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
 
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const {CartItem, TotalCartItem, TotalAmount} = useSelector((state) => state.cart)
   
   console.log(CartItem);
@@ -30,6 +32,12 @@ const Cart = () => {
   useEffect(() => {
     dispatch(GetTotalAmount())
   }, [CartItem, dispatch])
+
+
+  // HandleCheckoutChange
+  const HandleCheckoutChange = () => {
+    navigate('/checkout')
+  }
   
 
 
@@ -131,7 +139,7 @@ const Cart = () => {
                 </div>
                 {/* --- Proceed To Checkout button --- */}
                   <div className='mt-8'>
-                    <button className='bg-[#19D16F] py-3 w-full rounded text-white font-Roboto font-bold '>
+                    <button className={`bg-[#19D16F] py-3 w-full rounded text-white font-Roboto font-bold`}  onClick={HandleCheckoutChange}>
                       Proceed To Checkout
                     </button>
                   </div>

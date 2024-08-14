@@ -51,7 +51,7 @@ export const AddToCartSlice = createSlice({
       const totalCartItems = state.CartItem.reduce((totalItem, CartItem) => {
         const {CartQuantity, price} = CartItem
         const totalPrice = CartQuantity * price
-        totalItem.totalAmount += Math.floor(totalPrice - Math.floor((totalPrice * discountPercentage / 100))) 
+        totalItem.totalAmount += Math.round(totalPrice) 
         totalItem.totalCart += CartQuantity
         return totalItem
       },

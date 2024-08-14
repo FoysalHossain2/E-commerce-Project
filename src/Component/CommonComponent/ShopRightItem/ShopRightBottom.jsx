@@ -68,12 +68,12 @@ console.log(GrideChange);
             max-md:grid max-md:grid-cols-3 max:-md:gap-x-[180px]
             md:grid md:grid-cols-3 md:gap-x-[180px] lg:gap-x-4
             xl:flex xl:flex-row xl:justify-between
-            ${GrideChange ? 'grid grid-cols-1' : 'flex flex-wrap'}`}>
+            ${GrideChange ? 'xl:grid xl:grid-cols-1 lg:grid lg:grid-cols-1 md:grid md:grid-cols-1' : 'xl:flex flex-row lg:flex lg:flex-row'}`}>
 
             {AllProducts?.slice(Page * PageChange - PageChange , Page * PageChange).map((productItems, id) => (
-              <div key={id} className='w-[270px] xl:w-[270px] lg:w-[240px] md:w-[230px] max-sm:w-[164px]
+              <div key={id} className={`w-[270px] xl:w-[270px] lg:w-[240px] md:w-[230px] max-sm:w-[164px]
                xsm:w-[180px]
-              '>
+              `}>
                 <Products
                   image={productItems.thumbnail}
                   title={productItems. description}
