@@ -124,12 +124,12 @@ const Cart = () => {
               <div className='w-[340px] bg-[#E8E6F1] h-[300px] px-5'>
                 <div className='flex items-center justify-between mt-8'>
                   <p>SubTotal:</p>
-                  <p>{TotalCartItem}</p>
+                  <p>{TotalAmount}</p>
                 </div>
                 <div className='border-b-2 border-b-zinc-300 mt-3'></div>
                 <div className='flex items-center justify-between mt-8'>
                   <p>Totals:</p>
-                  <p>{TotalCartItem}</p>
+                  <p>{TotalAmount}</p>
                 </div>
                 <div className='border-b-2 border-b-zinc-300 mt-3'></div>
 

@@ -1,9 +1,30 @@
-import React from 'react'
+import React, { Component, useState } from 'react'
 import Arrivals4 from '../../assets/NewArrivals/Arrivals4.png'
+import Slider from "react-slick";
+
 
 const ProductDetailsLeft = ({EachProductsDetailsImg, status}) => {
 
-    console.log(EachProductsDetailsImg);
+    
+    // custom Slider
+    const [Slider, setSlider] = useState(0);
+
+    // HandleChange 
+    const HandlePevChange = () => {
+        if(Slider == 0) return false
+        setSlider(Slider - 1)
+    }
+
+
+    // HandlePervChange
+    const HandleNextChange = () => {
+        if (EachProductsDetailsImg.images.length - 1 == Slider) return false
+        
+        // if () Slider.false
+        setSlider(Slider + 1)
+        
+    }
+
 
   return (
     <>
@@ -11,8 +32,10 @@ const ProductDetailsLeft = ({EachProductsDetailsImg, status}) => {
         <div className="container mx-auto">
             <div className='flex flex-col ' >
                 
-                <div className='border'>
+                <p onClick={HandlePevChange} className='w-16 border hover:bg-button_Color'>Previews</p>
+                <p onClick={HandleNextChange}  className='w-10 border hover:bg-button_Color'>Next</p>
 
+                <div className='border-b'>
                     {status === 'LOADING'
                         ?
                         (
@@ -32,18 +55,24 @@ const ProductDetailsLeft = ({EachProductsDetailsImg, status}) => {
                         )
                         :
                         <div>
-                            {EachProductsDetailsImg.images?.slice(0,1).map((image) => (
-                                <div className=' flex items-center justify-center' key={image}>
-                                    <div className='w-[380px] h-[400px] py-3 '>
-                                        <img src={image} alt="" className='w-full aspect-square  object-contain' />
+                            <div className='flex gap-y-6 mt-3  w-[380px] h-[400px] border  overflow-hidden'>
+                                {EachProductsDetailsImg.images?.map((image) => (
+                                    <div  key={image}   style={{transform: `translateX(-${Slider * 100}%)`}}>
+                                        <div className='w-[380px] h-[400px] py-3 bg-slate-100' >
+                                            <img 
+                                                src={image} 
+                                                alt="" 
+                                                className=' w-full aspect-square  object-contain' 
+                                            />
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
                         </div>
                         
                     }
-
                 </div>
+
 
                 <div className='flex'>
 
@@ -52,7 +81,7 @@ const ProductDetailsLeft = ({EachProductsDetailsImg, status}) => {
                     (
                         <div className='flex  items-center gap-y-6'>
                             {EachProductsDetailsImg.images?.map((_,index) => (
-                                <div className={` w-[60px] h-[60px] rounded-md border border-blue-100 p-4 shadow`} key={index}>
+                                <div className={` w-[60px] h-[60px] rounded-md p-4 shadow`} key={index}>
                                 <div>
                                     <div className=" h-[60px] w-full animate-pulse rounded-lg bg-gray-300">
                                         <div className=" my-4 flex h-full animate-pulse flex-col items-center justify-end gap-y-5">
@@ -65,11 +94,16 @@ const ProductDetailsLeft = ({EachProductsDetailsImg, status}) => {
                     )
                     :
 
-                    <div className='flex gap-y-6'>
+                    <div className='flex gap-y-6 mt-3'>
                         {EachProductsDetailsImg.images?.map((img) => (
                             <div  key={img}>
-                                <div className=' w-[60px] rounded-sm border p-1 '>
-                                    <img src={img} alt="" className='w-[100%] h-[60px] object-contain' />
+                                <div className=' w-[60px] rounded-sm border hover:border-red-400 p-1' >
+                                    <img 
+                                        src={img} 
+                                        alt="" 
+                                        className='w-[100%] h-[60px] object-contain' 
+                                        
+                                    />
                                 </div>
                             </div>
                         ))}

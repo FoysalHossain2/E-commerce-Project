@@ -84,6 +84,8 @@ const Header = () => {
 
   // show Cart items 
   const {TotalCartItem, TotalAmount, CartItem} = useSelector((state) =>state.cart)
+  console.log(TotalAmount);
+  
 
 
   useEffect(() => {
@@ -157,9 +159,9 @@ const Header = () => {
                       <div className='flex items-center gap-x-2'>  
                         <div className='text-[18px] cursor-pointer '>
                           <FiShoppingCart />
-                        <span class=" ml-6 flex items-center justify-center rounded-full h-6 w-6 text-white bg-zinc-500">                               
-                            {TotalCartItem}
-                        </span>
+                          <span class=" ml-6 flex items-center justify-center rounded-full h-5 w-5 text-white bg-zinc-500">                               
+                              {TotalCartItem}
+                          </span>
                         </div>
 
 
@@ -228,8 +230,11 @@ const Header = () => {
                     <div className='text-[18px] cursor-pointer'>
                       <FiShoppingCart />
                     </div>
-                    <h3 className='font-DM_Sans font-bold'>
+                    <h3 className='font-DM_Sans font-bold flex items-center'>
                       cart
+                    <span class=" ml-1 flex items-center justify-center rounded-full h-4 w-4 bg-white text-[14px] text-orange-400 ">                               
+                    {TotalCartItem ? TotalCartItem : ''}
+                     </span>
                     </h3>
                   </div>
                 </div>

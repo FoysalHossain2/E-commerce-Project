@@ -12,7 +12,7 @@ import { ShopPageChangeContext } from '../../ShopComponent/ShopRight/ShopRight';
 const ShopRightBottom = () => {
 
   const {PageChange, GrideChange} = useContext(ShopPageChangeContext);
-console.log(GrideChange);
+
 
   const dispatch = useDispatch();
   const [AllProducts, setAllProducts] = useState([]);
@@ -64,15 +64,16 @@ console.log(GrideChange);
       (AllProducts && (
         <div>
           <div className={`flex flex-wrap justify-between gap-y-8 
-            max-sm:grid max-sm:grid-cols-2 max-sm:gap-x-[100px] max-sm:gap-y-3 max-sm:px-2 
-            max-md:grid max-md:grid-cols-3 max:-md:gap-x-[180px]
-            md:grid md:grid-cols-3 md:gap-x-[180px] lg:gap-x-4
+            max-sm:grid max-sm:grid-cols-2 max-sm:gap-x-[100px] max-sm:gap-y-3 
+            max-sm:px-2 
+            max-md:grid max-md:grid-cols-2 max:-md:gap-x-[180px]
+            md:grid md:grid-cols-2 md:gap-x-[180px]  
             xl:flex xl:flex-row xl:justify-between
+            lg:grid lg:grid-cols-3 lg:gap-x-4   
             ${GrideChange ? 'xl:grid xl:grid-cols-1 lg:grid lg:grid-cols-1 md:grid md:grid-cols-1' : 'xl:flex flex-row lg:flex lg:flex-row'}`}>
 
             {AllProducts?.slice(Page * PageChange - PageChange , Page * PageChange).map((productItems, id) => (
-              <div key={id} className={`w-[270px] xl:w-[270px] lg:w-[240px] md:w-[230px] max-sm:w-[164px]
-               xsm:w-[180px]
+              <div key={id} className={` xl:w-[270px] lg:w-[230px] md:w-[350px] max-sm:w-[164px]
               `}>
                 <Products
                   image={productItems.thumbnail}
@@ -80,7 +81,8 @@ console.log(GrideChange);
                   price={`$${Math.round(productItems.price)}`}
                   discountPrice= { Math.round(productItems.price - Math.floor((productItems.price * productItems.discountPercentage / 100)))}
                   productId={productItems.id}
-                />
+                  
+                  />
               </div>
             ))}
           </div>

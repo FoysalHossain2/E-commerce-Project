@@ -60,8 +60,8 @@ export const AddToCartSlice = createSlice({
         totalAmount: 0
       }
     )
-    state.TotalAmount = totalCartItems.totalCart
-    state.TotalCartItem = totalCartItems.totalAmount
+    state.TotalCartItem = totalCartItems.totalCart
+    state.TotalAmount = totalCartItems.totalAmount
     }
   }
 })

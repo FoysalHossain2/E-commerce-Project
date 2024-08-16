@@ -11,19 +11,19 @@ const Products = ({title,price, image, bize , productId, discountPrice}) => {
   return (
     <>
     <div className='border rounded-lg'>
-        <div className='w-[270px] h-[270px] xl:w-[270px] lg:w-[240px] md:w-[230px]  
-        xsm:w-[180px] 
+        <div className=' h-[270px] xl:w-[270px] lg:w-[230px] 
+        md:w-[350px] 
         max-sm:w-[164px] max-sm:h-[180px] 
         relative overflow-hidden group cursor-pointer '
         >
           <div className='absolute top-5 ml-5 '> {bize}</div>
           
           <Link to={`/productDetails/${productId}`}>
-            <div className=' bg-zinc-100 text-red-500 rounded-lg'>
+            <div className=' text-red-500 rounded-lg'>
               <img 
                 src={image} 
                 alt={image} 
-                className='w-full object-contain'
+                className='w-full h-full'
               />
             </div>
           </Link>
@@ -56,7 +56,7 @@ const Products = ({title,price, image, bize , productId, discountPrice}) => {
               </div>
             {/* ---------------overlay-------------- */}
         </div>
-           <div className=' mt-1 w-[270px] h-[140px] xl:w-[270px] lg:w-[240px] md:w-[230px] max-sm:w-[170px] px-3
+           <div className=' mt-1  h-[140px] xl:w-[270px] lg:w-[240px] md:w-[350px] max-sm:w-[170px] px-3
             xsm:w-[180px] 
            '>
 
