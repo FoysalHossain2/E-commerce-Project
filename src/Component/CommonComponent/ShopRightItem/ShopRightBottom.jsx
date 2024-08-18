@@ -26,6 +26,7 @@ const ShopRightBottom = () => {
   
 
     const {data, status} = useSelector((state) => (state.product))
+    
 
 
     useEffect(() => {

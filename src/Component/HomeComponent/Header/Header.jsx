@@ -11,11 +11,13 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import SearchResult from '../../CommonComponent/SearchResult/SearchResult';
 import { GetTotalAmount } from '../../../Redux/AllSliceFunction/AddToCartSlice/AddToCartSlice';
+import AddToCartU from '../../CommonComponent/AddToCartU';
 
 
 
 const Header = () => {
 
+  const [Filter, setFilter] = useState(false)
   const [SlideshowMenu, setSlideshowMenu] = useState(false);
   const dispatch = useDispatch();
 
@@ -82,17 +84,32 @@ const Header = () => {
   }
 
 
-  // show Cart items 
+  // ========== show Cart items ==========
   const {TotalCartItem, TotalAmount, CartItem} = useSelector((state) =>state.cart)
-  console.log(TotalAmount);
   
-
-
   useEffect(() => {
     dispatch(GetTotalAmount())
   }, [dispatch, TotalCartItem, TotalAmount, CartItem])
+    // ========== show Cart items ==========
 
+
+
+  /**
+   * @AddToCartItem  
+   */
   
+  // HandleSort functionality
+  const HandleCartView = () => {
+    setFilter(!Filter)
+    setSort(false)
+  }
+
+
+  // HideMenu function
+
+  const HideMenuSlide = () => {
+    setFilter(false)
+  }
 
 
 
@@ -118,6 +135,27 @@ const Header = () => {
     </div>
      {/* sideShowMenu overlay part*/}
 
+      {/*============== sideShowMenu overlay AddToCart part ================*/}
+        <div className={`blackOverlay w-full h-full fixed duration-500 z-50`}
+        style={{
+          visibility: Filter ? 'visible' : 'hidden'
+        }}
+        onClick={HideMenuSlide}
+        >
+          <div className='w-[400px] max-sm:w-[320px] h-full bg-slate-200 absolute duration-500 overflow-y-scroll '
+          style={{
+            right: Filter ? '0%' : '-100%'
+          }}
+          onClick={(e) => e.stopPropagation()}
+          >
+
+            <AddToCartU />
+
+          </div>
+          {/* <button className='ml-[1650px] text-white text-[30px]'><RxCross2 /></button> */}
+        </div>
+    {/*============== sideShowMenu overlay AddToCart part ================*/}
+
   
      {/* Header part */}
     <div className={`py-4
@@ -127,14 +165,14 @@ const Header = () => {
           max-sm:flex-col max-md:flex-col md:flex-col lg:flex-row 
           max-sm:px-2 max-md:px-2 md:px-2 lg:px-0
         '>
-  
-              {/*----- logo ----- */}
+           {/* ================== Responsive Design =================== */}
               <div className='flex items-center justify-between'>
                 <div className='flex items-center '> 
                   {/* ==== menubar ===== */}
                   <IoMenu onClick={HandleSideMenu} className='cursor-pointer text-2xl max-sm:block hidden md:block max-md:block lg:hidden'  />
                   {/* ==== menubar ===== */}
 
+              {/*----- logo ----- */}
                   <div className='flex items-center'>
                       <img src="https://pbs.twimg.com/profile_images/1442946691028570114/GKK_SKdR_400x400.jpg" alt="" className='w-10 h-10' />
                     <h1 className='text-green-400 font-bold  text-[10px]'>
@@ -142,6 +180,7 @@ const Header = () => {
                     </h1>
                   </div>
                 </div>
+              {/*----- logo ----- */}
 
                 <div className='max-sm:block md:block lg:hidden'>
                   <div className='flex items-center gap-x-5 '>
@@ -155,7 +194,7 @@ const Header = () => {
                       {/* --------------- login part ------------------*/}
 
                       {/* ----------- cart ---------------- */}
-                      <div className='bg-orange-400 px-[10px] py-[5px] rounded-3xl text-white cursor-pointer'>
+                      <div className='bg-orange-400 px-[10px] py-[5px] rounded-3xl text-white cursor-pointer'   onClick={HandleCartView}>
                       <div className='flex items-center gap-x-2'>  
                         <div className='text-[18px] cursor-pointer '>
                           <FiShoppingCart />
@@ -172,7 +211,7 @@ const Header = () => {
                 </div>
 
               </div>
-              {/*----- logo -----*/}
+              {/* ================== Responsive Design =================== */}
 
 
             {/*------ Search option --------*/}
@@ -225,7 +264,8 @@ const Header = () => {
 
                 <div className='border-r border-gray-300 h-5 w-[2px]  '></div>
 
-                <div className='bg-orange-400 px-[10px] py-[5px] rounded-3xl text-white cursor-pointer'>
+                {/* ======================== AddToCart Part ======================= */}
+                <div className='bg-orange-400 px-[10px] py-[5px] rounded-3xl text-white cursor-pointer'  onClick={HandleCartView}>
                   <div className='flex items-center gap-x-2'>  
                     <div className='text-[18px] cursor-pointer'>
                       <FiShoppingCart />
@@ -238,6 +278,7 @@ const Header = () => {
                     </h3>
                   </div>
                 </div>
+                {/* ======================== AddToCart Part ======================= */}
 
               </div>
             </div>
