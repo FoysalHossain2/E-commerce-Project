@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaMinus, FaPlus } from 'react-icons/fa';
-import { addToCart, ProductDecrement, ProductIncrement } from '../../Redux/AllSliceFunction/AddToCartSlice/AddToCartSlice';
+import { addToCart, ProductDecrement, ProductIncrement, RemoveCart } from '../../Redux/AllSliceFunction/AddToCartSlice/AddToCartSlice';
 import { FiShoppingCart } from "react-icons/fi";
 import { RxCross2 } from "react-icons/rx";
 
@@ -28,6 +28,12 @@ const AddToCartU = () => {
     // HandleCancelButton functionality
     const HandleCancelButton = () => {
         setCancel(!Cancel)
+    }
+
+
+    // HandleDeletedItem
+    const HandleDeletedItem = (item) => {
+        dispatch(RemoveCart(item))
     }
     
 
@@ -76,7 +82,7 @@ const AddToCartU = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <RiDeleteBin6Line className='text-red-500' />
+                                    <RiDeleteBin6Line className='text-red-500 cursor-pointer' onClick={ () => HandleDeletedItem (item)} />
                                 </div>
                             </div>
 

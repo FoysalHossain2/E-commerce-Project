@@ -10,7 +10,7 @@ const ShopLeft = ({className}) => {
   return (
     <>
     <div className={`${className}`}>
-        <div className="">
+        <div className="border-r">
 
           <div>
             <ShopByProductBrand />

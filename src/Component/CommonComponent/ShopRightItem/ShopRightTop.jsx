@@ -4,6 +4,7 @@ import { FaBars } from "react-icons/fa";
 import { IoCaretDownSharp, IoCaretUpSharp } from "react-icons/io5";
 import { CiFilter } from "react-icons/ci";
 import { RxCross2 } from 'react-icons/rx';
+import FilterComponent from '../FilterComponent';
 
 
 
@@ -98,62 +99,72 @@ const ShopRightTop = ({onHandlePageChange, HandleGrideChange, changeIcon, Handle
 
 
       {/*=========for sm , md ============  */}
-      <div className='pb-10 max-sm:block hidden'>
+      <div className='pb-10 '>
         <div className='flex items-center gap-x-3 relative'>
           
           {/*============ Sort ============*/}
-          <div className='flex items-center bg-zinc-100 w-[66px] px-2 rounded-full border-2 cursor-pointer' onClick={HandleSort}>
-            <p className='font-Josefin__Sans'>Sort</p>
-            {Sort ? (<IoCaretUpSharp className='text-[20px]' />) : (<IoCaretDownSharp className='text-[20px]' />)}
-          {Sort &&
-            (
-              <div className='absolute mt-[123px] mr-[-40px] bg-zinc-300 z-10 w-[340px] divide-y-2 py-1 font-DM_Sans'>
-                <div>Lower Price</div>
-                <div>hight Price</div>
-                <div>Best offer</div>
-              </div>
-            )
-          }
+          <div className='max-sm:block hidden'>
+            <div className='flex items-center bg-zinc-100 w-[66px] px-2 rounded-full border-2 cursor-pointer' onClick={HandleSort}>
+              <p className='font-Josefin__Sans'>Sort</p>
+              {Sort ? (<IoCaretUpSharp className='text-[20px]' />) : (<IoCaretDownSharp className='text-[20px]' />)}
+            {Sort &&
+              (
+                <div className='absolute mt-[123px] mr-[-40px] bg-zinc-300 z-10 w-[340px] divide-y-2 py-1 font-DM_Sans'>
+                  <div>Lower Price</div>
+                  <div>hight Price</div>
+                  <div>Best offer</div>
+                </div>
+              )
+            }
+            </div>
           </div>
           {/*============ Sort ============*/}
 
 
           {/*============ Brand ============*/}
-          <div className='flex items-center bg-zinc-100 w-[79px] px-2 rounded-full border-2'>
-            <p className='font-Josefin__Sans'>Brand</p>
-            <IoCaretDownSharp className='text-[20px]' />
+          <div className='max-sm:block hidden'>
+            <div className='flex items-center bg-zinc-100 w-[79px] px-2 rounded-full border-2'>
+              <p className='font-Josefin__Sans'>Brand</p>
+              <IoCaretDownSharp className='text-[20px]' />
+            </div>
           </div>
           {/*============ Brand ============*/}
 
           {/*============ Category ============*/}
-          <div className='flex items-center bg-zinc-100 w-[102px] px-2 rounded-full border-2'>
-            <p className='font-Josefin__Sans'>Category</p>
-            <IoCaretDownSharp className='text-[20px]' />
+          <div className='max-sm:block hidden'>
+            <div className='flex items-center bg-zinc-100 w-[102px] px-2 rounded-full border-2'>
+              <p className='font-Josefin__Sans'>Category</p>
+              <IoCaretDownSharp className='text-[20px]' />
+            </div>
           </div>
           {/*============ Category ============*/}
 
 
 
-          <div onClick={HandleFilter}>
-           <CiFilter className='text-[28px] ' />
+          <div onClick={HandleFilter}  className='max-sm:block md:block lg:hidden max-sm:ml-0 md:ml-[650px] max-md:ml-[540px]'>
+            <div className='flex '>
+              <CiFilter className='text-[28px] ' />
+              <p>Filter</p>
+            </div>
           </div>
-            {/* sideShowMenu overlay part*/}
-              <div className={`blackOverlay w-full h-[1000px] fixed duration-500 z-50`}
+            {/*========= sideShowMenu overlay filter part ========*/}
+              <div className={`blackOverlay w-full h-[1503px]  fixed duration-500 z-50`}
               style={{
                 visibility: Filter ? 'visible' : 'hidden'
               }}
               onClick={HideMenu}
               >
-                <div className='w-[300px] h-[1000px] bg-zinc-300 absolute duration-500 overflow-Y-scroll '
+                <div className=' h-full w-[300px] md:w-[550px] bg-slate-300 absolute duration-500 mt-[566px] md:mt-[570px]'
                 style={{
-                  right: Filter ? '0%' : '-100%'
+                  left: Filter ? '0%' : '-100%'
                 }}
                 onClick={(e) => e.stopPropagation()}
                 >
-                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi, officia.</p>
+                   <FilterComponent />
+
                 </div>
               </div>
-            {/* sideShowMenu overlay part*/}
+            {/*======= sideShowMenu overlay filter part =========*/}
 
         </div>
       </div>

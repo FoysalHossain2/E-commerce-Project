@@ -12,8 +12,8 @@ const Home = () => {
   return (
     <>
     <Banner />
-    <Add />
     <Shipping />
+    <Add />
     <Categories />
     <Furniture />
     <NewArrival headingTitle='NewArrival' />

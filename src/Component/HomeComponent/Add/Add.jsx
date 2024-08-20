@@ -7,7 +7,7 @@ import Overlay from '../../CommonComponent/Overlay';
 const Add = () => {
   return (
     <>
-    <div className='py-3 px-2 md:px-0 pt-[124px]'>
+    <div className='py-3 px-2 md:px-0 pt-[84px]'>
         <div className="container mx-auto">
             <div className={'sm:gap-x-5 md:gap-x-6 lg:gap-x-10 flex flex-row gap-y-4'}>
               <div className='md:w-1/2 w-full relative border'>

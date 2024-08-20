@@ -43,8 +43,7 @@ const ShopRightBottom = () => {
         setPage(PageNumber)
       }
     }
-
-    console.log(AllProducts);
+    
 
 
   return (
@@ -66,15 +65,15 @@ const ShopRightBottom = () => {
         <div>
           <div className={`flex flex-wrap justify-between gap-y-8 
             max-sm:grid max-sm:grid-cols-2 max-sm:gap-x-[100px] max-sm:gap-y-3 
-            max-sm:px-2 
-            max-md:grid max-md:grid-cols-2 max:-md:gap-x-[180px]
+            max-sm:px-2 max-md:px-2 md:px-2 
+            max-md:grid max-md:grid-cols-2 max-md:gap-x-[180px]
             md:grid md:grid-cols-2 md:gap-x-[180px]  
-            xl:flex xl:flex-row xl:justify-between
             lg:grid lg:grid-cols-3 lg:gap-x-4   
-            ${GrideChange ? 'xl:grid xl:grid-cols-1 lg:grid lg:grid-cols-1 md:grid md:grid-cols-1' : 'xl:flex flex-row lg:flex lg:flex-row'}`}>
+            xl:flex xl:flex-row xl:justify-between
+            ${GrideChange ? 'xl:grid xl:grid-cols-1  ' : 'xl:flex flex-row lg:flex lg:flex-row justify-between'}`}>
 
             {AllProducts?.slice(Page * PageChange - PageChange , Page * PageChange).map((productItems, id) => (
-              <div key={id} className={` xl:w-[270px] lg:w-[230px] md:w-[350px] max-sm:w-[164px]
+              <div key={id} className={` xl:w-[255px] lg:w-[230px] md:w-[350px] max-md:w-[290px] max-sm:w-[164px]
               `}>
                 <Products
                   image={productItems.thumbnail}
@@ -82,7 +81,7 @@ const ShopRightBottom = () => {
                   price={`$${Math.round(productItems.price)}`}
                   discountPrice= { Math.round(productItems.price - Math.floor((productItems.price * productItems.discountPercentage / 100)))}
                   productId={productItems.id}
-                  
+                  GrideChange={GrideChange}
                   />
               </div>
             ))}

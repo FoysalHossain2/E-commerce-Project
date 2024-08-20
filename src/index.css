@@ -64,4 +64,8 @@
         color: #FFF;
     }
 
+    .borderRight{
+        border-right: 1px solid grey;
+    }
+
 }
