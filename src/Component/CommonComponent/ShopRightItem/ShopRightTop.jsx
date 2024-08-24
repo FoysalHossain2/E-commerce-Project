@@ -154,9 +154,9 @@ const ShopRightTop = ({onHandlePageChange, HandleGrideChange, changeIcon, Handle
               }}
               onClick={HideMenu}
               >
-                <div className=' h-full w-[300px] md:w-[550px] bg-slate-300 absolute duration-500 mt-[566px] md:mt-[570px]'
+                <div className=' h-full w-[300px] md:w-[550px] bg-white absolute duration-500 mt-[566px] md:mt-[570px]'
                 style={{
-                  left: Filter ? '0%' : '-100%'
+                  right: Filter ? '0%' : '-100%'
                 }}
                 onClick={(e) => e.stopPropagation()}
                 >

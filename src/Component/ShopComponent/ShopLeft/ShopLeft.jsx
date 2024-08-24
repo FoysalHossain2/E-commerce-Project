@@ -6,6 +6,12 @@ import ShopByCategories from '../../CommonComponent/ShopLeftItem/ShopByCategorie
 import ShopByRating from '../../CommonComponent/ShopLeftItem/ShopByRating'
 import ShopByColor from '../../CommonComponent/ShopLeftItem/ShopByColor'
 
+
+
+
+
+
+
 const ShopLeft = ({className}) => {
   return (
     <>

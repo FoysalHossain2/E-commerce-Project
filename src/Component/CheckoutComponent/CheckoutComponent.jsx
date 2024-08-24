@@ -5,7 +5,7 @@ const CheckoutComponent = () => {
     const [UserInfo, setUserInfo] = useState({
         Name:"",
         Email:"",
-        Phone:"",
+        PhoneNumber:"",
         City:"",
         Division:"",
         District:"",
@@ -14,13 +14,13 @@ const CheckoutComponent = () => {
     })
 
     const [UserInfoError, setUserInfoError] = useState({
-        Name:"",
-        Phone:"",
-        City:"",
-        Division:"",
-        District:"",
-        Address:"",
-        Message:"",
+        NameError:"",
+        PhoneNumberError:"",
+        CityError:"",
+        DivisionError:"",
+        DistrictError:"",
+        AddressError:"",
+        MessageError:"",
     })
 
     // HandleOnChange input change functionality
@@ -39,7 +39,25 @@ const CheckoutComponent = () => {
           }
     }
 
-    console.log(UserInfo);
+    
+
+    // HandleOderButton functionality
+    const HandleOderButton = () => {
+
+        const {Name, PhoneNumber, District, Division, Address} = UserInfo
+
+        if (!Name) {
+            setUserInfoError({
+                ...UserInfoError,
+                NameError: 'Please Input Your Name'
+            })
+        } else if (!PhoneNumber) {
+            setUserInfoError({
+                ...UserInfoError,
+                PhoneError: 'Please Input Your PhoneNumber'
+            })
+        }
+    }
     
 
 
@@ -64,7 +82,7 @@ const CheckoutComponent = () => {
                     name='Name' 
                     id='Name' 
                     placeholder='Name' 
-                    className='border-2 w-[336px] py-3 rounded-xl' 
+                    className={`border-2 border-slate-200 w-[336px] py-3 rounded-xl  ${UserInfoError.NameError ? 'border-2 border-red-400' : 'border-2 border-slate-200'}`}
                     value={UserInfo.Name}
                     onChange={HandleOnChange}
                 />
@@ -88,12 +106,12 @@ const CheckoutComponent = () => {
                 <div className='flex flex-col'>
                     <label>Phone</label>
                     <input 
-                    type="Phone" 
-                    name='Phone' 
-                    id='Phone' 
-                    placeholder='Phone' 
-                    className='border-2 w-[336px] rounded-xl py-3 '
-                    value={UserInfo.Phone}
+                    type="PhoneNumber" 
+                    name='PhoneNumber' 
+                    id='PhoneNumber' 
+                    placeholder='PhoneNumber' 
+                    className={`border-2 border-slate-200 w-[336px] py-3 rounded-xl  ${UserInfoError.PhoneNumber ? 'border-2 border-red-400' : 'border-2 border-slate-200'}`} 
+                    value={UserInfo.PhoneNumber}
                     onChange={HandleOnChange}
                     />
                 </div>
@@ -194,7 +212,7 @@ const CheckoutComponent = () => {
                     </div>
                     {/* --- Proceed To Checkout button --- */}
                     <div className='mt-8'>
-                        <button className='bg-[#19D16F] py-3 w-full rounded text-white font-Roboto font-bold '>
+                        <button className='bg-[#19D16F] py-3 w-full rounded text-white font-Roboto font-bold '  onClick={HandleOderButton}>
                           PLACE ORDER
                         </button>
                     </div>

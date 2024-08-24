@@ -8,9 +8,10 @@ import { useNavigate, useParams } from 'react-router-dom';
 import {  useDispatch, useSelector } from 'react-redux'
 import { addToCart, ProductDecrement, ProductIncrement } from '../../Redux/AllSliceFunction/AddToCartSlice/AddToCartSlice';
 import { FetchDataProduct } from '../../Redux/AllSliceFunction/ProductsSlice/ProductsSlice';
+import Products from '../CommonComponent/Products';
 
 
-const ProductDetailsRight = ({EachProductsDetailsItem}) => {
+const ProductDetailsRight = () => {
 
   const dispatch = useDispatch();
   const naviGate = useNavigate();
@@ -19,13 +20,13 @@ const ProductDetailsRight = ({EachProductsDetailsItem}) => {
 
   const {CartItem} = useSelector((state) => state.cart)
   
-
+  
   useEffect(() => {
     dispatch(FetchDataProduct(`https://dummyjson.com/products/${productId}`))
   }, [])
   
-    const {data, status} = useSelector((state) => state.product)
-    
+  const {data, status} = useSelector((state) => state.product)
+  
 
 
     useEffect(() => {
@@ -42,10 +43,12 @@ const ProductDetailsRight = ({EachProductsDetailsItem}) => {
     naviGate('/cart')
   }
   
+  
 
   // HandleDecrementItem function
   const HandleDecrementItem = (item) => {
     dispatch(ProductDecrement(item))
+    
   }
 
   // HandleIncrementItem function
@@ -62,16 +65,16 @@ const ProductDetailsRight = ({EachProductsDetailsItem}) => {
     <>
     <div className=''>
       <p className='font-Josefin__Sans text-4xl font-bold mb-4 text-[#0D134E]'>
-        {EachProductsDetailsItem.title ? EachProductsDetailsItem.title : 'Title is Messing'}
+        {EachCartItem.title ? EachCartItem.title : 'Title is Messing'}
       </p>
 
       <h1 className='font-DM_Sans text-lg'>
-        {EachProductsDetailsItem.description ? EachProductsDetailsItem.description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'}
+        {EachCartItem.description ? EachCartItem.description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'}
       </h1>
       
       {/*========= rating Review =========*/}
       <div className=' mt-5'>
-        <ProductRating ratingStar={EachProductsDetailsItem.rating} />
+        <ProductRating ratingStar={EachCartItem.rating} />
       </div>
       {/*========= rating Review =========*/}
 
@@ -84,17 +87,17 @@ const ProductDetailsRight = ({EachProductsDetailsItem}) => {
           <div className='flex items-center font-DM_Sans'>
             <p>$</p>
             <p className='text-button_Color text-[28px]'>
-              { Math.round(EachProductsDetailsItem.price - Math.floor((EachProductsDetailsItem.price * EachProductsDetailsItem.discountPercentage / 100)))}
+              { Math.round(EachCartItem.price - Math.floor((EachCartItem.price * EachCartItem.discountPercentage / 100)))}
             </p>
           </div>
           <div>
-            -{Math.floor(EachProductsDetailsItem.discountPercentage)}%
+            -{Math.floor(EachCartItem.discountPercentage)}%
           </div>
         </div>
         <div className='flex items-center gap-x-2'>
           <p>List Price:</p>
           <p  className=' line-through'>
-            ${Math.round(EachProductsDetailsItem.price ? EachProductsDetailsItem.price : '$32.00')}
+            ${Math.round(EachCartItem.price ? EachCartItem.price : '$32.00')}
           </p>
         </div>
       </div>
@@ -111,11 +114,11 @@ const ProductDetailsRight = ({EachProductsDetailsItem}) => {
 
       <div className='mt-8'>
         <p>
-            <span className={`font-Roboto font-bold ${EachProductsDetailsItem.stock === 0 ? 'text-red-500' : 'text-green-600'}`}>
+            <span className={`font-Roboto font-bold ${EachCartItem.stock === 0 ? 'text-red-500' : 'text-green-600'}`}>
               In Stock
             </span> 
           <span className='px-3 font-bold'>:</span>
-           {EachProductsDetailsItem.stock}
+           {EachCartItem.stock}
         </p>
       </div>
 
@@ -130,6 +133,7 @@ const ProductDetailsRight = ({EachProductsDetailsItem}) => {
               <span className='text-[20px]'>{item.CartQuantity}</span> 
               <button className='text-[18px] cursor-pointer'  onClick={() => HandleIncrementItem (item)}> 
                 <FaPlus /> 
+                
               </button>
           </p>
         </div>
@@ -155,11 +159,28 @@ const ProductDetailsRight = ({EachProductsDetailsItem}) => {
             <p>Brand</p>
           </div>
            <div>
-              <p>{EachProductsDetailsItem.category}</p>
-              <p>{EachProductsDetailsItem.brand}</p>
+              <p>{EachCartItem.category}</p>
+              <p>{EachCartItem.brand}</p>
            </div>
         </div>
       {/*  */}
+
+
+      {/* <div>
+        {EachProductsDetailsItem?.map((item, id) => (
+            <div key={id} className={` xl:w-[255px] lg:w-[230px] md:w-[350px] max-md:w-[290px] max-sm:w-[164px]
+              `}>
+                <Products
+                  image={item.thumbnail}
+                  title={item. description}
+                  price={`$${Math.round(item.price)}`}
+                  discountPrice= { Math.round(item.price - Math.floor((item.price * item.discountPercentage / 100)))}
+                  productId={item.id}
+                  GrideChange={GrideChange}
+                  />
+              </div>
+        ))}
+      </div> */}
 
     </div>
     </>

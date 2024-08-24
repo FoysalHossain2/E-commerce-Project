@@ -165,7 +165,7 @@ const Header = () => {
           max-sm:flex-col max-md:flex-col md:flex-col lg:flex-row 
           max-sm:px-2 max-md:px-2 md:px-2 lg:px-0
         '>
-           {/* ================== Responsive Design =================== */}
+           {/* ================== Responsive Design part =================== */}
               <div className='flex items-center justify-between'>
                 <div className='flex items-center '> 
                   {/* ==== menubar ===== */}
@@ -211,7 +211,7 @@ const Header = () => {
                 </div>
 
               </div>
-              {/* ================== Responsive Design =================== */}
+              {/* ================== Responsive Design part =================== */}
 
 
             {/*------ Search option --------*/}

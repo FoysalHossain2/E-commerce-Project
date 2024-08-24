@@ -3,7 +3,7 @@ import Banner from '../../Component/HomeComponent/Banner/Banner'
 import Categories from '../../Component/HomeComponent/Categories/Categories'
 import Shipping from '../../Component/HomeComponent/Shipping/Shipping'
 import NewArrival from '../../Component/HomeComponent/NewArrival/NewArrival'
-import Add from '../../Component/HomeComponent/Add/Add'
+// import Add from '../../Component/HomeComponent/Add/Add'
 import Furniture from '../../Component/HomeComponent/Furniture/Furnituar'
 
 
@@ -13,7 +13,7 @@ const Home = () => {
     <>
     <Banner />
     <Shipping />
-    <Add />
+    {/* <Add /> */}
     <Categories />
     <Furniture />
     <NewArrival headingTitle='NewArrival' />

@@ -10,8 +10,7 @@ const Cart = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate()
   const {CartItem, TotalCartItem, TotalAmount} = useSelector((state) => state.cart)
-  
-  console.log(CartItem);
+
   
 
   // HandleDeleteItem

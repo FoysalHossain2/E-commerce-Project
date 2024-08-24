@@ -22,13 +22,13 @@ const ProductDetails = () => {
 
   const {data, status} = useSelector((state) => (state.product))
 
-  console.log(EachProductsDetails);
 
   useEffect(() => {
     if (status == 'IDLE') {
       setEachProductsDetails(data)
     }
   }, [data, status])
+  
   
 
 
@@ -45,7 +45,7 @@ const ProductDetails = () => {
         <div className='mt-10 mb-20'>
           <div className='flex lg:flex-row md:flex-col flex-col gap-x-8'>
             <ProductDetailsLeft EachProductsDetailsImg={EachProductsDetails} status={status} />
-              <ProductDetailsRight EachProductsDetailsItem={EachProductsDetails}  />
+              <ProductDetailsRight   />
           </div>
         </div>
       </div>

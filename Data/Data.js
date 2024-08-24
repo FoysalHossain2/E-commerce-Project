@@ -107,7 +107,13 @@ export const NewArrivalsData = [
     },
     {
       id:2,
-      title:'Fusion Dot High Fashion'
+      title:'Personal care',
+      subCategories: [
+        {id: 1, title: "Essence"},
+        {id: 2, title: "Samsun s23"},
+        {id: 3, title: "Vivo 27"},
+        {id: 4, title: "Tecno"},
+      ]
     },
     {
       id:3,

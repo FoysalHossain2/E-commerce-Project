@@ -44,7 +44,7 @@
     }
 
     .blackOverlay {
-        background-color: rgba(0, 0, 0, 0.7) !important;
+        background-color: rgba(0, 0, 0, 0.9) !important;
         z-index: 1;
     }
 
@@ -62,10 +62,6 @@
 
     .MuiSlider-thumb {
         color: #FFF;
-    }
-
-    .borderRight{
-        border-right: 1px solid grey;
     }
 
 }

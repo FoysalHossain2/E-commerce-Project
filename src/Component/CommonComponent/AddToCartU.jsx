@@ -17,11 +17,14 @@ const AddToCartU = () => {
         // HandleIncrementItem 
     const HandleIncrementItem = (item) => {
         dispatch(ProductIncrement(item))
+        console.log(item);
     }
 
     // HandleIncrementItem 
     const HandleDecrementItem = (item) => {
         dispatch(ProductDecrement(item))
+        console.log(item);
+        
     }
 
 
@@ -63,8 +66,8 @@ const AddToCartU = () => {
             </div> */}
     
             <div className='mt-4  '>
-                {CartItem?.map((item) => (
-                    <div    key={item} className='px-2 mt-2'>
+                {CartItem?.map((item, id) => (
+                    <div    key={id} className='px-2 mt-2'>
                         <div className='px-2 py-3 rounded-t-lg bg-white '>
                             <div className='flex justify-between'>
                                 <div className=' flex  gap-x-3'>
@@ -78,7 +81,9 @@ const AddToCartU = () => {
 
                                     <div>
                                         <p className='lg:w-[150px] max-sm:w-[130px] text-[13px] '>{item.title}</p>
-                                        <p className='mt-1'>${TotalAmount}</p>
+                                        <p className='mt-1'>
+                                            ${ Math.round(item.price - Math.floor((item.price * item.discountPercentage / 100)))}
+                                        </p>
                                     </div>
                                 </div>
                                 <div>
@@ -89,11 +94,11 @@ const AddToCartU = () => {
 
                                 <div>
                                     <div className='flex items-center gap-x-2 w-[68px] px-1 border-2 lg:ml-[285px] max-sm:ml-[205px]'>
-                                        <button onClick={() => HandleDecrementItem (item)}> 
+                                        <button className='cursor-pointer' onClick={() => HandleDecrementItem (item)}> 
                                             <FaMinus /> 
                                         </button>
                                         <p>{item.CartQuantity}</p>
-                                        <button onClick={() => HandleIncrementItem (item)}>
+                                        <button className='cursor-pointer' onClick={() => HandleIncrementItem (item)}>
                                             <FaPlus/> 
                                         </button>
                                     </div>
@@ -101,7 +106,9 @@ const AddToCartU = () => {
                         </div>
 
                         <div className='bg-white mt-1  rounded-b-lg py-1 px-2'>
-                            <p className='lg:ml-[285px] max-sm:ml-[235px]'>${TotalAmount}</p>
+                            <p className='lg:ml-[285px] max-sm:ml-[235px]'>
+                               $ { Math.round(item.price - Math.floor((item.price * item.discountPercentage / 100)))}
+                            </p>
                         </div>
                     </div>
                 ))}
