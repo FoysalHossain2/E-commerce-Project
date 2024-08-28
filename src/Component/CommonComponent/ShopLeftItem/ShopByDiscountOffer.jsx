@@ -2,12 +2,12 @@ import React from 'react'
 import { GrFormCheckmark } from "react-icons/gr";
 import { DiscountOffer } from '../../../../Data/Data'
 
-const ShopByDiscountOffer = () => {
+const ShopByDiscountOffer = ({DiscountOffer, ShopLeftTitle}) => {
   return (
     <>
     <div className='mt-11'>
         <h3 className='font-Josefin__Sans text-xl underline text-secondary_text_color'>
-            Discount Offer
+            {ShopLeftTitle}
         </h3>
 
         <div className='mt-[11px]'>

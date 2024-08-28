@@ -149,38 +149,45 @@ export const DiscountOffer =[
 ]
 
 
-export const Categories =[
+// shopCatagories
+export const CatagoriesData = [
   {
-    id: 1,
-    title: 'Prestashop',
+    id: 1, 
+    title: 'Mobil Phone',
+    subCategories: [
+      {id: 1, title: "Oppo"},
+      {id: 2, title: "Samsun s23"},
+      {id: 3, title: "Vivo 27"},
+      {id: 4, title: "Tecno"},
+    ]
   },
   {
-    id: 2,
-    title: 'Magento',
+    id: 2, 
+    title: 'Category 2',
+    subCategories: [],
   },
   {
-    id: 3,
-    title: 'Bigcommerce',
+    id: 3, 
+    title: 'Category 3',
+    subCategories: [
+      {id: 1, title: "subCategories 3"},
+      {id: 2, title: "subCategories 3"},
+      {id: 3, title: "subCategories 3"},
+    ]
   },
   {
-    id: 4,
-    title: 'osCommerce',
+    id: 4, 
+    title: 'Category 4',
+    subCategories: [],
   },
   {
-    id: 5,
-    title: '3dcart',
-  },
-  {
-    id: 6,
-    title: 'Bags',
-  },
-  {
-    id: 7,
-    title: 'Jewellery',
-  },
-  {
-    id: 8,
-    title: 'Watches',
+    id: 5, 
+    title: 'Category 5',
+    subCategories: [
+      {id: 1, title: "subCategories 3"},
+      {id: 2, title: "subCategories 3"},
+      {id: 3, title: "subCategories 3"},
+    ],
   },
 ]
 

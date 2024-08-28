@@ -1,29 +1,17 @@
 import React from 'react';
 import { GrFormCheckmark } from "react-icons/gr";
-import { ProductBrand } from '../../../../Data/Data';
 
-const shopByProductBrand = () => {
+const shopByProductBrand = ({ProductBrand, ShopLeftTitle}) => {
   return (
     <>
-    <div>
-
-           {/*-------- product filter header ------ */}
-          <div className='pb-10'>
-            <h1 className='font-Josefin__Sans font-bold border-b-2 border-black w-[227px] text-2xl text-secondary_text_color'>
-              Product Filters
-            </h1>
-
-
-          </div>
-          {/*-------- product filter header ------ */}
-
-        <h2 className='font-Josefin__Sans text-xl underline text-secondary_text_color'>
-          Product Brand
+    <div className='mt-[11px]'>
+        <h2 className='font-Josefin__Sans text-xl border-b-2 border-gray-400 w-[200px] text-secondary_text_color'>
+          {ShopLeftTitle}
         </h2>
           <div className='mt-[11px]'>
             {ProductBrand?.map((items, id) => (
-              <div key={id} className='flex items-center gap-x-6'>   
-                  <div className='w-5 h-5 border bg-[#E5E0FC] flex items-center '>
+              <div key={id} className='flex items-center gap-x-3'>   
+                  <div className='w-4 h-4 border bg-[#E5E0FC] flex items-center '>
                     <GrFormCheckmark className='text-[#603EFF] textF cursor-pointer' />
                   </div>
                   <p className='text-Paragraph__Color font-DM_Sans py-2'>

@@ -21,6 +21,7 @@ const ProductDetailsRight = () => {
   const {CartItem} = useSelector((state) => state.cart)
   
   
+  
   useEffect(() => {
     dispatch(FetchDataProduct(`https://dummyjson.com/products/${productId}`))
   }, [])
