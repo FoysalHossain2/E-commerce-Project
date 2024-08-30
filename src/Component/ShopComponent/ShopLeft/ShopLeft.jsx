@@ -14,15 +14,15 @@ const ShopLeft = ({ className }) => {
   const [AllProducts, setAllProducts] = useState([]);
   const [CateName, setCateName] = useState('');
 
+  
+
   const { data, status } = useSelector((state) => state.product);
 
   useEffect(() => {
-    if(CateName !== '') {
-      dispatch(FetchDataProduct(`https://dummyjson.com/products/category/${CateName}`));
-    } else {
-      dispatch(FetchDataProduct(`https://dummyjson.com/products?limit=1000`));
-    }
-  }, [CateName, dispatch]);
+    dispatch(FetchDataProduct('https://dummyjson.com/products?limit=1000'));
+  }, [])
+  
+
 
   useEffect(() => {
     if(status === 'IDLE') {
@@ -31,18 +31,26 @@ const ShopLeft = ({ className }) => {
   }, [data, status]);
 
 
+  // useEffect(() => {
+  //   if (CateName !== '') {
+  //     dispatch(FetchDataProduct(`https://dummyjson.com/products?limit=1000${CateName}`));
+  //     setAllProducts(data.products);
+  //     console.log('Hello');
+  //   }
+    
+  // }, [CateName])
+  
 
 
-  useEffect(() => {
-    if(CateName !== '') {
-      const filteredProducts = data.products.filter(product => product.category === CateName);
-      setAllProducts(filteredProducts);
-    } else {
-      setAllProducts(data.products);
-    }
-  }, [CateName, data]);
 
-console.log(AllProducts);
+  // if(CateName !== '') {
+  //   const filteredProducts = data.products.filter(product => product.category === CateName);
+  //   setAllProducts(filteredProducts);
+  // } else {
+  //   setAllProducts(data.products);
+  // }
+
+
 
 
 
@@ -62,6 +70,9 @@ console.log(AllProducts);
     return null;
   });
 
+
+
+  // Brand 
   let BrandArr = [];
   let BrandSet = new Set();
 
@@ -75,8 +86,6 @@ console.log(AllProducts);
     }
     return null;
   });
-
-  console.log(BrandArr);
   
 
   
@@ -87,7 +96,7 @@ console.log(AllProducts);
     <div className={`${className}`}>
         <div className="border-r">
 
-                 {/*-------- product filter header ------ */}
+          {/*-------- product filter header ------ */}
               <div className='pb-6'>
                   <h1 className='font-Josefin__Sans font-bold border-b-2 border-black w-[227px] text-2xl text-secondary_text_color'>
                    Product Filters
@@ -101,7 +110,7 @@ console.log(AllProducts);
           <div>
             <ShopByCategories CatagoriesData={CategoryArr ? CategoryArr : []}  
               ShopLeftTitle={'Product Categories'}
-              setCateName={setCateName}
+              AllProducts={AllProducts}
             />
           </div>
           <div>

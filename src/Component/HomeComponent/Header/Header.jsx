@@ -158,7 +158,7 @@ const Header = () => {
 
   
      {/* Header part */}
-    <div className={`py-4
+    <div className={`py-4 max-sm:py-2
        bg-white border `} >
       <div className="container mx-auto ">
         <div className='flex lg:items-center  justify-between  
@@ -183,9 +183,9 @@ const Header = () => {
               {/*----- logo ----- */}
 
                 <div className='max-sm:block md:block lg:hidden'>
-                  <div className='flex items-center gap-x-5 '>
+                  <div className='flex items-center gap-x- '>
                       {/* --------------- login part ------------------*/}
-                      <div className='flex items-center gap-x-1 bg-slate-800 text-white px-[10px] py-[5px] rounded-3xl'>
+                      <div className='flex items-center gap-x-1  text-white px-[10px] py-[5px] rounded-3xl'>
                       <FaUser className='cursor-pointer text-orange-400 text-[20px]' />
                         {/* <p className='font-bold'>
                           sing in
@@ -194,11 +194,11 @@ const Header = () => {
                       {/* --------------- login part ------------------*/}
 
                       {/* ----------- cart ---------------- */}
-                      <div className='bg-orange-400 px-[10px] py-[5px] rounded-3xl text-white cursor-pointer'   onClick={HandleCartView}>
+                      <div className=' px-[10px] py-[5px] rounded-3xl cursor-pointer'   onClick={HandleCartView}>
                       <div className='flex items-center gap-x-2'>  
-                        <div className='text-[18px] cursor-pointer '>
-                          <FiShoppingCart />
-                          <span class=" ml-6 flex items-center justify-center rounded-full h-5 w-5 text-white bg-zinc-500">                               
+                        <div className='cursor-pointer '>
+                          <FiShoppingCart className='text-[20px] ' />
+                          <span class="absolute ml-3 -mt-8 flex items-center justify-center rounded-full h-5 w-5 text-white bg-zinc-500">                               
                               {TotalCartItem}
                           </span>
                         </div>
@@ -215,16 +215,16 @@ const Header = () => {
 
 
             {/*------ Search option --------*/}
-              <div  class="lg:max-w-[600px] max-md:max-w-[700px] w-full max-sm:mt-4 md:mt-4 max-md:mt-4 lg:mt-0">
+              <div  class="lg:max-w-[600px] max-md:max-w-[700px] w-full max-sm:mt-2 md:mt-4 max-md:mt-4 lg:mt-0">
                 <div class="relative flex">
                     <input 
                     type="text"
                         name="q" 
-                        class="w-full border h-12 shadow p-2 rounded-l-full dark:text-gray-800 border-button_Color dark:bg-gray-200 pl-4" 
+                        class="w-full border py-[6px] shadow rounded-l-full dark:text-gray-800 border-button_Color dark:bg-gray-200 pl-4" 
                         placeholder="search product"
                         onChange={HandleSearch}
                     />
-                    <button type="submit"  className=' bg-button_Color py-[8px] rounded-r-full hover:bg-pink-600 '>
+                    <button type="submit"  className=' bg-button_Color py-[6px] rounded-r-full hover:bg-pink-600 '>
                     <HiOutlineSearch 
                       className='ml-3 text-[23px] 
                       cursor-pointer mr-3

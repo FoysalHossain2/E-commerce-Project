@@ -23,7 +23,7 @@ const ProductDetailsRight = () => {
   
   
   useEffect(() => {
-    dispatch(FetchDataProduct(`https://dummyjson.com/products/${productId}`))
+    dispatch(FetchDataProduct(`https://dummyjson.com/products?limit=1000/${productId}`))
   }, [])
   
   const {data, status} = useSelector((state) => state.product)
@@ -55,6 +55,8 @@ const ProductDetailsRight = () => {
   // HandleIncrementItem function
   const HandleIncrementItem = (item) => {
     dispatch(ProductIncrement(item))
+    console.log(item);
+    
   }
 
 
@@ -124,21 +126,21 @@ const ProductDetailsRight = () => {
       </div>
 
       {/* ======== Quantity ============ */}
-      {CartItem?.map((item, id) => ( 
-        <div className='flex items-center gap-x-4 mt-4' key={id}>
+      {/* {CartItem?.map((item, id) => (  */}
+        <div className='flex items-center gap-x-4 mt-4' >
           <p>Quantity :</p>
           <p className='w-[150px] py-1 border bg-red-200 rounded-full flex items-center justify-center gap-x-4'>
               <button className='text-[18px] cursor-pointer'  onClick={() => HandleDecrementItem (item)}>
                 <FaMinus /> 
               </button> 
-              <span className='text-[20px]'>{item.CartQuantity}</span> 
+              <span className='text-[20px]'>2</span> 
               <button className='text-[18px] cursor-pointer'  onClick={() => HandleIncrementItem (item)}> 
                 <FaPlus /> 
                 
               </button>
           </p>
         </div>
-      ))}
+      {/* ))} */}
       {/* ======== Quantity ============ */}
 
       {/*============= addToCart =============*/}
