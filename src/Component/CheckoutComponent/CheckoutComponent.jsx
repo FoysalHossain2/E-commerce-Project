@@ -15,28 +15,36 @@ const CheckoutComponent = () => {
 
     const [UserInfoError, setUserInfoError] = useState({
         NameError:"",
+        EmailError: "",
         PhoneNumberError:"",
         CityError:"",
         DivisionError:"",
         DistrictError:"",
         AddressError:"",
-        MessageError:"",
     })
 
     // HandleOnChange input change functionality
     const HandleOnChange = (e) => {
-        if (e.target.checked) {
-            console.log(e.target.checked);
-            setUserInfo({
-              ...UserInfo,
-              [e.target.id]: true,
-            });
-          } else {
-            setUserInfo({
-              ...UserInfo,
-              [e.target.id]: e.target.value,
-            });
-          }
+
+        setUserInfo({
+            ...UserInfo,
+            [e.target.id]: e.target.value
+        })
+        console.log(UserInfo);
+        
+        
+        
+        // if (e.target.checked) {
+        //     setUserInfo({
+        //       ...UserInfo,
+        //       [e.target.id]: true,
+        //     });
+        //   } else {
+        //     setUserInfo({
+        //       ...UserInfo,
+        //       [e.target.id]: e.target.value,
+        //     });
+        //   }
     }
 
     
@@ -44,19 +52,75 @@ const CheckoutComponent = () => {
     // HandleOderButton functionality
     const HandleOderButton = () => {
 
-        const {Name, PhoneNumber, District, Division, Address} = UserInfo
+        const {
+            Name,
+            Email,
+            PhoneNumber,
+            City,
+            Division,
+            District,
+            Address,
+        } = UserInfo;
+
 
         if (!Name) {
             setUserInfoError({
                 ...UserInfoError,
-                NameError: 'Please Input Your Name'
+                NameError: "Name is required",
+            })
+        } else if (!Email) {
+            setUserInfoError({
+                ...UserInfoError,
+                NameError: "",
+                EmailError: "Email is required",
             })
         } else if (!PhoneNumber) {
             setUserInfoError({
                 ...UserInfoError,
-                PhoneError: 'Please Input Your PhoneNumber'
+                NameError: "",
+                EmailError: "",
+                PhoneNumberError: "PhoneNumber is required",
+            })
+        } else if (!City) {
+            setUserInfoError({
+                ...UserInfoError,
+                NameError: "",
+                EmailError: "",
+                PhoneNumberError: "",
+                CityError: "City is required",
+            })
+        } else if (!Division) {
+            setUserInfoError({
+                ...UserInfoError,
+                NameError: "",
+                EmailError: "",
+                PhoneNumberError: "",
+                CityError: "",
+                DivisionError: "Division is required",
+            })
+        } else if (!District) {
+            setUserInfoError({
+                ...UserInfoError,
+                NameError: "",
+                EmailError: "",
+                PhoneNumberError: "",
+                CityError: "",
+                DivisionError: "",
+                DistrictError: "District is required",
+            })
+        } else if (!Address) {
+            setUserInfoError({
+                ...UserInfoError,
+                NameError: "",
+                EmailError: "",
+                PhoneNumberError: "",
+                CityError: "",
+                DivisionError: "",
+                DistrictError: "",
+                AddressError: "Address is required",
             })
         }
+      
     }
     
 
@@ -82,10 +146,13 @@ const CheckoutComponent = () => {
                     name='Name' 
                     id='Name' 
                     placeholder='Name' 
-                    className={`border-2 border-slate-200 w-[336px] py-3 rounded-xl  ${UserInfoError.NameError ? 'border-2 border-red-400' : 'border-2 border-slate-200'}`}
+                    className={`pl-2 border-2 border-slate-200 w-[336px] py-3 rounded-xl${UserInfoError.NameError ? 'border-2 border-red-400 rounded-xl' : 'border-2 border-slate-200 rounded-xl'}`}
                     value={UserInfo.Name}
                     onChange={HandleOnChange}
                 />
+                  {UserInfoError.NameError && (
+                    <p className='text-red-500'>{UserInfoError.NameError}</p>
+                  )}      
                 </div>
 
                 <div className='flex flex-col'>
@@ -95,10 +162,15 @@ const CheckoutComponent = () => {
                     name='Email' 
                     id='Email' 
                     placeholder='Email' 
-                    className='border-2 w-[336px] rounded-xl py-3' 
+                    className={`pl-2 border-2 border-slate-200 w-[336px] py-3 rounded-xl${UserInfoError.EmailError ? 'border-2 border-red-400 rounded-xl' : 'border-2 border-slate-200 rounded-xl'}`} 
                     value={UserInfo.Email}
                     onChange={HandleOnChange}
                 />
+
+                {UserInfoError.NameError && (
+                    <p className='text-red-500'>{UserInfoError.NameError}</p>
+                  )}   
+
                 </div>
             </div>
 
@@ -110,22 +182,32 @@ const CheckoutComponent = () => {
                     name='PhoneNumber' 
                     id='PhoneNumber' 
                     placeholder='PhoneNumber' 
-                    className={`border-2 border-slate-200 w-[336px] py-3 rounded-xl  ${UserInfoError.PhoneNumber ? 'border-2 border-red-400' : 'border-2 border-slate-200'}`} 
+                    className={`pl-2 border-2 border-slate-200 w-[336px] py-3 rounded-xl${UserInfoError.PhoneNumberError ? 'border-2 border-red-400 rounded-xl' : 'border-2 border-slate-200 rounded-xl'}`}
                     value={UserInfo.PhoneNumber}
                     onChange={HandleOnChange}
                     />
+
+                    {UserInfoError.NameError && (
+                    <p className='text-red-500'>{UserInfoError.NameError}</p>
+                  )}      
+
                 </div>
                 <div className='flex flex-col'>
                     <label>City</label>
                     <input 
                     type="text" 
                     name='City' 
-                    id='Address' 
+                    id='City' 
                     placeholder='Select City' 
-                    className='border-2 w-[336px] rounded-xl py-3 '
+                    className={`pl-2 border-2 border-slate-200 w-[336px] py-3 rounded-xl${UserInfoError.CityError ? 'border-2 border-red-400 rounded-xl' : 'border-2 border-slate-200 rounded-xl'}`}
                     value={UserInfo.City}
                     onChange={HandleOnChange}
                     />
+
+                    {UserInfoError.NameError && (
+                    <p className='text-red-500'>{UserInfoError.NameError}</p>
+                  )}      
+
                 </div>
             </div>
 
@@ -137,12 +219,21 @@ const CheckoutComponent = () => {
                         name='Division' 
                         id='Division' 
                         placeholder='Select Division'
-                        className='border-2 w-[336px] rounded-xl py-3 '
+                        className={`pl-2 border-2 border-slate-200 w-[336px] py-3 rounded-xl${UserInfoError.DivisionError ? 'border-2 border-red-400 rounded-xl' : 'border-2 border-slate-200 rounded-xl'}`}
                         value={UserInfo.Division}
                         onChange={HandleOnChange}
                     >
-                        <option value="">Dhaka</option>
+                        <option value="Dhaka">Dhaka</option>
+                        <option value="Dhaka">Dhaka</option>
+                        <option value="Dhaka">Dhaka</option>
+                        <option value="Dhaka">Dhaka</option>
+                        <option value="Dhaka">Dhaka</option>
                     </select>
+
+                    {UserInfoError.NameError && (
+                    <p className='text-red-500'>{UserInfoError.NameError}</p>
+                  )}      
+
                 </div>
                 <div className='flex flex-col'>
                     <label >District</label>
@@ -151,12 +242,21 @@ const CheckoutComponent = () => {
                         name='District' 
                         id='District' 
                         placeholder='Select District'
-                        className='border-2 w-[336px] rounded-xl py-3 '
+                        className={`pl-2 border-2 border-slate-200 w-[336px] py-3 rounded-xl${UserInfoError.DistrictError ? 'border-2 border-red-400 rounded-xl' : 'border-2 border-slate-200 rounded-xl'}`}
                         value={UserInfo.District}
                         onChange={HandleOnChange}
                      >
-                        <option value="">Manikgonj</option>
+                        <option value="Manikgonj">Manikgonj</option>
+                        <option value="Manikgonj">Manikgonj</option>
+                        <option value="Manikgonj">Manikgonj</option>
+                        <option value="Manikgonj">Manikgonj</option>
+                        <option value="Manikgonj">Manikgonj</option>
                     </select>
+
+                    {UserInfoError.NameError && (
+                    <p className='text-red-500'>{UserInfoError.NameError}</p>
+                  )}      
+
                 </div>
             </div>
 
@@ -166,10 +266,15 @@ const CheckoutComponent = () => {
                     name='Address' 
                     id='Address' 
                     placeholder='Address' 
-                    className='border-2 w-full rounded-xl py-3 '
+                    className={`pl-2 border-2 border-slate-200 w-[336px] py-3 rounded-xl${UserInfoError.AddressError ? 'border-2 border-red-400 rounded-xl' : 'border-2 border-slate-200 rounded-xl'}`}
                     value={UserInfo.Address}
                     onChange={HandleOnChange}
                 />
+
+                {UserInfoError.NameError && (
+                    <p className='text-red-500'>{UserInfoError.NameError}</p>
+                  )}      
+
             </div>
 
             {/* --------- Order Note (optional) --------- */}
@@ -180,7 +285,7 @@ const CheckoutComponent = () => {
                         cols="30"
                         rows="10"
                         placeholder='Order Note (optional)'
-                        className='w-full rounded-xl py-3 border-2'
+                        className='pl-2 w-full rounded-xl py-3 border-2'
                         value={UserInfo.Message}
                         onChange={HandleOnChange}
                     >
@@ -212,7 +317,7 @@ const CheckoutComponent = () => {
                     </div>
                     {/* --- Proceed To Checkout button --- */}
                     <div className='mt-8'>
-                        <button className='bg-[#19D16F] py-3 w-full rounded text-white font-Roboto font-bold '  onClick={HandleOderButton}>
+                        <button className='bg-[#19D16F] py-3 w-full rounded text-white font-Roboto font-bold hover:bg-green-600'  onClick={HandleOderButton}>
                           PLACE ORDER
                         </button>
                     </div>

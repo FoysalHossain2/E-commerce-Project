@@ -22,7 +22,7 @@ export const AddToCartSlice = createSlice({
         state.CartItem[findIndex].CartQuantity += 1 
         localStorage.setItem("CartItem", JSON.stringify(state.CartItem))
       } else {
-        const temporary = ({...action.payload , CartQuantity: 1})
+        const temporary = ({...action.payload , CartQuantity : 1})
         state.CartItem.push(temporary)
         localStorage.setItem("CartItem", JSON.stringify(state.CartItem))
       }
@@ -49,7 +49,7 @@ export const AddToCartSlice = createSlice({
     },
     GetTotalAmount: (state, action) => {
       const totalCartItems = state.CartItem.reduce((totalItem, CartItem) => {
-        const {CartQuantity, price, discountPercentage} = CartItem
+        const {CartQuantity, price} = CartItem
         const totalPrice = CartQuantity * price
         totalItem.totalAmount += Math.ceil(totalPrice)
         totalItem.totalCart += CartQuantity

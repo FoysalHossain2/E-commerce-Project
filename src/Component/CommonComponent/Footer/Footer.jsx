@@ -6,8 +6,8 @@ const Footer = () => {
   return (
     <>
      <div className='bg-[#2F2E41]'>
-      <FooterTop />
-      <FooterBottom />
+      {/* <FooterTop /> */}
+      {/* <FooterBottom /> */}
      </div>
     </>
   )
