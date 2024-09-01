@@ -17,7 +17,7 @@ const Home = () => {
     <Categories />
     <Furniture />
     <NewArrival headingTitle='NewArrival' />
-    <NewArrival headingTitle='Best Seller' />
+    <NewArrival headingTitle='Just For You' />
     </>
   )
 }

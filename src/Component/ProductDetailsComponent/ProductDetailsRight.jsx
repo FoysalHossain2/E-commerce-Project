@@ -127,7 +127,7 @@ const ProductDetailsRight = () => {
 
       {/* ======== Quantity ============ */}
       {CartItem?.map((item, id) => ( 
-        <div className='flex items-center gap-x-4 mt-4' >
+        <div className='flex items-center gap-x-4 mt-4' key={id}>
           <p>Quantity :</p>
           <p className='w-[150px] py-1 border bg-red-200 rounded-full flex items-center justify-center gap-x-4'>
               <button className='text-[18px] cursor-pointer'  onClick={() => HandleDecrementItem (item)}>

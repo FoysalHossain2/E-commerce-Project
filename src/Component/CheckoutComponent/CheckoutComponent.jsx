@@ -1,6 +1,14 @@
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const CheckoutComponent = () => {
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate()
+    const {CartItem, TotalCartItem, TotalAmount} = useSelector((state) => state.cart)
+
+
 
     const [UserInfo, setUserInfo] = useState({
         Name:"",
@@ -25,26 +33,17 @@ const CheckoutComponent = () => {
 
     // HandleOnChange input change functionality
     const HandleOnChange = (e) => {
-
-        setUserInfo({
-            ...UserInfo,
-            [e.target.id]: e.target.value
-        })
-        console.log(UserInfo);
-        
-        
-        
-        // if (e.target.checked) {
-        //     setUserInfo({
-        //       ...UserInfo,
-        //       [e.target.id]: true,
-        //     });
-        //   } else {
-        //     setUserInfo({
-        //       ...UserInfo,
-        //       [e.target.id]: e.target.value,
-        //     });
-        //   }
+        if (e.target.checked) {
+            setUserInfo({
+              ...UserInfo,
+              [e.target.id]: true,
+            });
+          } else {
+            setUserInfo({
+              ...UserInfo,
+              [e.target.id]: e.target.value,
+            });
+          }
     }
 
     
@@ -135,8 +134,8 @@ const CheckoutComponent = () => {
 
         <h1 className='pb-11'>Shipping address</h1>
 
-        <div className='flex justify-between'>
-            <div className='w-[770px] bg-[#F8F8FD] py-3 px-5'>
+        <div className='flex gap-x-12'>
+            <div className='w-[770px] bg-[#F8F8FD] py-4 px-5  rounded-lg'>
 
             <div className='flex items-center justify-between'>
                 <div className='flex flex-col'>
@@ -299,17 +298,30 @@ const CheckoutComponent = () => {
 
             <div className=''>
                  {/* ======= Total & sunTotal =========== */}
-                <div className='w-[340px] bg-[#E8E6F1] h-[300px] py-3 px-5'>
+                <div className='w-[340px] bg-[#E8E6F1] h-[400px] py-3 px-5'>
                     <div className='flex items-center justify-between mt-8'>
-                    <p>SubTotal:</p>
-                    <p>{33}</p>
+                    <p className='font-Roboto'>Delivery Outside Dhaka:</p>
+                    <p className='text-[18px] font-Roboto'><span className='text-[17px] '>৳</span> 109.00</p>
+                    </div>
+                    <div className='flex items-center justify-between mt-8'>
+                    <p className='font-Roboto'>Delivery Inside Dhaka:</p>
+                    <p className='text-[18px] font-Roboto'><span className='text-[17px] '>৳</span> 59.00</p>
                     </div>
                     <div className='border-b-2 border-b-zinc-300 mt-3'></div>
-                    <div className='flex items-center justify-between mt-8'>
-                    <p>Totals:</p>
-                    <p>$44</p>
-                    </div>
+
+                    {CartItem?.map((item, id) => (
+                        <div className='flex items-center justify-between mt-9'>
+                            <p>Totals MRP:</p>
+                            <p>{item.CartQuantity * Math.round(item.price - Math.floor((item.price * item.discountPercentage / 100)))}</p>
+                        </div>
+                    ))}
+
                     <div className='border-b-2 border-b-zinc-300 mt-3'></div>
+
+                    <div className='flex items-center justify-between mt-4'>
+                        <p>Total Amount:</p>
+                        <p>{TotalAmount}</p>
+                    </div>
 
                     <div className='mt-8 flex items-center gap-x-2'>
                     <p className='w-3 h-3 bg-[#19D16F] rounded-full '></p>
