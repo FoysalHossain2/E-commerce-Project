@@ -1,13 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { GrFormCheckmark } from "react-icons/gr";
 
 const shopByProductBrand = ({ProductBrand, ShopLeftTitle}) => {
+
+  const [HidePBrand, setHidePBrand] = useState(false)
+
+
+  // HandleHideMenu functionality
+  const HandleHideMenu = () => {
+    setHidePBrand(!HidePBrand)
+  }
+
+
+
+
   return (
     <>
     <div className='mt-[11px]'>
-        <h2 className='font-Josefin__Sans text-xl border-b-2 border-gray-400 w-[200px] text-secondary_text_color'>
+        <h2 className='font-Josefin__Sans text-xl border-b-2 border-gray-400 w-[200px] text-secondary_text_color cursor-pointer'  onClick={HandleHideMenu}>
           {ShopLeftTitle}
         </h2>
+        {HidePBrand &&
+        (
+
           <div className='mt-[11px]'>
             {ProductBrand?.map((items, id) => (
               <div key={id} className='flex items-center gap-x-3'>   
@@ -20,6 +35,7 @@ const shopByProductBrand = ({ProductBrand, ShopLeftTitle}) => {
               </div>
             ))}
           </div>
+        )}
 
     </div>
     </>

@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { IoStar } from "react-icons/io5";
-import { IoStarOutline } from "react-icons/io5";
-import { IoStarHalfOutline } from "react-icons/io5";
-import ProductRating from '../CommonComponent/ProductRating';
 import { FaMinus, FaPlus } from 'react-icons/fa';
 import { useNavigate, useParams } from 'react-router-dom';
 import {  useDispatch, useSelector } from 'react-redux'
 import { addToCart, ProductDecrement, ProductIncrement } from '../../Redux/AllSliceFunction/AddToCartSlice/AddToCartSlice';
 import { FetchDataProduct } from '../../Redux/AllSliceFunction/ProductsSlice/ProductsSlice';
 import Products from '../CommonComponent/Products';
+import ProductRatingStart from './ProductRatingStart';
 
 
 const ProductDetailsRight = () => {
@@ -77,7 +74,7 @@ const ProductDetailsRight = () => {
       
       {/*========= rating Review =========*/}
       <div className=' mt-5'>
-        <ProductRating ratingStar={EachCartItem.rating} />
+        <ProductRatingStart ratingStar={EachCartItem.rating} />
       </div>
       {/*========= rating Review =========*/}
 

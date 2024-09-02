@@ -7,6 +7,7 @@ const CheckoutComponent = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate()
     const {CartItem, TotalCartItem, TotalAmount} = useSelector((state) => state.cart)
+    const [CheckButton, setCheckButton] = useState(false)
 
 
 
@@ -118,8 +119,30 @@ const CheckoutComponent = () => {
                 DistrictError: "",
                 AddressError: "Address is required",
             })
+        } else {
+            setUserInfoError({
+                ...UserInfoError,
+                NameError:"",
+                EmailError: "",
+                PhoneNumberError:"",
+                CityError:"",
+                DivisionError:"",
+                DistrictError:"",
+                AddressError:"",
+            })
         }
       
+    }
+
+
+
+
+
+
+
+    // HandleCheckButton functionality
+    const HandleCheckButton = () => {
+        setCheckButton(!CheckButton)
     }
     
 
@@ -166,8 +189,8 @@ const CheckoutComponent = () => {
                     onChange={HandleOnChange}
                 />
 
-                {UserInfoError.NameError && (
-                    <p className='text-red-500'>{UserInfoError.NameError}</p>
+                {UserInfoError.EmailError && (
+                    <p className='text-red-500'>{UserInfoError.EmailError}</p>
                   )}   
 
                 </div>
@@ -186,8 +209,8 @@ const CheckoutComponent = () => {
                     onChange={HandleOnChange}
                     />
 
-                    {UserInfoError.NameError && (
-                    <p className='text-red-500'>{UserInfoError.NameError}</p>
+                    {UserInfoError.PhoneNumberError && (
+                    <p className='text-red-500'>{UserInfoError.PhoneNumberError}</p>
                   )}      
 
                 </div>
@@ -203,8 +226,8 @@ const CheckoutComponent = () => {
                     onChange={HandleOnChange}
                     />
 
-                    {UserInfoError.NameError && (
-                    <p className='text-red-500'>{UserInfoError.NameError}</p>
+                    {UserInfoError.CityError && (
+                    <p className='text-red-500'>{UserInfoError.CityError}</p>
                   )}      
 
                 </div>
@@ -229,8 +252,8 @@ const CheckoutComponent = () => {
                         <option value="Dhaka">Dhaka</option>
                     </select>
 
-                    {UserInfoError.NameError && (
-                    <p className='text-red-500'>{UserInfoError.NameError}</p>
+                    {UserInfoError.DivisionError && (
+                    <p className='text-red-500'>{UserInfoError.DivisionError}</p>
                   )}      
 
                 </div>
@@ -252,27 +275,30 @@ const CheckoutComponent = () => {
                         <option value="Manikgonj">Manikgonj</option>
                     </select>
 
-                    {UserInfoError.NameError && (
-                    <p className='text-red-500'>{UserInfoError.NameError}</p>
+                    {UserInfoError.DistrictError && (
+                    <p className='text-red-500'>{UserInfoError.DistrictError}</p>
                   )}      
 
                 </div>
             </div>
 
             <div className='mt-4'>
-                <input 
-                    type="text" 
-                    name='Address' 
-                    id='Address' 
-                    placeholder='Address' 
-                    className={`pl-2 border-2 border-slate-200 w-[336px] py-3 rounded-xl${UserInfoError.AddressError ? 'border-2 border-red-400 rounded-xl' : 'border-2 border-slate-200 rounded-xl'}`}
-                    value={UserInfo.Address}
-                    onChange={HandleOnChange}
-                />
+                <div className='flex flex-col'>
+                    <label > Address </label>
+                    <input 
+                        type="text" 
+                        name='Address' 
+                        id='Address' 
+                        placeholder='Address' 
+                        className={`pl-2 border-2 border-slate-200 w-[336px] py-3 rounded-xl${UserInfoError.AddressError ? 'border-2 border-red-400 rounded-xl' : 'border-2 border-slate-200 rounded-xl'}`}
+                        value={UserInfo.Address}
+                        onChange={HandleOnChange}
+                    />
 
-                {UserInfoError.NameError && (
-                    <p className='text-red-500'>{UserInfoError.NameError}</p>
-                  )}      
+                    {UserInfoError.AddressError && (
+                        <p className='text-red-500'>{UserInfoError.AddressError}</p>
+                    )}      
+                </div>
 
             </div>
 
@@ -298,15 +324,47 @@ const CheckoutComponent = () => {
 
             <div className=''>
                  {/* ======= Total & sunTotal =========== */}
-                <div className='w-[340px] bg-[#E8E6F1] h-[400px] py-3 px-5'>
+                <div className='w-[360px] bg-[#F8F8FD] h-[440px] rounded-md py-4 px-5'>
+
                     <div className='flex items-center justify-between mt-8'>
-                    <p className='font-Roboto'>Delivery Outside Dhaka:</p>
-                    <p className='text-[18px] font-Roboto'><span className='text-[17px] '>৳</span> 109.00</p>
+                        <div className='flex items-center gap-x-3'>
+                            
+                                {CheckButton === true ? (
+                                    <div className='w-[15px] h-[15px] border-2 border-zinc-400 rounded-full cursor-pointer' onClick={HandleCheckButton}></div>
+
+                                ) : (
+                                    <div className='flex items-center gap-x-2'>
+                                        <div className='border border-button_Color w-[15px] h-[15px] rounded-full flex items-center justify-center align-middle'>
+                                            <div className='bg-button_Color w-2 h-2 rounded-full flex items-center justify-center align-middle'></div>
+                                        </div>
+                                    </div> 
+                                )}
+
+                                <p className='font-Roboto cursor-pointer'  onClick={HandleCheckButton}>Delivery Outside Dhaka:</p>
+                        </div>
+                        <p className='text-[18px] font-Roboto'><span className='text-[17px] '>৳</span> 109.00</p>
                     </div>
-                    <div className='flex items-center justify-between mt-8'>
-                    <p className='font-Roboto'>Delivery Inside Dhaka:</p>
-                    <p className='text-[18px] font-Roboto'><span className='text-[17px] '>৳</span> 59.00</p>
+
+                    <div className='flex items-center justify-between mt-2'>
+                        <div className='flex items-center gap-x-3'>
+                            
+                                {CheckButton === false ? (
+                                    <div className='w-[15px] h-[15px] border-2 border-zinc-400 rounded-full cursor-pointer' onClick={HandleCheckButton}></div>
+
+                                ) : (
+                                    <div className='flex items-center gap-x-2'>
+                                        <div className='border border-button_Color w-[15px] h-[15px] rounded-full flex items-center justify-center align-middle'>
+                                            <div className='bg-button_Color w-2 h-2 rounded-full flex items-center justify-center align-middle'></div>
+                                        </div>
+                                    </div> 
+                                )}
+
+                                <p className='font-Roboto cursor-pointer'  onClick={HandleCheckButton}>Delivery Inside Dhaka:</p>
+                        </div>
+                        <p className='text-[18px] font-Roboto'><span className='text-[17px] '>৳</span> 59.00</p>
                     </div>
+
+
                     <div className='border-b-2 border-b-zinc-300 mt-3'></div>
 
                     {CartItem?.map((item, id) => (
@@ -328,7 +386,7 @@ const CheckoutComponent = () => {
                     <p className='text-[14px] font-Josefin__Sans'>Shipping & taxes calculated at checkout</p>
                     </div>
                     {/* --- Proceed To Checkout button --- */}
-                    <div className='mt-8'>
+                    <div className='mt-8 mb-8'>
                         <button className='bg-[#19D16F] py-3 w-full rounded text-white font-Roboto font-bold hover:bg-green-600'  onClick={HandleOderButton}>
                           PLACE ORDER
                         </button>

@@ -214,7 +214,7 @@ const Header = () => {
               {/* ================== Responsive Design part =================== */}
 
 
-            {/*------ Search option --------*/}
+            {/*====================== Search option ======================*/}
               <div  class="lg:max-w-[600px] max-md:max-w-[700px] w-full max-sm:mt-2 md:mt-4 max-md:mt-4 lg:mt-0">
                 <div class="relative flex">
                     <input 
@@ -240,10 +240,10 @@ const Header = () => {
                   } 
                 </div>
             </div>
-            {/*------ Search option --------*/}
+            {/*====================== Search option ======================*/}
 
 
-            {/* ======== sing in , login & other option =========== */}
+            {/* ====================== sing in , login & other option ====================== */}
             <div className=' max-sm:hidden md:hidden max-md:hidden lg:block '>
               <div className='flex items-center gap-x-4 '>
 
@@ -282,7 +282,7 @@ const Header = () => {
 
               </div>
             </div>
-            {/* ======== sing in , login & other option =========== */}
+            {/* ============================= sing in , login & other option ============================= */}
 
         </div>
       </div>

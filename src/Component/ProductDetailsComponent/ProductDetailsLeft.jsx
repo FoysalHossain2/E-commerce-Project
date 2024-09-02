@@ -4,6 +4,8 @@ import Slider from "react-slick";
 
 
 const ProductDetailsLeft = ({EachProductsDetailsImg, status}) => {
+    console.log(EachProductsDetailsImg);
+    
 
     
     // custom Slider
