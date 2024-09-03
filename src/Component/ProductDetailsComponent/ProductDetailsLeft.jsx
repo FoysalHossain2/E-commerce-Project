@@ -37,7 +37,7 @@ const ProductDetailsLeft = ({EachProductsDetailsImg, status}) => {
                 <p onClick={HandlePevChange} className='w-16 border hover:bg-button_Color'>Previews</p>
                 <p onClick={HandleNextChange}  className='w-10 border hover:bg-button_Color'>Next</p>
 
-                <div className='border-b'>
+                <div className='border-b max-md:flex max-md:justify-center'>
                     {status === 'LOADING'
                         ?
                         (

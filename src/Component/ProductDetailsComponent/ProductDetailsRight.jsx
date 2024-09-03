@@ -6,6 +6,7 @@ import { addToCart, ProductDecrement, ProductIncrement } from '../../Redux/AllSl
 import { FetchDataProduct } from '../../Redux/AllSliceFunction/ProductsSlice/ProductsSlice';
 import Products from '../CommonComponent/Products';
 import ProductRatingStart from './ProductRatingStart';
+import { IoIosHeartEmpty } from "react-icons/io";
 
 
 const ProductDetailsRight = () => {
@@ -142,11 +143,17 @@ const ProductDetailsRight = () => {
 
       {/*============= addToCart =============*/}
         <div className='flex items-center gap-x-3 mt-4'>
-            <div className='w-[250px] py-3 bg-button_Color text-center font-Roboto font-bold text-white text-[20px] cursor-pointer' onClick={HandleAddToCart}>
+            <div className='w-[200px] py-3 bg-button_Color text-center font-Roboto font-bold text-white text-[20px] cursor-pointer' onClick={HandleAddToCart}>
               ADD TO CART 
             </div>
-          <div className='w-[250px] py-3 bg-green-600 text-center font-Roboto font-bold text-white text-[20px] cursor-pointer'>
+          <div className='w-[200px] py-3 bg-green-600 text-center font-Roboto font-bold text-white text-[20px] cursor-pointer'>
              BUY NOW
+          </div>
+
+          <div>
+            <div className='border px-3 py-3 text-[27px] bg-slate-800 text-white cursor-pointer'>
+              <IoIosHeartEmpty />
+            </div>
           </div>
         </div>
       {/*============= addToCart =============*/}

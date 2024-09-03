@@ -23,8 +23,8 @@ const ProductRatingStart = ({ratingStar}) => {
 
   return (
     <>
-    <div>
-      <p className='flex text-yellow-400'>{starRating}</p>
+    <div className='flex items-center gap-x-2'>
+      <p className='flex text-yellow-500'>{starRating}</p>
       <p>{ratingStar}</p>
     </div>
     </>

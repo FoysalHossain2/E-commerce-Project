@@ -7,9 +7,10 @@ import { Link, useParams } from 'react-router-dom'
 import { IoStar } from "react-icons/io5";
 import { IoStarOutline } from "react-icons/io5";
 import { IoStarHalfOutline } from "react-icons/io5";
+import ProductRatingStart from '../ProductDetailsComponent/ProductRatingStart'
 
 
-const Products = ({title,price, image, bize , productId, discountPrice, GrideChange}) => {
+const Products = ({title,price, image, ratingStar , bize , productId, discountPrice, GrideChange}) => {
   
 
 
@@ -69,11 +70,11 @@ const Products = ({title,price, image, bize , productId, discountPrice, GrideCha
                   {title }
                 </p>
 
-                <p className='flex mt-6'>
-                  <IoStarOutline />
-                  <IoStarOutline />
-                  <IoStarOutline />
-                </p>
+                <div className='flex mt-6'>
+                  <ProductRatingStart 
+                      ratingStar={ratingStar}
+                  />
+                </div>
 
               </div>
 
@@ -93,7 +94,7 @@ const Products = ({title,price, image, bize , productId, discountPrice, GrideCha
        (
         <Link to={`/productDetails/${productId}`}>
           <div className='border rounded-lg group'>
-          <div className=' h-[270px] xl:w-[255px] 
+          <div className=' h-[280px] xl:w-[255px] 
           lg:w-[230px] 
           md:w-[350px] max-md:w-[290px]
           max-sm:w-[164px] max-sm:h-[180px] 
@@ -139,7 +140,7 @@ const Products = ({title,price, image, bize , productId, discountPrice, GrideCha
                 </div>
               {/* ---------------overlay-------------- */}
           </div>
-            <div className=' mt-1  h-[140px] xl:w-[255px] lg:w-[230px] md:w-[350px] max-md:w-[290px] max-sm:w-[170px] px-3
+            <div className=' mt-1  h-[150px] xl:w-[255px] lg:w-[230px] md:w-[350px] max-md:w-[290px] max-sm:w-[170px] px-3
               xsm:w-[180px] 
             '>
 
@@ -155,6 +156,10 @@ const Products = ({title,price, image, bize , productId, discountPrice, GrideCha
                       {price ? price : '$44.00'}
                   </p>
                 </div>
+
+                <ProductRatingStart 
+                  ratingStar={ratingStar}
+                 />
 
             </div>
           </div>

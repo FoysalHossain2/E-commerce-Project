@@ -27,7 +27,10 @@ const ProductDetails = () => {
     if (status == 'IDLE') {
       setEachProductsDetails(data)
     }
-  }, [data, status])
+  }, [data, status, setEachProductsDetails])
+
+  console.log(EachProductsDetails);
+  
   
   
 

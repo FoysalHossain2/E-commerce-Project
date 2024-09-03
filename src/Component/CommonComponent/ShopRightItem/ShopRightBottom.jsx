@@ -11,13 +11,14 @@ import { ShopPageChangeContext } from '../../ShopComponent/ShopRight/ShopRight';
 
 const ShopRightBottom = () => {
 
+  
   const {PageChange, GrideChange} = useContext(ShopPageChangeContext);
-
 
   const dispatch = useDispatch();
   const [AllProducts, setAllProducts] = useState([]);
   const [Page, setPage] = useState(1)
   // const [Page, setPage] = useState(9)
+  
 
   
   useEffect(() => {
@@ -81,6 +82,7 @@ const ShopRightBottom = () => {
                   title={productItems. description}
                   price={`$${Math.round(productItems.price)}`}
                   discountPrice= { Math.round(productItems.price - Math.floor((productItems.price * productItems.discountPercentage / 100)))}
+                  ratingStar={productItems.rating}
                   productId={productItems.id}
                   GrideChange={GrideChange}
                   />

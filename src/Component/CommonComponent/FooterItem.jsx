@@ -5,13 +5,12 @@ const FooterItem = ({allItems=['One', 'Two', 'Three', 'Four', 'Five'], title}) =
     <>
     <div>
         <div className="container mx-auto">
-            <h2 className='font-DM_Sans font-bold pb-6 text-[24px]'>
+            <h2 className='font-DM_Sans font-bold pb-6 text-[24px] text-button_Color'>
                 {title}
             </h2>
 
             <ul>
                 {allItems?.map((item, index) => (
-                  
                 <li key={index} className='font-DM_Sans font-normal text-white pb-4 cursor-pointer hover:underline'>
                     {item}
                 </li>

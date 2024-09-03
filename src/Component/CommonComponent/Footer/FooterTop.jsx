@@ -4,6 +4,7 @@ import QRcode from '../../../assets/FooterImg/QRcode.png'
 import AppelAppStore from '../../../assets/FooterImg/AppelAppStore.png'
 import googlePlayStor from '../../../assets/FooterImg/googlePlayStor.png'
 import { FaFacebookF, FaLinkedinIn, FaInstagram, FaDiscord } from "react-icons/fa";
+import { Link } from 'react-router-dom'
 
 
 
@@ -17,17 +18,19 @@ const FooterTop = () => {
           <div className='flex gap-x-[75px] max-sm:flex-col'>
 
             <div>
-              <h1 className='font-DM_Sans font-bold pb-6 text-[24px]'>
-                Shop.com
-              </h1>
-              <p className='pb-6 font-DM_Sans text-[20px] font-medium'>
+              <Link to={'/'}>
+                <h1 className='font-DM_Sans font-bold pb-6 text-[34px] cursor-pointer w-[160px] h-[52px] text-green-500 '>
+                  Shop.com
+                </h1>
+              </Link>
+              <p className='pb-6 font-DM_Sans text-[20px] font-medium pt-6'>
                 Subscribe
               </p>
               <p className='font-DM_Sans text-[16px]'>Get 10% off your first order</p>
             </div>
 
             <div>
-              <h1 className='font-DM_Sans font-bold pb-6 text-[24px]'>
+              <h1 className='font-DM_Sans font-bold pb-6 text-[24px] text-button_Color'>
                 Support
               </h1>
               <p className='font-DM_Sans pb-4'>111 Bijoy sarani, Dhaka, <br />  DH 1515, Bangladesh.</p>
@@ -62,7 +65,7 @@ const FooterTop = () => {
             />
 
             <div>
-              <h1 className='font-DM_Sans font-bold pb-6 text-[24px]'>
+              <h1 className='font-DM_Sans font-bold pb-6 text-[24px] text-button_Color'>
                 Download App
               </h1>
               <p className='font-Josefin__Sans pb-2'>Save $3 with App New User Only</p>

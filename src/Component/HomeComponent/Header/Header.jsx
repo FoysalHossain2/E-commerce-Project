@@ -215,16 +215,16 @@ const Header = () => {
 
 
             {/*====================== Search option ======================*/}
-              <div  class="lg:max-w-[600px] max-md:max-w-[700px] w-full max-sm:mt-2 md:mt-4 max-md:mt-4 lg:mt-0">
+              <div  class="lg:max-w-[500px] max-md:max-w-[700px] w-full max-sm:mt-2 md:mt-4 max-md:mt-4 lg:mt-0">
                 <div class="relative flex">
                     <input 
                     type="text"
                         name="q" 
-                        class="w-full border py-[6px] shadow rounded-l-full dark:text-gray-800 border-button_Color dark:bg-gray-200 pl-4" 
+                        class="w-full border py-[8px] shadow rounded-l-full dark:text-gray-800 border-button_Color dark:bg-gray-200 pl-4" 
                         placeholder="search product"
                         onChange={HandleSearch}
                     />
-                    <button type="submit"  className=' bg-button_Color py-[6px] rounded-r-full hover:bg-pink-600 '>
+                    <button type="submit"  className=' bg-button_Color py-[8px] rounded-r-full hover:bg-pink-600 '>
                     <HiOutlineSearch 
                       className='ml-3 text-[23px] 
                       cursor-pointer mr-3
