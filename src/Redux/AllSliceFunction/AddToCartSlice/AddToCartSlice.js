@@ -50,7 +50,18 @@ export const AddToCartSlice = createSlice({
     GetTotalAmount: (state, action) => {
       const totalCartItems = state.CartItem.reduce((totalItem, CartItem) => {
         const {CartQuantity, price} = CartItem
-        const totalPrice = CartQuantity * price + 99 
+        const totalPrice = CartQuantity * price 
+        // if (totalPrice) {
+        //   totalPrice + 99
+        //   console.log(totalPrice + 99);
+          
+        // } else if (totalPrice) {
+        //   totalPrice + 59
+        //   console.log(totalPrice + 59);
+          
+        // } else {
+        //   totalPrice
+        // }
         totalItem.totalAmount += Math.ceil(totalPrice)
         totalItem.totalCart += CartQuantity
         return totalItem

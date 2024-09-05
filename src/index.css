@@ -55,13 +55,11 @@
     .no-scroll {
         overflow: hidden;
     }
-    
-    .textF {
-        font-size: 40px;
-    }
 
-    .MuiSlider-thumb {
-        color: #FFF;
+    .slick-dots ul .slick-active div  {
+        border-right: 4px solid #000 !important;
+        width: 16px;
+        padding: 20px 0;
     }
 
 }

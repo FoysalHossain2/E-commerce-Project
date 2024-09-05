@@ -6,14 +6,13 @@ import { IoStarHalfOutline } from "react-icons/io5";
 
 
 const ProductRatingStart = ({ratingStar}) => {
-
-    console.log(ratingStar);
+  
     
     const starRating = Array.from({length: 5}, (x,index) => {
         const FractionIndex = index + 0.5
-        debugger
+
         return(
-            <span>
+            <span key={index}>
                 {(ratingStar >= index + 1 ? <IoStar /> : ratingStar >= FractionIndex ? <IoStarHalfOutline /> : <IoStarOutline />) }
             </span>
         )

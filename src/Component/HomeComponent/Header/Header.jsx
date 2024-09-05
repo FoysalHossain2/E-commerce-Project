@@ -243,7 +243,7 @@ const Header = () => {
             {/*====================== Search option ======================*/}
 
 
-            {/* ====================== sing in , login & other option ====================== */}
+            {/* ====================== singIn , login & other option ====================== */}
             <div className=' max-sm:hidden md:hidden max-md:hidden lg:block '>
               <div className='flex items-center gap-x-4 '>
 
@@ -292,11 +292,11 @@ const Header = () => {
 
 
     {/* sideShowMenu Btn */}
-    <div className='bg-[#F6F5FF] py-2 max-sm:hidden md:hidden max-md:hidden lg:block'>
+    <div className='bg-[#F6F5FF] py-1 max-sm:hidden md:hidden max-md:hidden lg:block'>
       <div className='container mx-auto'>
         <div className='flex items-center gap-x-4 text-center'>
           <IoMenu onClick={HandleSideMenu} className='cursor-pointer text-2xl'  />
-          <p className='font-Josefin__Sans font-bold text-[15px]'>ALL  Categories</p>
+          <p className='font-Josefin__Sans font-bold text-[15px]'>ALL</p>
         </div>
        </div>
     </div>

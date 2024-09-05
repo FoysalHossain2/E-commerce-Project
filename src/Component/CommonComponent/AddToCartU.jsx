@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom'
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaMinus, FaPlus } from 'react-icons/fa';
 import { addToCart, ProductDecrement, ProductIncrement, RemoveCart } from '../../Redux/AllSliceFunction/AddToCartSlice/AddToCartSlice';
@@ -114,21 +115,27 @@ const AddToCartU = () => {
                 ))}
 
 
-                <div className='w-[382px] max-sm:w-[300px] fixed lg:top-[246px] max-sm:top-[40px] sm:top-[40px] bottom-0'>
-                    <div className='bg-slate-400 mt-[530px] py-5 px-2 '>
-                        <p className='text-center font-Josefin__Sans mb-2'>
-                            Cart Total: <span className='text-orange-400 text-[26px]'>{TotalAmount}</span>
-                        </p>
-                        <div className='flex justify-between'>
-                            <button className='bg-green-400 px-3 py-2 rounded-lg text-white font-Roboto'>
-                                ViewToCart
-                            </button>
-                            <button className='bg-gray-800 px-3 py-2 rounded-lg text-white font-Roboto'>
-                                PROCEED
-                            </button>
+                <div className='md:top-[272px] fixed lg:top-[24px]  max-md:top-[60px]  max-sm:top-[10px] sm:mt-[50px]  bottom-0 '>
+                    <div className='w-[382px] max-sm:w-[300px] '>
+                        <div className='bg-slate-400 mt-[530px] py-5 px-2 '>
+                            <p className='text-center font-Josefin__Sans mb-2'>
+                                Cart Total: <span className='text-orange-400 text-[26px]'>{TotalAmount}</span>
+                            </p>
+                            <div className='flex justify-between'>
+                                <button className='bg-green-400 px-3 py-2 rounded-lg text-white font-Roboto'>
+                                    ViewToCart
+                                </button>
+
+                                <Link to={'/checkout'}>
+                                    <button className='bg-gray-800 px-3 py-2 rounded-lg text-white font-Roboto'>
+                                        PROCEED
+                                    </button>
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         
     </div>

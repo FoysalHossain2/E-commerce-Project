@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { GrFormCheckmark } from "react-icons/gr";
 
-const ShopByCategories = ({ CatagoriesData, ShopLeftTitle, AllProducts }) => {
+const ShopByCategories = ({ CatagoriesData, ShopLeftTitle, AllProducts, setCateName }) => {
 
     const [ShowCategories, setShowCategories] = useState([]);
-    const [CategoryData, setCategoryData] = useState(CatagoriesData)
     
-    console.log(CategoryData);
-    
-    
+
     
     useEffect(() => {
         if (CatagoriesData.length > 0) {
@@ -26,18 +23,6 @@ const ShopByCategories = ({ CatagoriesData, ShopLeftTitle, AllProducts }) => {
 };
 
 
-    
-    const HandleSetCateName = (cateItem) => {
-        console.log("Selected Category:", cateItem);
-        const CatResult = CatagoriesData.filter((curData) =>{
-            console.log("Checking Product Category:", curData.category);
-            return curData.category === cateItem;
-        });
-        
-    
-        setCategoryData(CatResult);
-        console.log("Filtered Result:", CatResult);
-    }
 
 
 
@@ -53,7 +38,7 @@ const ShopByCategories = ({ CatagoriesData, ShopLeftTitle, AllProducts }) => {
                         value.subCategory.length > 0 ? (
                             <div key={index}>
 
-                                <div  onClick={() => HandleSetCateName (value)}>
+                                <div >
                                     <div className='flex items-center gap-x-3' onClick={() => HandleToggal (index)}>
                                         <div className='w-4 h-4 border bg-[#FFDBF1] flex items-center'>
                                             <GrFormCheckmark className='text-[#FF3EB2] textF cursor-pointer' />
@@ -69,7 +54,7 @@ const ShopByCategories = ({ CatagoriesData, ShopLeftTitle, AllProducts }) => {
                                             value.subCategory.map((subitem, id) => (
                                                 subitem !== value.title && (
                                                     <div key={id}>
-                                                        <h2 className='py-2 text-Paragraph__Color cursor-pointer' onClick={() => HandleSetCateName (subitem)}>{subitem}</h2>
+                                                        <h2 className='py-2 text-Paragraph__Color cursor-pointer' onClick={() => setCateName(subitem)}>{subitem}</h2>
                                                     </div>
                                                 )                                             
                                             ))}

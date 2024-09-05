@@ -7,7 +7,9 @@ const CheckoutComponent = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate()
     const {CartItem, TotalCartItem, TotalAmount} = useSelector((state) => state.cart)
-    const [CheckButton, setCheckButton] = useState(false)
+    const [CheckOutSight, setCheckOutSight] = useState(false)
+    const [CheckInSight, setCheckInSight] = useState(false)
+    
 
 
 
@@ -136,15 +138,27 @@ const CheckoutComponent = () => {
 
 
 
-
-
+    const [TotalOutA, setTotalOutA] = useState([])
+    const [TotalInA, setTotalInA] = useState([])
+    
 
 
     // HandleCheckButton functionality
-    const HandleCheckButton = () => {
-        setCheckButton(!CheckButton)
+    const HandleCheckOutButton = () => {
+        setCheckOutSight(!CheckOutSight)
+        setCheckInSight(false)
+        const OutSightTotalAmount = TotalAmount + 109        
+        setTotalOutA(OutSightTotalAmount)
     }
     
+
+    // HandleCheckInButton that's mean insight functionality
+    const HandleCheckInButton = () => {
+        setCheckInSight(!CheckInSight)
+        setCheckOutSight(false)
+        const OutSightTotalAmount = TotalAmount + 59
+        setTotalInA(OutSightTotalAmount)
+    }
 
 
 
@@ -329,18 +343,18 @@ const CheckoutComponent = () => {
                     <div className='flex items-center justify-between mt-8'>
                         <div className='flex items-center gap-x-3'>
                             
-                                {CheckButton === true ? (
-                                    <div className='w-[15px] h-[15px] border-2 border-zinc-400 rounded-full cursor-pointer' onClick={HandleCheckButton}></div>
-
-                                ) : (
+                                {CheckOutSight  ? (
+                                    
                                     <div className='flex items-center gap-x-2'>
                                         <div className='border border-button_Color w-[15px] h-[15px] rounded-full flex items-center justify-center align-middle'>
                                             <div className='bg-button_Color w-2 h-2 rounded-full flex items-center justify-center align-middle'></div>
                                         </div>
                                     </div> 
+                                ) : (
+                                    <div className='w-[15px] h-[15px] border-2 border-zinc-400 rounded-full cursor-pointer' onClick={HandleCheckOutButton}></div>
                                 )}
 
-                                <p className='font-Roboto cursor-pointer'  onClick={HandleCheckButton}>Delivery Outside Dhaka:</p>
+                                <p className='font-Roboto cursor-pointer'  onClick={HandleCheckOutButton}>Delivery Outside Dhaka:</p>
                         </div>
                         <p className='text-[18px] font-Roboto'><span className='text-[17px] '>৳</span> 109.00</p>
                     </div>
@@ -348,18 +362,18 @@ const CheckoutComponent = () => {
                     <div className='flex items-center justify-between mt-2'>
                         <div className='flex items-center gap-x-3'>
                             
-                                {CheckButton === false ? (
-                                    <div className='w-[15px] h-[15px] border-2 border-zinc-400 rounded-full cursor-pointer' onClick={HandleCheckButton}></div>
-
-                                ) : (
+                                {CheckInSight  ? (
+                                    
                                     <div className='flex items-center gap-x-2'>
                                         <div className='border border-button_Color w-[15px] h-[15px] rounded-full flex items-center justify-center align-middle'>
                                             <div className='bg-button_Color w-2 h-2 rounded-full flex items-center justify-center align-middle'></div>
                                         </div>
                                     </div> 
+                                ) : (
+                                    <div className='w-[15px] h-[15px] border-2 border-zinc-400 rounded-full cursor-pointer' onClick={HandleCheckInButton}></div>
                                 )}
 
-                                <p className='font-Roboto cursor-pointer'  onClick={HandleCheckButton}>Delivery Inside Dhaka:</p>
+                                <p className='font-Roboto cursor-pointer'  onClick={HandleCheckInButton}>Delivery Inside Dhaka:</p>
                         </div>
                         <p className='text-[18px] font-Roboto'><span className='text-[17px] '>৳</span> 59.00</p>
                     </div>
@@ -367,18 +381,22 @@ const CheckoutComponent = () => {
 
                     <div className='border-b-2 border-b-zinc-300 mt-3'></div>
 
-                    {CartItem?.map((item, id) => (
-                        <div className='flex items-center justify-between mt-9'>
+                        <div className='flex items-center justify-between mt-9' >
                             <p>Totals MRP:</p>
-                            <p>{item.CartQuantity * Math.round(item.price - Math.floor((item.price * item.discountPercentage / 100)))}</p>
+                        {CartItem?.map((item, id) => (
+                            <div key={id}>
+                                <p>{item.CartQuantity * Math.round(item.price - Math.floor((item.price * item.discountPercentage / 100)))}</p>
+                            </div>
+                        ))}
                         </div>
-                    ))}
 
                     <div className='border-b-2 border-b-zinc-300 mt-3'></div>
 
                     <div className='flex items-center justify-between mt-4'>
                         <p>Total Amount:</p>
-                        <p>{TotalAmount}</p>
+                        <p>
+                            {TotalOutA ? TotalOutA : TotalInA}
+                        </p>
                     </div>
 
                     <div className='mt-8 flex items-center gap-x-2'>

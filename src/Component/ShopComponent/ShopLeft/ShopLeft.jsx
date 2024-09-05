@@ -21,6 +21,11 @@ const ShopLeft = ({ className }) => {
   useEffect(() => {
     dispatch(FetchDataProduct('https://dummyjson.com/products?limit=1000'));
   }, [])
+
+  // useEffect(() => {
+  //   dispatch(FetchDataProduct(`https://dummyjson.com/products/category/${CateName}`));
+  // }, [])
+  
   
 
 
@@ -28,17 +33,18 @@ const ShopLeft = ({ className }) => {
     if(status === 'IDLE') {
       setAllProducts(data.products);
     }
-  }, [data, status]);
+  }, [data, status, setAllProducts]);
 
 
-  // useEffect(() => {
-  //   if (CateName !== '') {
-  //     dispatch(FetchDataProduct(`https://dummyjson.com/products?limit=1000${CateName}`));
-  //     setAllProducts(data.products);
-  //     console.log('Hello');
-  //   }
+  useEffect(() => {
+    if (CateName !== '') {
+      dispatch(FetchDataProduct(`https://dummyjson.com/products/${CateName}`));
+      setAllProducts(data.products);
+      console.log('Hello');
+    }
     
-  // }, [CateName])
+    
+  }, [CateName])
   
 
 
@@ -111,6 +117,7 @@ const ShopLeft = ({ className }) => {
             <ShopByCategories CatagoriesData={CategoryArr ? CategoryArr : []}  
               ShopLeftTitle={'Product Categories'}
               AllProducts={AllProducts}
+              setCateName={setCateName}
             />
           </div>
           <div>

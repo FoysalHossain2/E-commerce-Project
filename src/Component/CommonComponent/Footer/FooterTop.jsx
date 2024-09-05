@@ -14,8 +14,8 @@ const FooterTop = () => {
      <div className='pt-20 pb-14'>
       <div className="container mx-auto">
 
-        <div className='text-white'>
-          <div className='flex gap-x-[75px] max-sm:flex-col'>
+        <div className='text-white max-sm:px-2 lg:px-3'>
+          <div className='xl:flex xl:justify-between lg:flex lg:gap-x-[35px] max-sm:flex-col'>
 
             <div>
               <Link to={'/'}>
@@ -27,9 +27,13 @@ const FooterTop = () => {
                 Subscribe
               </p>
               <p className='font-DM_Sans text-[16px]'>Get 10% off your first order</p>
+
+              <hr className='mt-4 ' />
+
             </div>
 
-            <div>
+            {/* ===== Support part ====== */}
+            <div className='max-sm:mt-10'>
               <h1 className='font-DM_Sans font-bold pb-6 text-[24px] text-button_Color'>
                 Support
               </h1>
@@ -37,6 +41,7 @@ const FooterTop = () => {
               <p className='font-DM_Sans pb-4'>fh375170@gmail.com</p>
               <p className='font-DM_Sans'>+88015-88888-9999</p>
             </div>
+            {/* ===== Support part ====== */}
 
             <FooterItem
               title={'Account'}
@@ -64,7 +69,7 @@ const FooterTop = () => {
               }  
             />
 
-            <div>
+            <div className='max-sm:mt-10'>
               <h1 className='font-DM_Sans font-bold pb-6 text-[24px] text-button_Color'>
                 Download App
               </h1>
@@ -93,12 +98,11 @@ const FooterTop = () => {
             </div>
           </div>
 
-            <div className='pt-12'>
-              <div className='border-t-2'>
-                <p className='text-white text-center pt-6'>Copyright Foysal 2024. All right reserved</p>
-            </div>
-
-        </div>
+            <div className='pt-12 max-sm:px-2 lg:px-3'>
+                <div className='border-t-2'>
+                  <p className='text-white text-center pt-6'>Copyright Foysal 2024. All right reserved</p>
+              </div>
+           </div>
 
       </div>
      </div>

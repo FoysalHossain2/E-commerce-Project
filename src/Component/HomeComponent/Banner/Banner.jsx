@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import BannerImg from '../../../assets/BannerImg.png'
 import BannerImg2 from '../../../assets/BannerImg2.png'
-import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import { Link } from 'react-router-dom';
@@ -28,63 +27,59 @@ const Banner = ({SlideshowMenu}) => {
     },
   ]
 
-
   
-  const [currentSlide , setCurrentSlide] = useState(1)
 
-  let settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    autoplay: true,
-    appendDots: dots => (
-      <div
-        style={{
-          position: "absolute",
-          padding: "10px",
-          top: "50%",
-          left: "6%",
-          transform: "translateY(-50%)",
-        }}
-      >
-        <ul style={{ margin: "0px" }}> {dots} </ul>
-      </div>
-    ),
-
-    beforeChange: (currentSlideNumber , nextCurrentSlideNumber) => {
-      setCurrentSlide(nextCurrentSlideNumber + 1);
-    },
-
-
-    customPaging: (i) => (
-      <>
-        {i <= 3 && ( 
+    const settings = {
+      dots: true,
+      infinite: true,
+      arrows: false,
+      autoplay: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      appendDots: dots => (
+        <div
+          style={{
+            color: '#FB2E86',
+            padding: "10px",
+            display: "flex",
+            justifyContent: "center",
+            position: "absolute",
+            padding: "10px",
+            top: "97%",
+            left: "50%",
+            transform: "translateY(-50%)",
+            flexWrap: 'wrap'
+          }}
+        >
+          <ul style={{ margin: "0px", display: "flex", gap: "10px",  }}> {dots} </ul>
+        </div>
+      ),
+      customPaging: (i) => {
+        return (
           <div
-            style={                
-               i + 3               
-               ?{
-                  width: "36px",
-                  padding: "20px 0",
-                  borderRight: "4px solid #fff",
-                }
-                :
-                {                    
-                  width: "36px",
-                  padding: "20px 0",
-                  borderRight: "4px solid #fff",
-                }
-                
-            }
-           >
-           { i + 1 === 4 ? `${i + 1}...` : `0${i + 1}` } 
-         </div>
-        ) }
-    
-      </>
-    ),
+            style={{
+              width: "16px",
+              height: "16px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              color: "#FB2E86",
+              borderRadius: "50%",
+              cursor: "pointer",
+              backgroundColor: "gray",
+              color: "gray"
+            }}
+          >
+            {i + 1}
+          </div>
+        );
+      }
+    };
+   
+
+
+
 
     responsive: [
       {
@@ -115,7 +110,7 @@ const Banner = ({SlideshowMenu}) => {
         }
       }
     ]
-  };
+  
 
 
 

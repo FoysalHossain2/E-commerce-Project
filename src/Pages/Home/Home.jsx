@@ -11,13 +11,15 @@ import Furniture from '../../Component/HomeComponent/Furniture/Furnituar'
 const Home = () => {
   return (
     <>
-    <Banner />
-    <Shipping />
-    {/* <Add /> */}
-    <Categories />
-    <Furniture />
-    <NewArrival headingTitle='NewArrival' />
-    <NewArrival headingTitle='Just For You' />
+    <div className='bg-zinc-100'>
+      <Banner />
+      <Shipping />
+      {/* <Add /> */}
+      <Categories />
+      <Furniture />
+      <NewArrival headingTitle='NewArrival' />
+      <NewArrival headingTitle='Just For You' />
+    </div>
     </>
   )
 }

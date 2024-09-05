@@ -120,7 +120,7 @@ const Cart = () => {
             </div>
             </div>
 
-            {/* ======= Total & sunTotal =========== */}
+            {/* ======= Total & subTotal =========== */}
               <div className='w-[340px] bg-[#E8E6F1] h-[300px] px-5'>
                 <div className='flex items-center justify-between mt-8'>
                   <p>SubTotal:</p>
@@ -145,7 +145,7 @@ const Cart = () => {
                   </div>
                 {/* --- Proceed To Checkout button --- */}
               </div>
-            {/* ======= Total & sunTotal =========== */}
+            {/* ======= Total & subTotal =========== */}
         </div>
       </div>
     </div>

@@ -5,9 +5,9 @@ import Products from '../../CommonComponent/Products'
 const NewArrival = ({headingTitle}) => {
   return (
     <>
-     <div className=''>
+     <div className='mt-[100px]'>
       <div className="container mx-auto">
-            <h1 className='font-bold text-[38px] font-DM_Sans text-main_text_color pb-14 mt-[128px]'>
+            <h1 className='font-bold text-[38px] font-DM_Sans text-main_text_color pb-14'>
               {headingTitle ? headingTitle : headingTitle} 
             </h1>
 
