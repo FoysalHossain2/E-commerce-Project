@@ -28,9 +28,6 @@ const ProductDetails = () => {
       setEachProductsDetails(data)
     }
   }, [data, status, setEachProductsDetails])
-
-  console.log(EachProductsDetails);
-  
   
   
 

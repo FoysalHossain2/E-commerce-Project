@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import BannerImg from '../../../assets/BannerImg.png'
 import BannerImg2 from '../../../assets/BannerImg2.png'
+import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import { Link } from 'react-router-dom';
@@ -34,7 +35,7 @@ const Banner = ({SlideshowMenu}) => {
       infinite: true,
       arrows: false,
       autoplay: true,
-      speed: 500,
+      speed: 1500,
       slidesToShow: 1,
       slidesToScroll: 1,
       appendDots: dots => (
@@ -46,7 +47,7 @@ const Banner = ({SlideshowMenu}) => {
             justifyContent: "center",
             position: "absolute",
             padding: "10px",
-            top: "97%",
+            top: "90%",
             left: "50%",
             transform: "translateY(-50%)",
             flexWrap: 'wrap'
@@ -59,16 +60,16 @@ const Banner = ({SlideshowMenu}) => {
         return (
           <div
             style={{
-              width: "16px",
-              height: "16px",
+              width: "15px",
+              height: "15px",
               display: "flex",
-              alignItems: "center",
               justifyContent: "center",
+              alignItems: "center",
               color: "#FB2E86",
               borderRadius: "50%",
               cursor: "pointer",
-              backgroundColor: "gray",
-              color: "gray"
+              backgroundColor: "#000",
+              color: "#fff"
             }}
           >
             {i + 1}
@@ -121,11 +122,11 @@ const Banner = ({SlideshowMenu}) => {
       <Slider {...settings} className=''>
         {BImage?.map((items, id) => (
             <Link to={'/shop'}  key={id}>
-              <div className='object-cover max-h-[580px] bg-center' >
+              <div className='xl:h-[560px] lg:h-[300px] max-sm:h-[200px]' >
                   <img 
                     src={items.img}
                     alt={items.img}
-                    className='object-cover '
+                    className=' w-full h-full aspect-auto'
                   />
               </div>
             </Link>

@@ -85,8 +85,8 @@ const FooterTop = () => {
 
               {/* social Link */}
                 <div className='flex items-center gap-x-6 text-[23px]'>
-                  <p className='cursor-pointer'> <FaFacebookF /> </p>
-                  <p className='cursor-pointer'> <FaLinkedinIn /> </p>
+                  <a href="https://www.facebook.com/profile.php?id=61550275201598" className='cursor-pointer'> <FaFacebookF />  </a>
+                  <a href="https://www.linkedin.com/in/foysal-hossain-3262b82b7/?trk=public-profile-join-page" className='cursor-pointer'> <FaLinkedinIn /> </a>
                   <p className='cursor-pointer'> <FaInstagram /> </p>
                   <p className='cursor-pointer'> <FaDiscord /> </p>
                 </div>

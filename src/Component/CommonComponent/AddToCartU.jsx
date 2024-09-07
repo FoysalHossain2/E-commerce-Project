@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaMinus, FaPlus } from 'react-icons/fa';
 import { addToCart, ProductDecrement, ProductIncrement, RemoveCart } from '../../Redux/AllSliceFunction/AddToCartSlice/AddToCartSlice';
@@ -8,9 +8,10 @@ import { FiShoppingCart } from "react-icons/fi";
 import { RxCross2 } from "react-icons/rx";
 
 
-const AddToCartU = () => {
+const AddToCartU = ({toggleMenu}) => {
 
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const [Cancel, setCancel] = useState(false)
     const {CartItem, TotalAmount} = useSelector((state) => state.cart)
 
@@ -24,7 +25,6 @@ const AddToCartU = () => {
     // HandleIncrementItem 
     const HandleDecrementItem = (item) => {
         dispatch(ProductDecrement(item))
-        console.log(item);
         
     }
 
@@ -39,6 +39,13 @@ const AddToCartU = () => {
     const HandleDeletedItem = (item) => {
         dispatch(RemoveCart(item))
     }
+
+
+    // onClick={HandleAddToCart  functionality} 
+
+
+
+
     
 
 
@@ -51,7 +58,7 @@ const AddToCartU = () => {
         </div> */}
     <div>
 
-            {/* <div className='flex flex-col items-center mt-[140px]'>
+             {/* <div className='flex flex-col items-center mt-[140px]'>
                 <div className=''>
                     <FiShoppingCart className='text-[100px] text-gray-400' />
                 </div>
@@ -64,7 +71,7 @@ const AddToCartU = () => {
                         START SHOPPING
                     </button>
                 </div>
-            </div> */}
+            </div>  */}
     
             <div className='mt-4  '>
                 {CartItem?.map((item, id) => (
@@ -115,14 +122,14 @@ const AddToCartU = () => {
                 ))}
 
 
-                <div className='md:top-[272px] fixed lg:top-[24px]  max-md:top-[60px]  max-sm:top-[10px] sm:mt-[50px]  bottom-0 '>
+                <div className='md:top-[258px] fixed  lg:top-[22px] xl:top-[260px] max-md:top-[60px]  max-sm:top-[10px] bottom-0 '>
                     <div className='w-[382px] max-sm:w-[300px] '>
                         <div className='bg-slate-400 mt-[530px] py-5 px-2 '>
                             <p className='text-center font-Josefin__Sans mb-2'>
                                 Cart Total: <span className='text-orange-400 text-[26px]'>{TotalAmount}</span>
                             </p>
                             <div className='flex justify-between'>
-                                <button className='bg-green-400 px-3 py-2 rounded-lg text-white font-Roboto'>
+                                <button className='bg-green-400 px-3 py-2 rounded-lg text-white font-Roboto' onClick={ toggleMenu}>
                                     ViewToCart
                                 </button>
 

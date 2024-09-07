@@ -7,7 +7,7 @@ import { IoMenu } from "react-icons/io5";
 import Menubar from '../../CommonComponent/Menubar';
 import { RxCross2 } from "react-icons/rx";
 import LanguageConvert from '../../CommonComponent/LanguageConvert';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import SearchResult from '../../CommonComponent/SearchResult/SearchResult';
 import { GetTotalAmount } from '../../../Redux/AllSliceFunction/AddToCartSlice/AddToCartSlice';
@@ -18,6 +18,7 @@ import AddToCartU from '../../CommonComponent/AddToCartU';
 const Header = () => {
 
   const [Filter, setFilter] = useState(false)
+  const navigate = useNavigate()
   const [SlideshowMenu, setSlideshowMenu] = useState(false);
   const dispatch = useDispatch();
 
@@ -101,7 +102,7 @@ const Header = () => {
   // HandleSort functionality
   const HandleCartView = () => {
     setFilter(!Filter)
-    setSort(false)
+
   }
 
 
@@ -110,6 +111,11 @@ const Header = () => {
   const HideMenuSlide = () => {
     setFilter(false)
   }
+
+  const toggleMenu = () => {
+    navigate ('/cart')
+    setFilter(Filter => !Filter); 
+  };
 
 
 
@@ -131,7 +137,7 @@ const Header = () => {
       >
         <Menubar />
       </div>
-      <button className='ml-[550px] text-white text-[30px]'><RxCross2 /></button>
+      <button className='ml-[299px]  text-orange-400 text-[30px]'><RxCross2 /></button>
     </div>
      {/* sideShowMenu overlay part*/}
 
@@ -149,12 +155,22 @@ const Header = () => {
           onClick={(e) => e.stopPropagation()}
           >
 
-            <AddToCartU />
+            <AddToCartU  toggleMenu={toggleMenu} />
 
           </div>
-          {/* <button className='ml-[1650px] text-white text-[30px]'><RxCross2 /></button> */}
+          {/* <button className='ml-[1650px] text-white text-[30px]'  onClick={toggleMenu}><RxCross2 /></button> */}
         </div>
     {/*============== sideShowMenu overlay AddToCart part ================*/}
+
+
+
+
+
+
+
+
+
+
 
   
      {/* Header part */}
@@ -176,7 +192,7 @@ const Header = () => {
                   <div className='flex items-center'>
                       <img src="https://pbs.twimg.com/profile_images/1442946691028570114/GKK_SKdR_400x400.jpg" alt="" className='w-10 h-10' />
                     <h1 className='text-green-400 font-bold  text-[10px]'>
-                      <Link to={'/'}>Shop.com</Link>
+                      <Link to={'/'} className='font-Josefin__Sans'>Shop.com</Link>
                     </h1>
                   </div>
                 </div>
@@ -243,12 +259,23 @@ const Header = () => {
             {/*====================== Search option ======================*/}
 
 
+
+
+
+
+
             {/* ====================== singIn , login & other option ====================== */}
             <div className=' max-sm:hidden md:hidden max-md:hidden lg:block '>
               <div className='flex items-center gap-x-4 '>
 
                   <div className='max-sm:hidden block'>
                     <LanguageConvert />
+                  </div>
+
+                  <div className='border-r border-gray-300 h-5 w-[2px]  max-sm:hidden block'></div>
+                
+                  <div>
+                    <p>WISHLIST</p>
                   </div>
 
                   <div className='border-r border-gray-300 h-5 w-[2px]  max-sm:hidden block'></div>
@@ -284,6 +311,9 @@ const Header = () => {
             </div>
             {/* ============================= sing in , login & other option ============================= */}
 
+
+
+
         </div>
       </div>
     </div>
@@ -294,9 +324,9 @@ const Header = () => {
     {/* sideShowMenu Btn */}
     <div className='bg-[#F6F5FF] py-1 max-sm:hidden md:hidden max-md:hidden lg:block'>
       <div className='container mx-auto'>
-        <div className='flex items-center gap-x-4 text-center'>
-          <IoMenu onClick={HandleSideMenu} className='cursor-pointer text-2xl'  />
-          <p className='font-Josefin__Sans font-bold text-[15px]'>ALL</p>
+        <div className='flex items-center gap-x-1 text-center cursor-pointer w-20'  onClick={HandleSideMenu} >
+          <IoMenu className='cursor-pointer text-2xl'  />
+          <p className='font-Josefin__Sans font-bold text-[14px]'>ALL</p>
         </div>
        </div>
     </div>

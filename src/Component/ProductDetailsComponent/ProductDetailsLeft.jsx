@@ -60,7 +60,7 @@ const ProductDetailsLeft = ({EachProductsDetailsImg, status}) => {
                             <div className='flex gap-y-6 mt-3  w-[380px] h-[400px] border  overflow-hidden'>
                                 {EachProductsDetailsImg.images?.map((image) => (
                                     <div  key={image}   style={{transform: `translateX(-${Slider * 100}%)`}}>
-                                        <div className='w-[400px] h-[400px] py-3 bg-slate-100' >
+                                        <div className='w-[380px] h-[400px] py-3 bg-slate-100' >
                                             <img 
                                                 src={image} 
                                                 alt="" 

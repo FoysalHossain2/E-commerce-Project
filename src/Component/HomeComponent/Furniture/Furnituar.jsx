@@ -9,8 +9,6 @@ const Furniture = () => {
     const [Page, setPage] = useState(1)
     // const [Page, setPage] = useState(9)
     
-    console.log(AllProducts);
-    
     
   
     
@@ -152,7 +150,7 @@ const Furniture = () => {
 
                     
                     {AllProducts?.slice(11,12).map((products, id) => (
-                        <div className="group  transition duration-500 relative bg-gray-50 sm:p-28 py-36 px-10 flex justify-center items-center">
+                        <div className="group  transition duration-500 relative bg-gray-50 sm:p-28 py-36 px-10 flex justify-center items-center" key={id}>
                            <img className=" transition duration-500" src={products.thumbnail} alt="sofa-5" />
                            <div className="absolute sm:top-8 top-4 left-4 sm:left-8 flex justify-start items-start flex-col space-y-2">
                            </div>

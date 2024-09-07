@@ -39,7 +39,6 @@ const ProductDetailsRight = () => {
   // HandleAddToCart
   const HandleAddToCart = () => {
     dispatch(addToCart(EachCartItem))
-    naviGate('/cart')
   }
   
   
