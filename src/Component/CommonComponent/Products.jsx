@@ -107,7 +107,7 @@ const Products = ({title,price, image, ratingStar , bize , productId, discountPr
                 <img 
                   src={image} 
                   alt={image} 
-                  className='w-full h-full object-cover group-hover:scale-105 transition duration-500'
+                  className='w-full h-full object-cover group-hover:scale-110 transition duration-500'
                 />
               </div>
             </Link>

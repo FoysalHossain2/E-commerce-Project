@@ -14,6 +14,7 @@ const ShopRightBottom = () => {
   
   const {PageChange, GrideChange} = useContext(ShopPageChangeContext);
 
+  
   const dispatch = useDispatch();
   const [AllProducts, setAllProducts] = useState([]);
   const [Page, setPage] = useState(1)

@@ -58,7 +58,9 @@ const AddToCartU = ({toggleMenu}) => {
         </div> */}
     <div>
 
-             {/* <div className='flex flex-col items-center mt-[140px]'>
+        {addToCart ?
+         (
+             <div className='flex flex-col items-center mt-[140px]'>
                 <div className=''>
                     <FiShoppingCart className='text-[100px] text-gray-400' />
                 </div>
@@ -71,8 +73,11 @@ const AddToCartU = ({toggleMenu}) => {
                         START SHOPPING
                     </button>
                 </div>
-            </div>  */}
-    
+            </div>  
+         )
+         :
+         (
+
             <div className='mt-4  '>
                 {CartItem?.map((item, id) => (
                     <div    key={id} className='px-2 mt-2'>
@@ -129,12 +134,12 @@ const AddToCartU = ({toggleMenu}) => {
                                 Cart Total: <span className='text-orange-400 text-[26px]'>{TotalAmount}</span>
                             </p>
                             <div className='flex justify-between'>
-                                <button className='bg-green-400 px-3 py-2 rounded-lg text-white font-Roboto' onClick={ toggleMenu}>
+                                <button className='bg-green-400 px-3 py-2 rounded-lg text-white font-Roboto'  onClick={ toggleMenu}>
                                     ViewToCart
                                 </button>
 
                                 <Link to={'/checkout'}>
-                                    <button className='bg-gray-800 px-3 py-2 rounded-lg text-white font-Roboto'>
+                                    <button className='bg-gray-800 px-3 py-2 rounded-lg text-white font-Roboto'  onClick={ toggleMenu}>
                                         PROCEED
                                     </button>
                                 </Link>
@@ -142,8 +147,12 @@ const AddToCartU = ({toggleMenu}) => {
                         </div>
                     </div>
                 </div>
-
             </div>
+         )
+        }
+             
+    
+
         
     </div>
     </>
