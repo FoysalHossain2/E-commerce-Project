@@ -20,7 +20,7 @@ const Products = ({title,price, image, ratingStar , bize , productId, discountPr
       {GrideChange
        ?
        (
-        <Link to={`/productDetails/${productId}`}>
+        <Link className='bg-white' to={`/productDetails/${productId}`}>
           <div className=' rounded-lg flex gap-x-8 w-[845px] border'>
               <div className=' h-[270px] xl:w-[270px] lg:w-[250px] 
               relative overflow-hidden group cursor-pointer '
@@ -92,10 +92,10 @@ const Products = ({title,price, image, ratingStar , bize , productId, discountPr
        )
        :
        (
-        <Link to={`/productDetails/${productId}`}>
-          <div className='border rounded-lg group'>
+        <Link className='bg-white' to={`/productDetails/${productId}`}>
+          <div className=' rounded-lg group'>
           <div className=' h-[280px] xl:w-[255px] 
-          lg:w-[230px] 
+          lg:w-[230px]
           md:w-[350px] max-md:w-[290px]
           max-sm:w-[164px] max-sm:h-[180px] 
           relative overflow-hidden group cursor-pointer '
@@ -103,7 +103,7 @@ const Products = ({title,price, image, ratingStar , bize , productId, discountPr
             <div className='absolute top-5 ml-5 '> {bize}</div>
             
             <Link to={`/productDetails/${productId}`}>
-              <div className=' text-red-500 rounded-lg'>
+              <div className=' rounded-lg'>
                 <img 
                   src={image} 
                   alt={image} 
@@ -141,7 +141,7 @@ const Products = ({title,price, image, ratingStar , bize , productId, discountPr
               {/* ---------------overlay-------------- */}
           </div>
             <div className=' mt-1  h-[150px] xl:w-[255px] lg:w-[230px] md:w-[350px] max-md:w-[290px] max-sm:w-[170px] px-3
-              xsm:w-[180px] 
+              xsm:w-[180px]
             '>
 
                 <p className='font-medium font-DM_Sans text-[16px] max-sm:text-[12px]'>

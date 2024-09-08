@@ -26,6 +26,7 @@ const ShopByCategories = ({ CatagoriesData, ShopLeftTitle, AllProducts, setCateN
 
 
 
+
     return (
         <>
             <div className='mt-11 mb-8'>

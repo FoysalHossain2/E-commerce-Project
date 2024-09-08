@@ -51,7 +51,7 @@ const ShopRightBottom = () => {
 
   return (
     <>
-    <div>
+    <div >
 
       {status === 'LOADING' 
       ?  
@@ -65,8 +65,8 @@ const ShopRightBottom = () => {
       )
       :
       (AllProducts && (
-        <div>
-          <div className={`flex flex-wrap justify-between gap-y-8 
+        <div >
+          <div className={`flex flex-wrap justify-between gap-y-8
             max-sm:grid max-sm:grid-cols-2 max-sm:gap-x-[100px] max-sm:gap-y-3 
             max-sm:px-2 max-md:px-2 md:px-2 
             max-md:grid max-md:grid-cols-2 max-md:gap-x-[180px]

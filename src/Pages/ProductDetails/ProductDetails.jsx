@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom'
 import { FetchDataProduct } from '../../Redux/AllSliceFunction/ProductsSlice/ProductsSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import ProductAddToCart from '../../Component/ProductDetailsComponent/ProductAddToCart'
+import Products from '../../Component/CommonComponent/Products'
 
 
 
@@ -15,21 +16,40 @@ const ProductDetails = () => {
   const [EachProductsDetails, setEachProductsDetails] = useState([]);
   const {productId} = useParams();
 
+  const [AllProducts, setAllProducts] = useState([]);
 
+  
+
+  
+  useEffect(() => {
+    dispatch(FetchDataProduct('https://dummyjson.com/products?limit=1000'))
+  }, [])
+  
+
+  
+  
+  
   useEffect(() => {
     dispatch(FetchDataProduct(`https://dummyjson.com/products/${productId}`))
   }, [])
-
+  
   const {data, status} = useSelector((state) => (state.product))
-
-
+  
+  
   useEffect(() => {
     if (status == 'IDLE') {
       setEachProductsDetails(data)
     }
-  }, [data, status, setEachProductsDetails])
+  }, [data, status, ])
   
+
+
   
+  useEffect(() => {
+    if(status === 'IDLE') {
+      setAllProducts(data.products)
+    }
+  }, [data, status, setAllProducts])
 
 
 
@@ -48,6 +68,27 @@ const ProductDetails = () => {
               <ProductDetailsRight   />
           </div>
         </div>
+
+
+
+
+
+             {/* =================================== Recommend Part ===================================== */}
+             <div className='mt-[100px]'>
+              <div className='grid grid-cols-4'>
+                  {AllProducts?.slice(35,150).map((item, id) => (
+                      <div className='xl:w-[100px]' key={id}>
+                        <Products
+                              image={item.thumbnail}
+                              title={item. description} 
+                            />
+                      </div>
+                    ))}
+                </div>
+            </div>
+            {/* =================================== Recommend Part ===================================== */}
+
+
       </div>
     </>
   )

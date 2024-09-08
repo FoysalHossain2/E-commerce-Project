@@ -60,7 +60,7 @@ const AddToCartU = ({toggleMenu}) => {
 
         {addToCart ?
          (
-             <div className='flex flex-col items-center mt-[140px]'>
+            <div className='flex flex-col items-center mt-[140px]'>
                 <div className=''>
                     <FiShoppingCart className='text-[100px] text-gray-400' />
                 </div>
@@ -77,7 +77,6 @@ const AddToCartU = ({toggleMenu}) => {
          )
          :
          (
-
             <div className='mt-4  '>
                 {CartItem?.map((item, id) => (
                     <div    key={id} className='px-2 mt-2'>
