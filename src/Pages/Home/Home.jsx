@@ -11,7 +11,7 @@ import Furniture from '../../Component/HomeComponent/Furniture/Furnituar'
 const Home = () => {
   return (
     <>
-    <div className='bg-slate-100'>
+    <div className=''>
       <Banner />
       <Shipping />
       {/* <Add /> */}

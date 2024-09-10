@@ -20,7 +20,7 @@ const Products = ({title,price, image, ratingStar , bize , productId, discountPr
       {GrideChange
        ?
        (
-        <Link className='bg-white' to={`/productDetails/${productId}`}>
+        <Link className='' to={`/productDetails/${productId}`}>
           <div className=' rounded-lg flex gap-x-8 w-[845px] border'>
               <div className=' h-[270px] xl:w-[270px] lg:w-[250px] 
               relative overflow-hidden group cursor-pointer '
@@ -92,7 +92,7 @@ const Products = ({title,price, image, ratingStar , bize , productId, discountPr
        )
        :
        (
-        <Link className='bg-white' to={`/productDetails/${productId}`}>
+        <Link className='' to={`/productDetails/${productId}`}>
           <div className=' rounded-lg group'>
           <div className=' h-[280px] xl:w-[255px] 
           lg:w-[230px]

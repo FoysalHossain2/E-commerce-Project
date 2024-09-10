@@ -83,6 +83,8 @@ const Header = () => {
    }
    
   }
+  
+
 
 
   // ========== show Cart items ==========
@@ -170,10 +172,18 @@ const Header = () => {
 
 
 
-
-
+      {/* ================== Header Top part =================== */}
+          {/* <div className='bg-pink-500 py-2'>
+            <div className='container mx-auto'>
+                <div className='flex justify-end'>
+                  <LanguageConvert />
+                </div>
+            </div>
+          </div> */}
+      {/* ================== Header Top part =================== */}
+      
   
-     {/* Header part */}
+     {/*=================================== Header part =====================================*/}
     <div className={`py-4 max-sm:py-2
        bg-white border `} >
       <div className="container mx-auto ">
@@ -268,10 +278,6 @@ const Header = () => {
             <div className=' max-sm:hidden md:hidden max-md:hidden lg:block '>
               <div className='flex items-center gap-x-4 '>
 
-                  <div className='max-sm:hidden block'>
-                    <LanguageConvert />
-                  </div>
-
                   <div className='border-r border-gray-300 h-5 w-[2px]  max-sm:hidden block'></div>
                 
                   <div>
@@ -317,11 +323,11 @@ const Header = () => {
         </div>
       </div>
     </div>
-    {/* Header part */}
+    {/*=================================== Header part =====================================*/}
 
 
 
-    {/* sideShowMenu Btn */}
+    {/*================================== sideShowMenu Btn ================================*/}
     <div className='bg-[#F6F5FF] py-1 max-sm:hidden md:hidden max-md:hidden lg:block'>
       <div className='container mx-auto'>
         <div className='flex items-center gap-x-1 text-center cursor-pointer w-20'  onClick={HandleSideMenu} >
@@ -330,7 +336,7 @@ const Header = () => {
         </div>
        </div>
     </div>
-    {/* sideShowMenu Btn */}
+    {/*==================================== sideShowMenu Btn ===================================*/}
     </>
   )
 }

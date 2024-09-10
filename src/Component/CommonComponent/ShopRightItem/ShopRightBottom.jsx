@@ -23,8 +23,8 @@ const ShopRightBottom = () => {
 
   
   useEffect(() => {
-    dispatch(FetchDataProduct('https://dummyjson.com/products?limit=1000'))
-  }, [])
+    dispatch(FetchDataProduct('https://dummyjson.com/products?limit=1500'))
+  }, [dispatch])
   
 
     const {data, status} = useSelector((state) => (state.product))

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { GrFormCheckmark } from "react-icons/gr";
 
-const ShopByCategories = ({ CatagoriesData, ShopLeftTitle, AllProducts, setCateName }) => {
+const ShopByCategories = ({ CatagoriesData, ShopLeftTitle}) => {
 
     const [ShowCategories, setShowCategories] = useState([]);
     
@@ -10,17 +10,20 @@ const ShopByCategories = ({ CatagoriesData, ShopLeftTitle, AllProducts, setCateN
     useEffect(() => {
         if (CatagoriesData.length > 0) {
             setShowCategories(CatagoriesData.map(() => false));
+        
         }
+
     }, [CatagoriesData]);
     
     
     const HandleToggal = (ind) => {
-        setShowCategories((previousState) => {
-            return previousState.map((value, index) =>
-                ind === index ? !value : false
-        );
-    });
-};
+            setShowCategories((previousState) => {
+                return previousState.map((value, index) =>
+                    ind === index ? !value : false
+            );
+        });
+     
+    };
 
 
 
@@ -55,7 +58,7 @@ const ShopByCategories = ({ CatagoriesData, ShopLeftTitle, AllProducts, setCateN
                                             value.subCategory.map((subitem, id) => (
                                                 subitem !== value.title && (
                                                     <div key={id}>
-                                                        <h2 className='py-2 text-Paragraph__Color cursor-pointer' onClick={() => setCateName(subitem)}>{subitem}</h2>
+                                                        <h2 className='py-2 text-Paragraph__Color cursor-pointer'>{subitem}</h2>
                                                     </div>
                                                 )                                             
                                             ))}

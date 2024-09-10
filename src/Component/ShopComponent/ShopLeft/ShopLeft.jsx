@@ -9,140 +9,125 @@ import ShopByColor from '../../CommonComponent/ShopLeftItem/ShopByColor';
 import { DiscountOffer } from '../../../../Data/Data';
 import { FetchDataProduct } from '../../../Redux/AllSliceFunction/ProductsSlice/ProductsSlice';
 
+
+
+
+
+
+
+
 const ShopLeft = ({ className }) => {
+
+
+
   const dispatch = useDispatch();
   const [AllProducts, setAllProducts] = useState([]);
   const [CateName, setCateName] = useState('');
 
-  
+
+
+
 
   const { data, status } = useSelector((state) => state.product);
 
   useEffect(() => {
     dispatch(FetchDataProduct('https://dummyjson.com/products?limit=1000'));
-  }, [])
-
-  // useEffect(() => {
-  //   dispatch(FetchDataProduct(`https://dummyjson.com/products/category/${CateName}`));
-  // }, [])
-  
-  
-
+  }, []);
 
   useEffect(() => {
-    if(status === 'IDLE') {
+    if (status === 'IDLE') {
       setAllProducts(data.products);
     }
-  }, [data, status, setAllProducts]);
-
-
-  useEffect(() => {
-    if (CateName !== '') {
-      dispatch(FetchDataProduct(`https://dummyjson.com/products/${CateName}`));
-      setAllProducts(data.products);
-      console.log('Hello');
-    }
-    
-    
-  }, [CateName])
-  
-
-
-
-  // if(CateName !== '') {
-  //   const filteredProducts = data.products.filter(product => product.category === CateName);
-  //   setAllProducts(filteredProducts);
-  // } else {
-  //   setAllProducts(data.products);
-  // }
+  }, [data, status]);
 
 
 
 
 
-  // CategoryArr and subCategory
+
   let CategoryArr = [];
   let CategorySet = new Set();
 
-  AllProducts?.map((product) => {
+  AllProducts?.forEach((product) => {
     if (!CategorySet.has(product.category)) {
       CategoryArr.push({
         id: product.id,
         title: product.category,
-        subCategory: product.tags
+        subCategory: product.tags,
       });
       CategorySet.add(product.category);
     }
-    return null;
   });
 
 
 
-  // Brand 
+
+
   let BrandArr = [];
   let BrandSet = new Set();
 
-  AllProducts?.map((product) => {
+  AllProducts?.forEach((product) => {
     if (!BrandSet.has(product.brand)) {
       BrandArr.push({
         id: product.id,
-        title: product.brand
+        title: product.brand,
       });
       BrandSet.add(product.brand);
     }
-    return null;
   });
-  
 
-  
-  
 
+
+  const filteredProducts = CateName
+    ? AllProducts.filter((product) => product.tags === CateName)
+    : AllProducts;
+
+
+    
+
+    
   return (
-    <>
     <div className={`${className}`}>
-        <div className="border-r">
-
-          {/*-------- product filter header ------ */}
-              <div className='pb-6'>
-                  <h1 className='font-Josefin__Sans font-bold border-b-2 border-black w-[227px] text-2xl text-secondary_text_color'>
-                   Product Filters
-                 </h1>
-             </div>
-          {/*-------- product filter header ------ */}
-
-          <div>
-            <ShopByPriceFilter />
-          </div>
-          <div>
-            <ShopByCategories CatagoriesData={CategoryArr ? CategoryArr : []}  
-              ShopLeftTitle={'Product Categories'}
-              AllProducts={AllProducts}
-              setCateName={setCateName}
-            />
-          </div>
-          <div>
-            <ShopByProductBrand 
-              ProductBrand={BrandArr ? BrandArr : []}
-              ShopLeftTitle={'Product Brand'}
-            />
-          </div>
-          <div>
-            <ShopByDiscountOffer
-              DiscountOffer={DiscountOffer ? DiscountOffer : []}
-              ShopLeftTitle={'Discount Offer'}
-            />
-          </div>
-          <div>
-            <ShopByRating />
-          </div>
-
-          <div>
-            <ShopByColor />
-          </div>
+      <div className="border-r">
+        <div className='pb-6'>
+          <h1 className='font-Josefin__Sans font-bold border-b-2 border-black w-[227px] text-2xl text-secondary_text_color'>
+            Product Filters
+          </h1>
         </div>
+
+
+        <div>
+          <ShopByPriceFilter />
+        </div>
+        <div>
+          <ShopByCategories 
+            CatagoriesData={CategoryArr ? CategoryArr : []}
+            ShopLeftTitle={'Product Categories'}
+            setCateName={setCateName} 
+          />
+        </div>
+        <div>
+          <ShopByProductBrand
+            ProductBrand={BrandArr ? BrandArr : []}
+            ShopLeftTitle={'Product Brand'}
+          />
+        </div>
+        <div>
+          <ShopByDiscountOffer
+            DiscountOffer={DiscountOffer ? DiscountOffer : []}
+            ShopLeftTitle={'Discount Offer'}
+          />
+        </div>
+        <div>
+          <ShopByRating />
+        </div>
+
+        <div>
+          <ShopByColor />
+        </div>
+      </div>
     </div>
-    </>
-  )
+  );
 }
 
-export default ShopLeft
+export default ShopLeft;

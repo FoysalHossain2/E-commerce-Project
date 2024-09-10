@@ -5,13 +5,13 @@ import Products from '../../CommonComponent/Products'
 const NewArrival = ({headingTitle}) => {
   return (
     <>
-     <div className='mt-[100px]'>
+     <div className='mt-[100px] mb-[50px]'>
       <div className="container mx-auto">
             <h1 className='font-bold text-[38px] font-DM_Sans text-main_text_color pb-14'>
               {headingTitle ? headingTitle : headingTitle} 
             </h1>
 
-          <div className='flex flex-wrap  justify-between '>
+          <div className='flex flex-wrap  justify-between gap-y-8'>
             {NewArrivalsData?.map((items,id) => (
               <div className='w-[270px]'>
                 <Products

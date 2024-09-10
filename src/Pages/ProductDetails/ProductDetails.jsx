@@ -72,23 +72,6 @@ const ProductDetails = () => {
 
 
 
-
-             {/* =================================== Recommend Part ===================================== */}
-             <div className='mt-[100px]'>
-              <div className='grid grid-cols-4'>
-                  {AllProducts?.slice(35,150).map((item, id) => (
-                      <div className='xl:w-[100px]' key={id}>
-                        <Products
-                              image={item.thumbnail}
-                              title={item. description} 
-                            />
-                      </div>
-                    ))}
-                </div>
-            </div>
-            {/* =================================== Recommend Part ===================================== */}
-
-
       </div>
     </>
   )
