@@ -70,8 +70,6 @@ const ProductDetails = () => {
         </div>
 
 
-
-
       </div>
     </>
   )
