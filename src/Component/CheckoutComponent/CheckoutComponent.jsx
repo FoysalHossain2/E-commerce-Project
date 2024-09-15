@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -324,7 +324,7 @@ const CheckoutComponent = () => {
                         cols="30"
                         rows="10"
                         placeholder='Order Note (optional)'
-                        className='pl-2 w-full rounded-xl py-3 border-2'
+                        className='pl-2 w-full rounded-xl py-2 border-2 h-28'
                         value={UserInfo.Message}
                         onChange={HandleOnChange}
                     >

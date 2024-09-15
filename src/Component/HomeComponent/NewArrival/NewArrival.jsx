@@ -11,7 +11,9 @@ const NewArrival = ({headingTitle}) => {
               {headingTitle ? headingTitle : headingTitle} 
             </h1>
 
-          <div className='flex flex-wrap  justify-between gap-y-8'>
+          <div className='flex flex-wrap  justify-between gap-y-8  
+            max-sm:grid max-sm:grid-cols-2
+          '>
             {NewArrivalsData?.map((items,id) => (
               <div className='w-[270px]'>
                 <Products

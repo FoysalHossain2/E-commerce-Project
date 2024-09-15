@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
-import { useDispatch, useSelector } from 'react-redux'
-import { FetchDataProduct } from '../../../Redux/AllSliceFunction/ProductsSlice/ProductsSlice'
+import { useDispatch, useSelector } from 'react-redux';
+import { ShimmerThumbnail } from "react-shimmer-effects";
 import Slider from "react-slick";
-
+import { FetchDataProduct } from '../../../Redux/AllSliceFunction/ProductsSlice/ProductsSlice';
 
 
 
@@ -154,23 +154,62 @@ const Categories = () => {
             </h1>
 
               <div className="pb-16 ">
-                {/* <div className='grid grid-cols-5 max-sm:grid-cols-2 gap-x-3'> */}
-              <div >
-            <Slider {...settings} className=' bg-white'>
-                  {AllProducts?.slice(160,165).map((product,id) => (
-                      <img src={product.thumbnail} alt="" className='border' />
-                    ))}
-            </Slider>
-            <Slider {...settings} className='pt-5 '>
-                  {AllProducts?.slice(95,100).map((product,id) => (
-                      <img src={product.thumbnail} alt="" className='border  bg-white' />
-                    ))}
-            </Slider>
+
+
+                {status === 'LOADING' ?
+                  (
+                    <div className='grid grid-cols-5 '>
+                        {[...Array.from({length: 5})].map((_,index) => (
+                            <div key={index} className='gap-x-1'>
+                              <ShimmerThumbnail height={250} width={230} rounded />
+                            </div>
+                        ))}
                     </div>
-                {/* </div> */}
+                  )
+                  :
+                  (
+
+                    <div >
+                      <Slider {...settings} className=' bg-white'>
+                            {AllProducts?.slice(160,165).map((product,id) => (
+                              <div key={id}>
+                                <img src={product.thumbnail} alt="" className='border h-[250px]' />
+                              </div>
+                              ))}
+                      </Slider>
+                    </div>
+                  )
+                }
+
+                {status === 'LOADING' ?
+                  (
+                    <div className='grid grid-cols-5 '>
+                        {[...Array.from({length: 5})].map((_,index) => (
+                            <div key={index} className='gap-x-1'>
+                              <ShimmerThumbnail height={250} width={230} rounded />
+                            </div>
+                        ))}
+                    </div>
+                  )
+                  :
+                  (
+
+                    <div >
+                        <Slider {...settings} className='pt-5 '>
+                            {AllProducts?.slice(95,100).map((product,id) => (
+                              <div key={id}>
+                                <img src={product.thumbnail} alt="" className='border h-[250px]' />
+                              </div>
+                              ))}
+                      </Slider>
+                    </div>
+                  )
+                }
+
+
+
+
             </div>
-
-
 
         </div>
     </div>

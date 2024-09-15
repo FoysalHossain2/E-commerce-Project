@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { FaMinus, FaPlus } from 'react-icons/fa';
-import { useNavigate, useParams } from 'react-router-dom';
-import {  useDispatch, useSelector } from 'react-redux'
-import { addToCart, ProductDecrement, ProductIncrement } from '../../Redux/AllSliceFunction/AddToCartSlice/AddToCartSlice';
-import { FetchDataProduct } from '../../Redux/AllSliceFunction/ProductsSlice/ProductsSlice';
-import Products from '../CommonComponent/Products';
-import ProductRatingStart from './ProductRatingStart';
 import { IoIosHeartEmpty } from "react-icons/io";
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
+import { addToCart, addToWishList, ProductDecrement, ProductIncrement } from '../../Redux/AllSliceFunction/AddToCartSlice/AddToCartSlice';
+import { FetchDataProduct } from '../../Redux/AllSliceFunction/ProductsSlice/ProductsSlice';
+import ProductRatingStart from './ProductRatingStart';
 
 
 const ProductDetailsRight = () => {
@@ -21,7 +20,7 @@ const ProductDetailsRight = () => {
   
   
   useEffect(() => {
-    dispatch(FetchDataProduct(`https://dummyjson.com/products?limit=1000/${productId}`))
+    dispatch(FetchDataProduct(`https://dummyjson.com/products/${productId}`))
   }, [])
   
   const {data, status} = useSelector((state) => state.product)
@@ -39,6 +38,16 @@ const ProductDetailsRight = () => {
   // HandleAddToCart
   const HandleAddToCart = () => {
     dispatch(addToCart(EachCartItem))
+    console.log(addToCart(EachCartItem));
+    
+  }
+
+
+  // HandleWishList functionality
+  const HandleWishList = () => {
+    dispatch(addToWishList(EachCartItem))
+    console.log(addToWishList(EachCartItem));
+    
   }
   
   
@@ -150,7 +159,7 @@ const ProductDetailsRight = () => {
           </div>
 
           <div>
-            <div className='border px-3 py-3 text-[27px] bg-slate-800 text-white cursor-pointer'>
+            <div className='border px-3 py-3 text-[27px] bg-slate-800 text-white cursor-pointer'  onClick={HandleWishList}>
               <IoIosHeartEmpty />
             </div>
           </div>
@@ -170,23 +179,6 @@ const ProductDetailsRight = () => {
            </div>
         </div>
       {/*  */}
-
-
-      {/* <div>
-        {EachProductsDetailsItem?.map((item, id) => (
-            <div key={id} className={` xl:w-[255px] lg:w-[230px] md:w-[350px] max-md:w-[290px] max-sm:w-[164px]
-              `}>
-                <Products
-                  image={item.thumbnail}
-                  title={item. description}
-                  price={`$${Math.round(item.price)}`}
-                  discountPrice= { Math.round(item.price - Math.floor((item.price * item.discountPercentage / 100)))}
-                  productId={item.id}
-                  GrideChange={GrideChange}
-                  />
-              </div>
-        ))}
-      </div> */}
 
     </div>
     </>

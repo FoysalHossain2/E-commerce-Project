@@ -1,17 +1,15 @@
-import React,{useEffect, useState} from 'react'
-import { FiShoppingCart } from "react-icons/fi";
+import React, { useEffect, useState } from 'react';
 import { FaUser } from "react-icons/fa";
+import { FiShoppingCart } from "react-icons/fi";
 import { HiOutlineSearch } from "react-icons/hi";
-import { SlLocationPin } from "react-icons/sl";
 import { IoMenu } from "react-icons/io5";
-import Menubar from '../../CommonComponent/Menubar';
 import { RxCross2 } from "react-icons/rx";
-import LanguageConvert from '../../CommonComponent/LanguageConvert';
-import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import SearchResult from '../../CommonComponent/SearchResult/SearchResult';
+import { Link, useNavigate } from 'react-router-dom';
 import { GetTotalAmount } from '../../../Redux/AllSliceFunction/AddToCartSlice/AddToCartSlice';
 import AddToCartU from '../../CommonComponent/AddToCartU';
+import Menubar from '../../CommonComponent/Menubar';
+import SearchResult from '../../CommonComponent/SearchResult/SearchResult';
 
 
 
@@ -120,6 +118,15 @@ const Header = () => {
   };
 
 
+  // HandleWISHLIST functionality
+  // const HandleWISHLIST = (e) => {
+  //   e.preventDefault()
+  //   navigate('/wishList')
+  // }
+
+
+
+
 
   return (
     <>
@@ -131,7 +138,7 @@ const Header = () => {
     }}
     onClick={HideMenu}
     >
-      <div className='w-[300px] h-full bg-zinc-200 absolute duration-500 overflow-scroll '
+      <div className='w-[300px] h-full bg-zinc-200 absolute duration-500 overflow-y-scroll '
       style={{
         left: SlideshowMenu ? '0%' : '-100%'
       }}
@@ -169,9 +176,6 @@ const Header = () => {
 
 
 
-
-
-
       {/* ================== Header Top part =================== */}
           {/* <div className='bg-pink-500 py-2'>
             <div className='container mx-auto'>
@@ -183,9 +187,10 @@ const Header = () => {
       {/* ================== Header Top part =================== */}
       
   
+
      {/*=================================== Header part =====================================*/}
     <div className={`py-4 max-sm:py-2
-       bg-white border `} >
+       bg-white  `} >
       <div className="container mx-auto ">
         <div className='flex lg:items-center  justify-between  
           max-sm:flex-col max-md:flex-col md:flex-col lg:flex-row 
@@ -200,9 +205,8 @@ const Header = () => {
 
               {/*----- logo ----- */}
                   <div className='flex items-center'>
-                      <img src="https://pbs.twimg.com/profile_images/1442946691028570114/GKK_SKdR_400x400.jpg" alt="" className='w-10 h-10' />
                     <h1 className='text-green-400 font-bold  text-[10px]'>
-                      <Link to={'/'} className='font-Josefin__Sans'>Shop.com</Link>
+                      <Link to={'/'} className='font-Josefin__Sans text-[20px]'>Shop.com</Link>
                     </h1>
                   </div>
                 </div>
@@ -224,7 +228,7 @@ const Header = () => {
                       <div className='flex items-center gap-x-2'>  
                         <div className='cursor-pointer '>
                           <FiShoppingCart className='text-[20px] ' />
-                          <span class="absolute ml-3 -mt-8 flex items-center justify-center rounded-full h-5 w-5 text-white bg-zinc-500">                               
+                          <span className="absolute ml-3 -mt-8 flex items-center justify-center rounded-full h-5 w-5 text-white bg-zinc-500">                               
                               {TotalCartItem}
                           </span>
                         </div>
@@ -241,12 +245,12 @@ const Header = () => {
 
 
             {/*====================== Search option ======================*/}
-              <div  class="lg:max-w-[500px] max-md:max-w-[700px] w-full max-sm:mt-2 md:mt-4 max-md:mt-4 lg:mt-0">
-                <div class="relative flex">
+              <div  className="lg:max-w-[500px] max-md:max-w-[700px] w-full max-sm:mt-2 md:mt-4 max-md:mt-4 lg:mt-0">
+                <div className="relative flex">
                     <input 
                     type="text"
                         name="q" 
-                        class="w-full border py-[8px] shadow rounded-l-full dark:text-gray-800 border-button_Color dark:bg-gray-200 pl-4" 
+                        className="w-full border py-[8px] shadow rounded-l-full dark:text-gray-800 border-button_Color dark:bg-gray-200 pl-4" 
                         placeholder="search product"
                         onChange={HandleSearch}
                     />
@@ -272,24 +276,24 @@ const Header = () => {
 
 
 
-
-
             {/* ====================== singIn , login & other option ====================== */}
             <div className=' max-sm:hidden md:hidden max-md:hidden lg:block '>
               <div className='flex items-center gap-x-4 '>
 
                   <div className='border-r border-gray-300 h-5 w-[2px]  max-sm:hidden block'></div>
                 
-                  <div>
+                <Link to={'/wishList'}>
+                  <div className='bg-pink-500 px-[10px] py-[5px] rounded-3xl text-white cursor-pointer'  >
                     <p>WISHLIST</p>
                   </div>
+                </Link>
 
                   <div className='border-r border-gray-300 h-5 w-[2px]  max-sm:hidden block'></div>
 
                 {/* --------------- login part ------------------*/}
                 <div className='flex items-center gap-x-1 bg-slate-800 text-white px-[10px] py-[5px] rounded-3xl'>
                   <FaUser className='cursor-pointer text-orange-400 text-[20px]' />
-                    <p className='font-bold'>
+                    <p className=''>
                       sing in
                     </p>
                 </div>
@@ -305,8 +309,8 @@ const Header = () => {
                     </div>
                     <h3 className='font-DM_Sans font-bold flex items-center'>
                       cart
-                    <span class=" ml-1 flex items-center justify-center rounded-full h-4 w-4 bg-white text-[14px] text-orange-400 ">                               
-                    {TotalCartItem ? TotalCartItem : ''}
+                     <span className=" ml-1 flex items-center justify-center rounded-full h-4 w-4 bg-white text-[14px] text-orange-400 ">                               
+                      {TotalCartItem ? TotalCartItem : ''}
                      </span>
                     </h3>
                   </div>

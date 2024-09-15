@@ -1,12 +1,8 @@
 import React from 'react'
-import Arrivals3 from '../../assets/NewArrivals/Arrivals3.png'
-import { FiHeart } from 'react-icons/fi'
 import { DiGitCompare } from 'react-icons/di'
+import { FiHeart } from 'react-icons/fi'
 import { IoCart } from 'react-icons/io5'
-import { Link, useParams } from 'react-router-dom'
-import { IoStar } from "react-icons/io5";
-import { IoStarOutline } from "react-icons/io5";
-import { IoStarHalfOutline } from "react-icons/io5";
+import { Link } from 'react-router-dom'
 import ProductRatingStart from '../ProductDetailsComponent/ProductRatingStart'
 
 
@@ -92,12 +88,12 @@ const Products = ({title,price, image, ratingStar , bize , productId, discountPr
        )
        :
        (
-        <Link className='' to={`/productDetails/${productId}`}>
+        <Link className='border' to={`/productDetails/${productId}`}>
           <div className=' rounded-lg group'>
           <div className=' h-[280px] xl:w-[255px] 
           lg:w-[230px]
           md:w-[350px] max-md:w-[290px]
-          max-sm:w-[164px] max-sm:h-[180px] 
+          max-sm:w-[160px] max-sm:h-[180px] 
           relative overflow-hidden group cursor-pointer '
           >
             <div className='absolute top-5 ml-5 '> {bize}</div>
@@ -107,41 +103,12 @@ const Products = ({title,price, image, ratingStar , bize , productId, discountPr
                 <img 
                   src={image} 
                   alt={image} 
-                  className='w-full h-full object-cover group-hover:scale-110 transition duration-500'
+                  className='w-full h-full object-cover group-hover:scale-110 transition duration-500 bg-slate-100'
                 />
               </div>
             </Link>
-              {/* ---------------overlay-------------- */}
-                <div className=" absolute -bottom-[40%]  transition-all group-hover:bottom-6">
-                  <div className="flex justify-end flex-col items-end py-6">
-                    <div>
-                      <div className={"flex gap-x-5 items-center  pb-6 mr-[30px]"}>
-                        <span>
-                          <FiHeart />
-                        </span>
-                      </div>
-                    </div>
-
-                    <div>
-                      <div className={"flex gap-x-5 items-center  pb-6 mr-[30px]"}>
-                        <span>
-                          <DiGitCompare />
-                        </span>
-                      </div>
-                    </div>
-                    <div>
-                      <div className={"flex gap-x-5 items-center  mr-[30px]"}>
-                        <span className='text-orange-500 text-[25px]'>
-                          <IoCart />
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              {/* ---------------overlay-------------- */}
           </div>
-            <div className=' mt-1  h-[150px] xl:w-[255px] lg:w-[230px] md:w-[350px] max-md:w-[290px] max-sm:w-[170px] px-3
-              xsm:w-[180px]
+            <div className=' mt-1  h-[150px] xl:w-[255px] lg:w-[230px] md:w-[350px] max-md:w-[290px] max-sm:w-[160px] px-3
             '>
 
                 <p className='font-medium font-DM_Sans text-[16px] max-sm:text-[12px]'>

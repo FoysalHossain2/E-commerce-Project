@@ -7,7 +7,7 @@ import ShopRight from '../../Component/ShopComponent/ShopRight/ShopRight'
 const Shop = () => {
   return (
     <>
-    <div className='bg-slate-100'>
+    <div className=''>
       <div className="container mx-auto">
         <div className="py-3 max-sm:hidden max-md:hidden md:hidden lg:block">
           <BreadCrumb />

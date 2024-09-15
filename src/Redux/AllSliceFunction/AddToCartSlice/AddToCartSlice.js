@@ -5,6 +5,10 @@ const initialState = {
     ? JSON.parse(localStorage.getItem("CartItem"))
     :
     [],
+    cartWishList: localStorage.getItem("cartWishList") 
+    ? JSON.parse(localStorage.getItem("cartWishList"))
+    :
+    [],
     TotalCartItem: 0,
     TotalAmount: 0,
 }
@@ -16,8 +20,9 @@ export const AddToCartSlice = createSlice({
     addToCart: (state , action) => {
       const findIndex = state.CartItem.findIndex((item) => {
         return item.id === action.payload.id
-
       })
+      console.log(findIndex);
+      
       if (findIndex >= 0) {
         state.CartItem[findIndex].CartQuantity += 1 
         localStorage.setItem("CartItem", JSON.stringify(state.CartItem))
@@ -27,6 +32,27 @@ export const AddToCartSlice = createSlice({
         localStorage.setItem("CartItem", JSON.stringify(state.CartItem))
       }
     },
+
+
+    addToWishList: (state , action) => {
+      const findIndex = state.cartWishList.findIndex((item) => {
+        
+        return item.id === action.payload.id
+        
+      })
+      console.log(findIndex);
+      if (findIndex >= 0) {
+        state.cartWishList[findIndex].CartQuantity += 1 
+        localStorage.setItem("cartWishList", JSON.stringify(state.cartWishList))
+        
+      } else {
+        const temporary = ({...action.payload , CartQuantity : 1})
+        state.cartWishList.push(temporary)
+        localStorage.setItem("cartWishList", JSON.stringify(state.cartWishList))
+      }
+    },
+
+
     
     RemoveCart: (state, action) => {
       const removeCart = state.CartItem.filter((item) => item.id !== action.payload.id)
@@ -51,17 +77,6 @@ export const AddToCartSlice = createSlice({
       const totalCartItems = state.CartItem.reduce((totalItem, CartItem) => {
         const {CartQuantity, price} = CartItem
         const totalPrice = CartQuantity * price 
-        // if (totalPrice) {
-        //   totalPrice + 99
-        //   console.log(totalPrice + 99);
-          
-        // } else if (totalPrice) {
-        //   totalPrice + 59
-        //   console.log(totalPrice + 59);
-          
-        // } else {
-        //   totalPrice
-        // }
         totalItem.totalAmount += Math.ceil(totalPrice)
         totalItem.totalCart += CartQuantity
         return totalItem
@@ -78,5 +93,5 @@ export const AddToCartSlice = createSlice({
 })
 
 
-export const {addToCart, RemoveCart, ProductIncrement, ProductDecrement, GetTotalAmount} = AddToCartSlice.actions;
+export const {addToCart, addToWishList, RemoveCart, ProductIncrement, ProductDecrement, GetTotalAmount} = AddToCartSlice.actions;
 export default AddToCartSlice.reducer;

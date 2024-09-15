@@ -1,12 +1,14 @@
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
-import RootLayouts from './Component/CommonComponent/RootLayouts/RootLayouts'
-import Home from './Pages/Home/Home'
-import Shop from './Pages/Shop/Shop'
-import Contact from './Pages/Contact/Contact'
-import ProductDetails from './Pages/ProductDetails/ProductDetails'
 import NotFoundPage from './Component/CommonComponent/NotFoundPage'
+import RootLayouts from './Component/CommonComponent/RootLayouts/RootLayouts'
 import Cart from './Pages/Cart/Cart'
 import Checkout from './Pages/Checkout/Checkout'
+import Contact from './Pages/Contact/Contact'
+import Home from './Pages/Home/Home'
+import Login from './Pages/Login/Login'
+import ProductDetails from './Pages/ProductDetails/ProductDetails'
+import Shop from './Pages/Shop/Shop'
+import WishList from './Pages/WishList/WishList'
 
 
 const router = createBrowserRouter(
@@ -19,6 +21,8 @@ const router = createBrowserRouter(
       <Route path='/productDetails/:productId' element={<ProductDetails />} />
       <Route path='/cart' element={<Cart />} />
       <Route path='/checkout' element={<Checkout />} />
+      <Route path='/wishList' element={<WishList />} />
+      <Route path='/login' element={<Login />} />
       <Route path='/contact' element={<Contact />} />
       </Route>
     </Route>

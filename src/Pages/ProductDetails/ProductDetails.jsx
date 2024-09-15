@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import ProductDetailsLeft from '../../Component/ProductDetailsComponent/ProductDetailsLeft'
-import BreadCrumb from '../../Component/CommonComponent/BreadCrumb/BreadCrumb'
-import ProductDetailsRight from '../../Component/ProductDetailsComponent/ProductDetailsRight'
-import { useParams } from 'react-router-dom'
-import { FetchDataProduct } from '../../Redux/AllSliceFunction/ProductsSlice/ProductsSlice'
 import { useDispatch, useSelector } from 'react-redux'
-import ProductAddToCart from '../../Component/ProductDetailsComponent/ProductAddToCart'
-import Products from '../../Component/CommonComponent/Products'
+import { useParams } from 'react-router-dom'
+import BreadCrumb from '../../Component/CommonComponent/BreadCrumb/BreadCrumb'
+import ProductDetailsLeft from '../../Component/ProductDetailsComponent/ProductDetailsLeft'
+import ProductDetailsRight from '../../Component/ProductDetailsComponent/ProductDetailsRight'
+import { FetchDataProduct } from '../../Redux/AllSliceFunction/ProductsSlice/ProductsSlice'
 
 
 
@@ -16,14 +14,7 @@ const ProductDetails = () => {
   const [EachProductsDetails, setEachProductsDetails] = useState([]);
   const {productId} = useParams();
 
-  const [AllProducts, setAllProducts] = useState([]);
 
-  
-
-  
-  useEffect(() => {
-    dispatch(FetchDataProduct('https://dummyjson.com/products?limit=1000'))
-  }, [])
   
 
   
@@ -45,12 +36,6 @@ const ProductDetails = () => {
 
 
   
-  useEffect(() => {
-    if(status === 'IDLE') {
-      setAllProducts(data.products)
-    }
-  }, [data, status, setAllProducts])
-
 
 
 
