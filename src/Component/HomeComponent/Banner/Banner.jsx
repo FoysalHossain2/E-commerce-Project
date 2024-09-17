@@ -1,10 +1,8 @@
-import React, { useState } from 'react'
-import BannerImg from '../../../assets/BannerImg.png'
-import BannerImg2 from '../../../assets/BannerImg2.png'
-import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
+import React from 'react';
+import { Link } from 'react-router-dom';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
-import { Link } from 'react-router-dom';
+import BannerImg from '../../../assets/BannerImg.png';
 
 
 const Banner = ({SlideshowMenu}) => {
@@ -42,7 +40,6 @@ const Banner = ({SlideshowMenu}) => {
         <div
           style={{
             color: '#FB2E86',
-            padding: "10px",
             display: "flex",
             justifyContent: "center",
             position: "absolute",
@@ -65,7 +62,6 @@ const Banner = ({SlideshowMenu}) => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              color: "#FB2E86",
               borderRadius: "50%",
               cursor: "pointer",
               backgroundColor: "#000",

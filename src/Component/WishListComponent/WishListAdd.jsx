@@ -1,5 +1,7 @@
 import React from 'react';
+import { MdDeleteForever } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
+import { RemoveCartWishList } from '../../Redux/AllSliceFunction/AddToCartSlice/AddToCartSlice';
 
 const WishListAdd = () => {
 
@@ -7,13 +9,16 @@ const WishListAdd = () => {
     const dispatch = useDispatch();
 
 
-    const {CartItem} = useSelector((state) => state.cart)
-    console.log(CartItem);
+    const {cartWishList} = useSelector((state) => state.cart)
     
 
-    // useEffect(() => {
-    //   dispatch(GetTotalAmount())
-    // }, [CartItem, dispatch])
+
+
+    // HandleWishListDeleteItem
+    const HandleWishListDeleteItem = (item) => {
+      dispatch(RemoveCartWishList(item))
+    }
+
     
 
 
@@ -22,16 +27,23 @@ const WishListAdd = () => {
     <>
        <div className='py-20'>
         <div className='container mx-auto'>
-          <div className='bg-zinc-200'>
-              {CartItem?.map((item, id) => (
-                <div key={id} >
+          <div className='bg-zinc-200 grid grid-cols-2 gap-x-10'>
+              {cartWishList?.map((item, id) => (
+                <div key={id} className='mt-4'>
                   <div className='flex items-center gap-x-3'>
-                    <div className='w-[100px] h-[100px]'>
-                      <img src={item.thumbnail} alt="" />
+                    <div>
+                      <div className='w-[100px] h-[100px]'>
+                        <img src={item.thumbnail} alt="" />
+                      </div>
+                        <p className='ml-8'>{item.price}</p>
                     </div>
                     <p className='w-[400px]'>{item.description}</p>
+
+                    <div className='text-[25px] cursor-pointer'  onClick={() => HandleWishListDeleteItem (item)}>
+                      <MdDeleteForever />
+                    </div>
+
                   </div>
-                  <p>{}</p>
                 </div>
               ))}
           </div>

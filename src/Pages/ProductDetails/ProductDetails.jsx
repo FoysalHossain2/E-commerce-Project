@@ -17,7 +17,9 @@ const ProductDetails = () => {
 
   
 
+  const {CartItem} = useSelector((state) => state.cart)
   
+  console.log(CartItem);
   
   
   useEffect(() => {
@@ -33,7 +35,7 @@ const ProductDetails = () => {
     }
   }, [data, status, ])
   
-
+  
 
   
 

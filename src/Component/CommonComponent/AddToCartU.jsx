@@ -1,11 +1,9 @@
-import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom'
-import { RiDeleteBin6Line } from "react-icons/ri";
+import React, { useState } from 'react';
 import { FaMinus, FaPlus } from 'react-icons/fa';
-import { addToCart, ProductDecrement, ProductIncrement, RemoveCart } from '../../Redux/AllSliceFunction/AddToCartSlice/AddToCartSlice';
-import { FiShoppingCart } from "react-icons/fi";
-import { RxCross2 } from "react-icons/rx";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { ProductDecrement, ProductIncrement, RemoveCart } from '../../Redux/AllSliceFunction/AddToCartSlice/AddToCartSlice';
 
 
 const AddToCartU = ({toggleMenu}) => {
@@ -13,13 +11,14 @@ const AddToCartU = ({toggleMenu}) => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [Cancel, setCancel] = useState(false)
-    const {CartItem, TotalAmount} = useSelector((state) => state.cart)
+    const {CartItem, TotalAmount
+        
+    } = useSelector((state) => state.cart)
 
 
         // HandleIncrementItem 
     const HandleIncrementItem = (item) => {
         dispatch(ProductIncrement(item))
-        console.log(item);
     }
 
     // HandleIncrementItem 
@@ -58,25 +57,23 @@ const AddToCartU = ({toggleMenu}) => {
         </div> */}
     <div>
 
-        {addToCart ?
-         (
-            <div className='flex flex-col items-center mt-[140px]'>
-                <div className=''>
-                    <FiShoppingCart className='text-[100px] text-gray-400' />
-                </div>
-                <p className='font-Josefin__Sans mt-9 text-[20px] text-gray-600'>
-                    Your Shopping Cart is Empty
-                </p>
+{/* 
+            // <div className='flex flex-col items-center mt-[140px]'>
+            //     <div className=''>
+            //         <FiShoppingCart className='text-[100px] text-gray-400' />
+            //     </div>
+            //     <p className='font-Josefin__Sans mt-9 text-[20px] text-gray-600'>
+            //         Your Shopping Cart is Empty
+            //     </p>
 
-                <div className='mt-11'>
-                    <button className='font-bold bg-slate-900 text-white px-7 py-3 text-[18px] rounded-xl hover:bg-orange-400'>
-                        START SHOPPING
-                    </button>
-                </div>
-            </div>  
-         )
-         :
-         (
+            //     <div className='mt-11'>
+            //         <button className='font-bold bg-slate-900 text-white px-7 py-3 text-[18px] rounded-xl hover:bg-orange-400'>
+            //             START SHOPPING
+            //         </button>
+            //     </div>
+            // </div>   */}
+
+
             <div className='mt-4  '>
                 {CartItem?.map((item, id) => (
                     <div    key={id} className='px-2 mt-2'>
@@ -125,7 +122,6 @@ const AddToCartU = ({toggleMenu}) => {
                     </div>
                 ))}
 
-
                 <div className='md:top-[258px] fixed  lg:top-[22px] xl:top-[260px] max-md:top-[60px]  max-sm:top-[10px] bottom-0 '>
                     <div className='w-[382px] max-sm:w-[300px] '>
                         <div className='bg-slate-400 mt-[530px] py-5 px-2 '>
@@ -147,8 +143,7 @@ const AddToCartU = ({toggleMenu}) => {
                     </div>
                 </div>
             </div>
-         )
-        }
+ 
              
     
 

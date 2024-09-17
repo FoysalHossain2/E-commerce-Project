@@ -4,7 +4,7 @@ import { FaMinus, FaPlus } from 'react-icons/fa';
 import { MdDeleteForever } from "react-icons/md";
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { GetTotalAmount, ProductDecrement, ProductIncrement, RemoveCart } from '../../Redux/AllSliceFunction/AddToCartSlice/AddToCartSlice';
+import { GetTotalAmount, ProductDecrement, ProductIncrement, RemoveCart, RemoveCartWishList } from '../../Redux/AllSliceFunction/AddToCartSlice/AddToCartSlice';
 
 
 
@@ -23,6 +23,14 @@ const Cart = () => {
   const HandleDeleteItem = (item) => {
     dispatch(RemoveCart(item))
   }
+
+
+  // HandleWishListDeleteItem
+  const HandleWishListDeleteItem = (item) => {
+    dispatch(RemoveCartWishList(item))
+  }
+
+
 
   // HandleIncrementItem 
   const HandleIncrementItem = (item) => {
@@ -103,7 +111,7 @@ const Cart = () => {
                         </div>
 
                         <div className='flex items-center gap-x-1 text-[22px] mt-3'>
-                          <div className='cursor-pointer'>
+                          <div className='cursor-pointer'  onClick={() => HandleWishListDeleteItem (item)}>
                             <CiHeart />
                           </div>
                           <div className='cursor-pointer'  onClick={() => HandleDeleteItem (item)}>

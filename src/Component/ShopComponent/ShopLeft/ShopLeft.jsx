@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ShopByProductBrand from '../../CommonComponent/ShopLeftItem/ShopByProductBrand';
-import ShopByDiscountOffer from '../../CommonComponent/ShopLeftItem/ShopByDiscountOffer';
-import ShopByPriceFilter from '../../CommonComponent/ShopLeftItem/ShopByPriceFilter';
-import ShopByCategories from '../../CommonComponent/ShopLeftItem/ShopByCategories';
-import ShopByRating from '../../CommonComponent/ShopLeftItem/ShopByRating';
-import ShopByColor from '../../CommonComponent/ShopLeftItem/ShopByColor';
 import { DiscountOffer } from '../../../../Data/Data';
 import { FetchDataProduct } from '../../../Redux/AllSliceFunction/ProductsSlice/ProductsSlice';
+import ShopByCategories from '../../CommonComponent/ShopLeftItem/ShopByCategories';
+import ShopByColor from '../../CommonComponent/ShopLeftItem/ShopByColor';
+import ShopByDiscountOffer from '../../CommonComponent/ShopLeftItem/ShopByDiscountOffer';
+import ShopByPriceFilter from '../../CommonComponent/ShopLeftItem/ShopByPriceFilter';
+import ShopByProductBrand from '../../CommonComponent/ShopLeftItem/ShopByProductBrand';
+import ShopByRating from '../../CommonComponent/ShopLeftItem/ShopByRating';
 
 
 
@@ -29,6 +29,7 @@ const ShopLeft = ({ className }) => {
 
 
   const { data, status } = useSelector((state) => state.product);
+  
 
   useEffect(() => {
     dispatch(FetchDataProduct('https://dummyjson.com/products?limit=1000'));
@@ -41,6 +42,12 @@ const ShopLeft = ({ className }) => {
   }, [data, status]);
 
 
+
+  const searchCategory = (subItem) => {
+    console.log(subItem);
+    const subFilter = data?.products.filter((subProducts) => subProducts.tags.includes(subItem)  )
+    setAllProducts(subFilter)
+  }
 
 
 
@@ -103,7 +110,7 @@ const ShopLeft = ({ className }) => {
           <ShopByCategories 
             CatagoriesData={CategoryArr ? CategoryArr : []}
             ShopLeftTitle={'Product Categories'}
-            setCateName={setCateName} 
+            searchCategory={searchCategory} 
           />
         </div>
         <div>

@@ -36,9 +36,7 @@ export const AddToCartSlice = createSlice({
 
     addToWishList: (state , action) => {
       const findIndex = state.cartWishList.findIndex((item) => {
-        
-        return item.id === action.payload.id
-        
+        return item.id === action.payload.id        
       })
       console.log(findIndex);
       if (findIndex >= 0) {
@@ -59,7 +57,15 @@ export const AddToCartSlice = createSlice({
       state.CartItem = removeCart
       localStorage.setItem("CartItem", JSON.stringify(state.CartItem))
     },
+    
+    RemoveCartWishList: (state, action) => {
+      const removeCart = state.cartWishList.filter((item) => item.id !== action.payload.id)
+      state.cartWishList = removeCart
+      localStorage.setItem("cartWishList", JSON.stringify(state.cartWishList))
+    },
 
+
+    
     ProductIncrement: (state, action) => {
       const findIndex = state.CartItem.findIndex((item) => item.id === action.payload.id)
       state.CartItem[findIndex].CartQuantity += 1
@@ -73,6 +79,7 @@ export const AddToCartSlice = createSlice({
       }
       localStorage.setItem("CartItem", JSON.stringify(state.CartItem))
     },
+
     GetTotalAmount: (state, action) => {
       const totalCartItems = state.CartItem.reduce((totalItem, CartItem) => {
         const {CartQuantity, price} = CartItem
@@ -93,5 +100,5 @@ export const AddToCartSlice = createSlice({
 })
 
 
-export const {addToCart, addToWishList, RemoveCart, ProductIncrement, ProductDecrement, GetTotalAmount} = AddToCartSlice.actions;
+export const {addToCart, addToWishList, RemoveCart, ProductIncrement, ProductDecrement, GetTotalAmount, RemoveCartWishList} = AddToCartSlice.actions;
 export default AddToCartSlice.reducer;
