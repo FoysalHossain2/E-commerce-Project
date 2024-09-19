@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { BsFillGridFill } from "react-icons/bs";
+import { CiFilter } from "react-icons/ci";
 import { FaBars } from "react-icons/fa";
 import { IoCaretDownSharp, IoCaretUpSharp } from "react-icons/io5";
-import { CiFilter } from "react-icons/ci";
-import { RxCross2 } from 'react-icons/rx';
+import { useDispatch, useSelector } from 'react-redux';
+import { FetchDataProduct } from '../../../Redux/AllSliceFunction/ProductsSlice/ProductsSlice';
 import FilterComponent from '../FilterComponent';
 
 
@@ -12,6 +13,34 @@ const ShopRightTop = ({onHandlePageChange, HandleGrideChange, changeIcon, Handle
 
   const [Filter, setFilter] = useState(false)
   const [Sort, setSort] = useState(false)
+  const [AllProducts, setAllProducts] = useState([])
+  const [sortType, setSortType] = useState('default');
+  const dispatch = useDispatch()
+
+
+  useEffect(() => {
+    dispatch(FetchDataProduct('https://dummyjson.com/products?limit=1500'))
+  }, [dispatch])
+  
+
+    const {data, status} = useSelector((state) => (state.product))
+    
+
+
+    useEffect(() => {
+      if(status === 'IDLE') {
+        setAllProducts(data.products)
+      }
+    }, [data, status])
+
+
+    useEffect(() => {
+      dispatch(FetchDataProduct('https://dummyjson.com/products?limit=1500'))
+      sortData();
+    }, [sortType]);
+
+
+
 
   // HandleSort functionality
   const HandleSort = () => {
@@ -32,6 +61,29 @@ const ShopRightTop = ({onHandlePageChange, HandleGrideChange, changeIcon, Handle
     setFilter(false)
   }
 
+
+
+  //HandleLowPrice 
+  function sortData() {
+    let sortedData;
+    if (sortType === 'descending') {
+      sortedData = [...data].sort((a, b) => {
+        return b.price.localeCompare(a.price);
+      });
+    } else if (sortType === 'ascending') {
+      sortedData = [...data].sort((a, b) => {
+        return a.price.localeCompare(b.price);
+      });
+    } else {
+      return data;
+    }
+    setData(sortedData);
+  }
+
+
+  console.log(sortType);
+  
+  
 
 
   
@@ -67,8 +119,9 @@ const ShopRightTop = ({onHandlePageChange, HandleGrideChange, changeIcon, Handle
                 name="" 
                 id=""
                 className='border py-1 px-2 rounded-md'
+                onChange={(e) => setSortType (e.target.value)}
               >
-                <option value="Lower Price">Lower Price</option>
+                <option value="Lower Price"  >Lower Price</option>
                 <option value="hight Price">hight Price</option>
                 <option value="Best offer">Best offer</option>
               </select>
@@ -175,3 +228,4 @@ const ShopRightTop = ({onHandlePageChange, HandleGrideChange, changeIcon, Handle
 }
 
 export default ShopRightTop
+

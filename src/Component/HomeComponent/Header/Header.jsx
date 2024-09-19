@@ -150,6 +150,8 @@ const Header = () => {
     </div>
      {/* sideShowMenu overlay part*/}
 
+
+
       {/*============== sideShowMenu overlay AddToCart part ================*/}
         <div className={`blackOverlay w-full h-full fixed duration-500 z-50`}
         style={{
@@ -157,7 +159,7 @@ const Header = () => {
         }}
         onClick={HideMenuSlide}
         >
-          <div className='w-[400px] max-sm:w-[320px] h-full bg-slate-200 absolute duration-500 overflow-y-scroll '
+          <div className='w-[400px] max-sm:w-[300px] h-full bg-slate-200 absolute duration-500 overflow-y-scroll '
           style={{
             right: Filter ? '0%' : '-100%'
           }}

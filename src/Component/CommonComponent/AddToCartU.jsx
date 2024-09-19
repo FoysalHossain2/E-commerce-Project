@@ -95,14 +95,14 @@ const AddToCartU = ({toggleMenu}) => {
                                         </p>
                                     </div>
                                 </div>
-                                <div>
-                                    <RiDeleteBin6Line className='text-red-500 cursor-pointer' onClick={ () => HandleDeletedItem (item)} />
+                                <div className='cursor-pointer'  onClick={ () => HandleDeletedItem (item)}>
+                                    <RiDeleteBin6Line className='text-red-500 ' />
                                 </div>
                             </div>
 
 
                                 <div>
-                                    <div className='flex items-center gap-x-2 w-[68px] px-1 border-2 lg:ml-[285px] max-sm:ml-[205px]'>
+                                    <div className='flex items-center gap-x-2 w-[68px] px-1 border-2 lg:ml-[285px] max-sm:ml-[180px]'>
                                         <button className='cursor-pointer' onClick={() => HandleDecrementItem (item)}> 
                                             <FaMinus /> 
                                         </button>
