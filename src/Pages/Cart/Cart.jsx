@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CiHeart } from "react-icons/ci";
 import { FaMinus, FaPlus } from 'react-icons/fa';
 import { MdDeleteForever } from "react-icons/md";
@@ -12,8 +12,9 @@ const Cart = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate()
+  const [SelectAllItem, setSelectAllItem] = useState(false)
+  const [SelectMessage, setSelectMessage] = useState(false)
   const {CartItem, TotalCartItem, TotalAmount} = useSelector((state) => state.cart)
-  console.log(CartItem);
   
   
 
@@ -53,7 +54,25 @@ const Cart = () => {
     navigate('/login')
   }
   
+
+
+  // HandleClick Select all items functionality
+  const HandleClick = () => {
+    setSelectAllItem(!SelectAllItem)
+  }
+
+
+  // HandleMessage functionality
+  const HandleMessageDelete = (item) => {
+    setSelectMessage(!SelectMessage)
+    dispatch(RemoveCart(item))
+  }
+
+
+
       
+
+
 
 
   return (
@@ -65,28 +84,46 @@ const Cart = () => {
             <div className='flex max-sm:flex-col gap-x-10 '>
           
 
-
             <div className='w-[800px]'>
             <div className='h-[500px] overflow-y-scroll'>
 
-              <div className='mb-6'>
-                  <div className='bg-slate-50 flex items-center justify-between mr-6 py-2 '>
-                    <div className='flex items-center gap-x-2'>
-                      <div className='w-4 h-4 border-2 border-black cursor-pointer' ></div>
-                      <p>Select all items</p>
-                    </div>
-                    <div className='flex items-center gap-x-1 cursor-pointer'>
-                      <MdDeleteForever className='text-[22px]' />
-                      <p>Delete</p>
-                    </div>
+
+              {/*================ Select all items  =================*/}
+                  <div className='mb-6'>
+                      <div className='bg-slate-50 flex items-center justify-between mr-6 py-2 '>
+                        <div className='flex items-center gap-x-2'  onClick={HandleClick}>
+                          <div className={`w-4 h-4 border border-black cursor-pointer  ${SelectAllItem ? 'bg-button_Color' : ''}`} ></div>
+                          <p>Select all items</p>
+                        </div>
+
+                        {/* delete all items */}
+                        <div onClick={() => HandleMessageDelete (item)} className=''>
+                          <div className={`flex items-center gap-x-1 cursor-pointer absolut `}  >
+                            <MdDeleteForever className='text-[22px]' />
+                            <p>Delete</p>
+                          </div>
+                          {SelectMessage ?
+                            (
+                              <div className='border border-red-400 px-5 py-1  '>Select Items</div>
+                            )
+                            :
+                            ''
+                          }
+                        </div>
+                         {/* delete all items */}
+
+
+                      </div>
                   </div>
-              </div>
+                  {/*================ Select all items  =================*/}
+                  
+
               {CartItem.map((item, id) => (          
                 <div className='' key={id}>
 
                   <div className='flex items-start mt-2 justify-between mr-6 bg-slate-50'>
                     <div className='flex items-center gap-x-4'>
-                    <div className='w-4 h-4 border-2 border-black' ></div>
+                    <div className={`w-4 h-4 border border-black cursor-pointer  ${SelectAllItem ? 'bg-button_Color' : ''}`} ></div>
                       <div className='w-20 h-20 shadow-md'>
                         <picture>
                           <img 

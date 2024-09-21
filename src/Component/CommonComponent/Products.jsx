@@ -94,6 +94,7 @@ const Products = ({title,price, image, ratingStar , bize , productId, discountPr
           lg:w-[230px]
           md:w-[350px] max-md:w-[290px]
           max-sm:w-[160px] max-sm:h-[180px] 
+          xsm:w-[180px]
           relative overflow-hidden group cursor-pointer '
           >
             <div className='absolute top-5 ml-5 '> {bize}</div>
@@ -103,7 +104,7 @@ const Products = ({title,price, image, ratingStar , bize , productId, discountPr
                 <img 
                   src={image} 
                   alt={image} 
-                  className='w-full h-full object-cover group-hover:scale-110 transition duration-500 bg-slate-100'
+                  className='w-full h-full object-cover group-hover:scale-110 transition duration-500'
                 />
               </div>
             </Link>

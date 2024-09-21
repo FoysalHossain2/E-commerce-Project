@@ -37,6 +37,8 @@ const AddToCartU = ({toggleMenu}) => {
     // HandleDeletedItem
     const HandleDeletedItem = (item) => {
         dispatch(RemoveCart(item))
+        console.log(item);
+        
     }
 
 
@@ -114,16 +116,17 @@ const AddToCartU = ({toggleMenu}) => {
                                 </div>
                         </div>
 
-                        <div className='bg-white mt-1  rounded-b-lg py-1 px-2'>
-                            <p className='lg:ml-[285px] max-sm:ml-[235px]'>
-                               $ { Math.round(item.price - Math.floor((item.price * item.discountPercentage / 100)))}
-                            </p>
+                        <div className='bg-white mt-1  rounded-b-lg py-1'>
+                            <div className='lg:ml-[285px] max-sm:ml-[235px]  flex items-center '>
+                                <p>$</p>
+                                <p className='text-[20px]'> { Math.round(item.price - Math.floor((item.price * item.discountPercentage / 100)))}</p>
+                            </div>
                         </div>
                     </div>
                 ))}
 
                 <div className='md:top-[258px] fixed  lg:top-[22px] xl:top-[260px] max-md:top-[60px]  max-sm:top-[10px] bottom-0 '>
-                    <div className='w-[382px] max-sm:w-[300px] '>
+                    <div className='w-[382px] max-sm:w-[282px] '>
                         <div className='bg-slate-400 mt-[530px] py-5 px-2 '>
                             <p className='text-center font-Josefin__Sans mb-2'>
                                 Cart Total: <span className='text-orange-400 text-[26px]'>{TotalAmount}</span>

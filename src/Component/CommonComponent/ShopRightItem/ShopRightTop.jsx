@@ -19,7 +19,7 @@ const ShopRightTop = ({onHandlePageChange, HandleGrideChange, changeIcon, Handle
 
 
   useEffect(() => {
-    dispatch(FetchDataProduct('https://dummyjson.com/products?limit=1500'))
+    dispatch(FetchDataProduct('https://dummyjson.com/products?limit=1000'))
   }, [dispatch])
   
 
@@ -35,7 +35,7 @@ const ShopRightTop = ({onHandlePageChange, HandleGrideChange, changeIcon, Handle
 
 
     useEffect(() => {
-      dispatch(FetchDataProduct('https://dummyjson.com/products?limit=1500'))
+      dispatch(FetchDataProduct('https://dummyjson.com/products?limit=1000'))
       sortData();
     }, [sortType]);
 

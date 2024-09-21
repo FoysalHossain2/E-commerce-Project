@@ -1,6 +1,4 @@
-import React, { Component, useState } from 'react'
-import Arrivals4 from '../../assets/NewArrivals/Arrivals4.png'
-import Slider from "react-slick";
+import React, { useState } from 'react';
 
 
 const ProductDetailsLeft = ({EachProductsDetailsImg, status}) => {
@@ -30,9 +28,10 @@ const ProductDetailsLeft = ({EachProductsDetailsImg, status}) => {
 
   return (
     <>
-    <div>
+    <div className='px-3'>
         <div className="container mx-auto">
-            <div className='flex flex-col ' >
+
+            <div className='flex flex-col  '>
                 
                 <p onClick={HandlePevChange} className='w-16 border hover:bg-button_Color'>Previews</p>
                 <p onClick={HandleNextChange}  className='w-10 border hover:bg-button_Color'>Next</p>
@@ -60,7 +59,7 @@ const ProductDetailsLeft = ({EachProductsDetailsImg, status}) => {
                             <div className='flex gap-y-6 mt-3  w-[380px] h-[400px] border  overflow-hidden'>
                                 {EachProductsDetailsImg.images?.map((image) => (
                                     <div  key={image}   style={{transform: `translateX(-${Slider * 100}%)`}}>
-                                        <div className='w-[380px] h-[400px] py-3 bg-slate-100' >
+                                        <div className='w-[380px] h-[400px] py-3' >
                                             <img 
                                                 src={image} 
                                                 alt="" 
@@ -114,6 +113,7 @@ const ProductDetailsLeft = ({EachProductsDetailsImg, status}) => {
                 </div>
 
             </div>
+            
         </div>
     </div>
     </>

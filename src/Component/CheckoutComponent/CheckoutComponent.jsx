@@ -160,8 +160,24 @@ const CheckoutComponent = () => {
         setTotalInA(OutSightTotalAmount)
     }
 
+    let result;
+
+    if (TotalOutA === true) {
+    result = TotalOutA;
+    } else if (TotalInA === true) {
+    result = TotalInA;
+    } else {
+    result = '';
+    console.log(result);
+    
+    }
 
 
+
+
+
+
+    
 
   return (
     <>
@@ -395,7 +411,7 @@ const CheckoutComponent = () => {
                     <div className='flex items-center justify-between mt-4'>
                         <p>Total Amount:</p>
                         <p>
-                            {TotalOutA ? TotalOutA : TotalInA}
+                            {result}
                         </p>
                     </div>
 

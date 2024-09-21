@@ -45,7 +45,6 @@ const Furniture = () => {
                         <img src={MusicFrame} alt="" />
                     </div>
                         <div className="absolute sm:bottom-8 bottom-4 pr-10 sm:pr-0 left-4 sm:left-8 flex justify-start items-start">
-                                <p className="text-3xl sm:text-4xl font-semibold leading-9 text-white">LOREM</p>
                         </div>
                 </div>
 

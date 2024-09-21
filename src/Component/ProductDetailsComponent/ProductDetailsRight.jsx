@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { FaMinus, FaPlus } from 'react-icons/fa';
-import { IoIosHeartEmpty } from "react-icons/io";
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { addToCart, addToWishList, ProductDecrement, ProductIncrement } from '../../Redux/AllSliceFunction/AddToCartSlice/AddToCartSlice';
@@ -70,12 +69,15 @@ const ProductDetailsRight = () => {
 
   return (
     <>
-    <div className=''>
-      <p className='font-Josefin__Sans text-4xl font-bold mb-4 text-[#0D134E]'>
-        {EachCartItem.title ? EachCartItem.title : 'Title is Messing'}
-      </p>
+    <div className='max-sm:px-3  pb-14'>
 
-      <h1 className='font-DM_Sans text-lg'>
+      <div className='max-sm:mt-8'>
+        <p className='font-Josefin__Sans text-4xl max-sm:text-[25px] font-bold mb-4 text-[#0D134E]'>
+          {EachCartItem.title}
+        </p>
+      </div>
+
+      <h1 className='font-DM_Sans text-lg font-semibold'>
         {EachCartItem.description ? EachCartItem.description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'}
       </h1>
       
@@ -146,20 +148,22 @@ const ProductDetailsRight = () => {
       {/* ======== Quantity ============ */}
 
       {/*============= addToCart =============*/}
+      <div className=' max-sm:fixed max-sm:bottom-0'>
         <div className='flex items-center gap-x-3 mt-4'>
-            <div className='w-[200px] py-3 bg-button_Color text-center font-Roboto font-bold text-white text-[20px] cursor-pointer' onClick={HandleAddToCart}>
+            <div className='w-[200px] max-sm:w-[150px] py-3 bg-button_Color text-center font-Roboto font-bold text-white text-[20px] cursor-pointer' onClick={HandleAddToCart}>
               ADD TO CART 
             </div>
-          <div className='w-[200px] py-3 bg-green-600 text-center font-Roboto font-bold text-white text-[20px] cursor-pointer'>
+          <div className='w-[200px]  max-sm:w-[150px] py-3 bg-green-600 text-center font-Roboto font-bold text-white text-[20px] cursor-pointer'>
              BUY NOW
           </div>
 
-          <div>
+          {/* <div>
             <div className='border px-3 py-3 text-[27px] bg-slate-800 text-white cursor-pointer'  onClick={HandleWishList}>
               <IoIosHeartEmpty />
             </div>
-          </div>
+          </div> */}
         </div>
+      </div>
       {/*============= addToCart =============*/}
 
 

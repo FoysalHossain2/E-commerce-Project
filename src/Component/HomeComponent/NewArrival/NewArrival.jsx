@@ -11,12 +11,12 @@ const NewArrival = ({headingTitle}) => {
               {headingTitle ? headingTitle : headingTitle} 
             </h1>
 
-          <div className='lg:grid lg:grid-cols-4 gap-y-8 gap-x-12
+          <div className='lg:grid lg:grid-cols-4 gap-y-8 gap-x-6
            
             max-sm:grid max-sm:grid-cols-2
           '>
             {NewArrivalsData?.map((items,id) => (
-              <div className='w-[270px] max-sm:w-[160px] xsm:w-[184px]'  key={id}>
+              <div className='w-[230px]'  key={id}>
                 <Products
                  key={id}
                  image={items.img}

@@ -44,8 +44,10 @@ const ProductDetails = () => {
   return (
     <>
       <div className='container mx-auto'>
-        <div className="py-3">
-          <BreadCrumb />
+        <div className='max-sm:hidden lg:block xl:block'>
+          <div className="py-3">
+            <BreadCrumb />
+          </div>
         </div>
         <hr />
 
