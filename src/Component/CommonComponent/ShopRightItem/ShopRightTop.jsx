@@ -81,7 +81,7 @@ const ShopRightTop = ({onHandlePageChange, HandleGrideChange, changeIcon, Handle
   }
 
 
-  console.log(sortType);
+
   
   
 
