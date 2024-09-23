@@ -1,12 +1,14 @@
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import { checkEmail } from '../../../Utils/Utils';
 
 const LoginComponent = () => {
 
 
-    // const auth = getAuth()
+  const auth = getAuth();
   const navigate = useNavigate()
+
   const [UserInLogin, setUserInLogin] = useState({
     email: "",
     password: "",
@@ -26,30 +28,23 @@ const LoginComponent = () => {
   const HandleLogin = (e) => {
     e.preventDefault()
     const {email, password} = UserInLogin;
-    if (!email || !checkEmail (email)) {
-     ErrorMessage('Your email is not valid') 
+    if (!email || !checkEmail(email)) {
+      alert('Your cradential is not valid', "top-center")
     } else if (!password) {
-      ErrorMessage('Your password is not valid')
-    } else {
-      signInWithEmailAndPassword(auth, email, password)
-      .then((userInfo) => {
-        onAuthStateChanged(auth, (user) => {
-          console.log(user.emailVerified);
-          // if (user.email) {
-          //   navigate('/checkout')
-          //   SuccessMessage(`${user.email} Login success`)
-
-          // } else {
-          //    ErrorMessage(
-          //     `${user.email} Is Not verified Please check Your email`
-          //    )
-          // }
-        })
-      }) .catch((err) => {
-        ErrorMessage(err.message)
-      })
+      alert('Your credential is not valid', "top-center")
+    }else {
+      alert("Every Thing is ok")
+      signInWithEmailAndPassword(auth, email, password).then((userInfo) =>(
+        console.log(userInfo)
+      )).catch((err) => (
+        console.log(err,"Errormessage")
+        
+      ))
     }
   }
+
+
+
 
 
 
@@ -74,17 +69,18 @@ const LoginComponent = () => {
                         class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" 
                         placeholder="name@flowbite.com" 
                         required 
-                        onClick={HandleLoginInput}
+                        onChange={HandleLoginInput}
                     />
                 </div>
                 <div class="mb-5">
                     <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
                     <input 
                         type="password"
-                        id="password" 
+                        id="password"
+                        minLength={6} 
                         class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
                         required 
-                        onClick={HandleLoginInput} 
+                        onChange={HandleLoginInput} 
                     />
                 </div>
                 <div class="flex items-start mb-5">
@@ -93,7 +89,7 @@ const LoginComponent = () => {
                     </div>
                     <label for="terms" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree with the <a href="#" class="text-blue-600 hover:underline dark:text-blue-500">terms and conditions</a></label>
                 </div>
-                    <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ">
+                    <button onClick={HandleLogin}  type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ">
                         LOGIN
                     </button>
 
