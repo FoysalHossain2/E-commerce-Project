@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { DiscountOffer } from '../../../../Data/Data';
 import { FetchDataProduct } from '../../../Redux/AllSliceFunction/ProductsSlice/ProductsSlice';
 import ShopByCategories from '../../CommonComponent/ShopLeftItem/ShopByCategories';
-import ShopByColor from '../../CommonComponent/ShopLeftItem/ShopByColor';
 import ShopByDiscountOffer from '../../CommonComponent/ShopLeftItem/ShopByDiscountOffer';
 import ShopByPriceFilter from '../../CommonComponent/ShopLeftItem/ShopByPriceFilter';
 import ShopByProductBrand from '../../CommonComponent/ShopLeftItem/ShopByProductBrand';
@@ -129,9 +128,6 @@ const ShopLeft = ({ className }) => {
           <ShopByRating />
         </div>
 
-        <div>
-          <ShopByColor />
-        </div>
       </div>
     </div>
   );

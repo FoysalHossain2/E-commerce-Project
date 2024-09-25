@@ -1,12 +1,16 @@
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+// import { getAuth } from "firebase/auth";
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { checkEmail } from '../../../Utils/Utils';
+import { auth } from '../../../Firebase/FirebaseConfig';
+import { ErrorMessage, SuccessMessage, checkEmail } from '../../../Utils/Utils';
+
+
 
 const LoginComponent = () => {
 
 
-  const auth = getAuth();
+  // const auth = getAuth();
   const navigate = useNavigate()
 
   const [UserInLogin, setUserInLogin] = useState({
@@ -28,22 +32,32 @@ const LoginComponent = () => {
   const HandleLogin = (e) => {
     e.preventDefault()
     const {email, password} = UserInLogin;
-    if (!email || !checkEmail(email)) {
-      alert('Your cradential is not valid', "top-center")
+    if (!email || !checkEmail (email)) {
+     ErrorMessage('Your email is not valid') 
     } else if (!password) {
-      alert('Your credential is not valid', "top-center")
-    }else {
-      alert("Every Thing is ok")
-      signInWithEmailAndPassword(auth, email, password).then((userInfo) =>(
-        console.log(userInfo)
-      )).catch((err) => (
-        console.log(err,"Errormessage")
+      ErrorMessage('Your password is not valid')
+    } else {
+      createUserWithEmailAndPassword(auth, email, password)
+      .then((userInfo) => {
+        onAuthStateChanged(auth, (user) => {
+          console.log(user.emailVerified);
+          if (user.email) {
+            navigate('/checkout')
+            SuccessMessage(`${user.email} Login success`)
+
+          } else {
+             ErrorMessage(
+              `${user.email} Is Not verified Please check Your email`
+             )
+             alert('Not ')
+          }
+        })
+      }) .catch((err) => {
         
-      ))
+        ErrorMessage(err.message)
+      })
     }
   }
-
-
 
 
 

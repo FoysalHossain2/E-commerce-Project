@@ -1,14 +1,16 @@
-import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
-import NotFoundPage from './Component/CommonComponent/NotFoundPage'
-import RootLayouts from './Component/CommonComponent/RootLayouts/RootLayouts'
-import Cart from './Pages/Cart/Cart'
-import Checkout from './Pages/Checkout/Checkout'
-import Contact from './Pages/Contact/Contact'
-import Home from './Pages/Home/Home'
-import Login from './Pages/Login/Login'
-import ProductDetails from './Pages/ProductDetails/ProductDetails'
-import Shop from './Pages/Shop/Shop'
-import WishList from './Pages/WishList/WishList'
+import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import NotFoundPage from './Component/CommonComponent/NotFoundPage';
+import RootLayouts from './Component/CommonComponent/RootLayouts/RootLayouts';
+import Cart from './Pages/Cart/Cart';
+import Checkout from './Pages/Checkout/Checkout';
+import Contact from './Pages/Contact/Contact';
+import Home from './Pages/Home/Home';
+import Login from './Pages/Login/Login';
+import ProductDetails from './Pages/ProductDetails/ProductDetails';
+import Shop from './Pages/Shop/Shop';
+import WishList from './Pages/WishList/WishList';
 
 
 const router = createBrowserRouter(
@@ -34,6 +36,7 @@ function App() {
 
   return (
     <>
+     <ToastContainer />
     <RouterProvider router={router}>
     </RouterProvider>
     </>
