@@ -128,6 +128,8 @@ const Header = () => {
 
 
 
+
+
   return (
     <>
 
@@ -293,12 +295,14 @@ const Header = () => {
                   <div className='border-r border-gray-300 h-5 w-[2px]  max-sm:hidden block'></div>
 
                 {/* --------------- login part ------------------*/}
-                <div className='flex items-center gap-x-1 bg-slate-800 text-white px-[10px] py-[5px] rounded-3xl'>
-                  <FaUser className='cursor-pointer text-orange-400 text-[20px]' />
-                    <p className=''>
-                      sing in
-                    </p>
-                </div>
+                <Link to={'/login'}>
+                  <div className='flex items-center gap-x-1 bg-slate-200 px-[10px] py-[5px] rounded-3xl  cursor-pointer'>
+                    <FaUser className='cursor-pointer  text-[20px]' />
+                      <p className=''>
+                        sing in
+                      </p>
+                  </div>
+                </Link>
                 {/* --------------- login part ------------------*/}
 
                 <div className='border-r border-gray-300 h-5 w-[2px]  '></div>

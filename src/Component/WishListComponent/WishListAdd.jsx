@@ -25,7 +25,7 @@ const WishListAdd = () => {
 
   return (
     <>
-       <div className='py-20'>
+       <div className='py-[120px]'>
         <div className='container mx-auto'>
           <div className='bg-zinc-200 grid grid-cols-2 gap-x-10'>
               {cartWishList?.map((item, id) => (

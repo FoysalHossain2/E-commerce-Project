@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaUser } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Menubar = () => {
 
@@ -20,12 +21,14 @@ const Menubar = () => {
         <>
             <div>
                 {/* -----------sing in-----------  */}
-                    <div className='bg-[#222132] py-4 flex items-center gap-x-6'>
-                        <div className='ml-8 bg-white text-button_Color w-8 h-8 rounded-full flex items-center justify-center'>
-                            <FaUser className='text-[20px]' />
-                        </div>
-                        <p className='text-white font-Josefin__Sans text-xl'>Sing in</p>
-                    </div>
+                <div className='bg-[#222132] py-4 '>
+                    <Link to={'/login'} className='flex items-center gap-x-6'>
+                            <div className='ml-8 bg-white text-button_Color w-8 h-8 rounded-full flex items-center justify-center'>
+                                <FaUser className='text-[20px]' />
+                            </div>
+                            <p className='text-white font-Josefin__Sans text-xl'>Sing in</p>
+                    </Link>
+                </div>
                 {/* -----------sing in-----------  */}
             </div>
 

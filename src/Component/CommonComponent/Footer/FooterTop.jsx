@@ -1,10 +1,10 @@
 import React from 'react'
-import FooterItem from '../FooterItem'
-import QRcode from '../../../assets/FooterImg/QRcode.png'
+import { FaDiscord, FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa"
+import { Link } from 'react-router-dom'
 import AppelAppStore from '../../../assets/FooterImg/AppelAppStore.png'
 import googlePlayStor from '../../../assets/FooterImg/googlePlayStor.png'
-import { FaFacebookF, FaLinkedinIn, FaInstagram, FaDiscord } from "react-icons/fa";
-import { Link } from 'react-router-dom'
+import QRcode from '../../../assets/FooterImg/QRcode.png'
+import FooterItem from '../FooterItem'
 
 
 
@@ -83,6 +83,7 @@ const FooterTop = () => {
                 </div>
               </div>
 
+
               {/* social Link */}
                 <div className='flex items-center gap-x-6 text-[23px]'>
                   <a href="https://www.facebook.com/profile.php?id=61550275201598" className='cursor-pointer'> <FaFacebookF />  </a>
@@ -98,10 +99,10 @@ const FooterTop = () => {
             </div>
           </div>
 
-            <div className='pt-12 max-sm:px-2 lg:px-3'>
+            <div className='pt-[100px] max-sm:px-2 lg:px-3'>
                 <div className='border-t-2'>
                   <p className='text-white text-center pt-6'>Copyright Foysal 2024. All right reserved</p>
-              </div>
+                </div>
            </div>
 
       </div>
