@@ -9,7 +9,11 @@ const Furniture = () => {
     const dispatch = useDispatch();
     const [AllProducts, setAllProducts] = useState([]);
     const [Page, setPage] = useState(1)
-    // const [Page, setPage] = useState(9)
+
+    const [Days, setDays] = useState(0)
+    const [Hour, setHour] = useState(0)
+    const [Minute, setMinute] = useState(0)
+    const [Second, setSecond] = useState(0)
     
     
   
@@ -31,6 +35,24 @@ const Furniture = () => {
 
 
 
+      const deadline = 'OCTOBER, 31, 2024';
+
+    //   Create a Countdown Time
+    const getTime = () => {
+        const time = Date.parse(deadline)-Date.now()
+        setDays(Math.floor(time/(1000*60*60*24)))
+        setHour(Math.floor(time/(1000*60*60)%24))
+        setMinute(Math.floor((time/1000/60)%60))
+        setSecond(Math.floor((time/(1000)%60)))
+    }
+
+
+    useEffect(() => {
+      const interval = setInterval(() => getTime(),1000)
+      return () => clearInterval(interval)
+    }, [])
+    
+
 
 
 
@@ -44,7 +66,13 @@ const Furniture = () => {
                     <div>
                         <img src={MusicFrame} alt="" />
                     </div>
-                        <div className="absolute sm:bottom-8 bottom-4 pr-10 sm:pr-0 left-4 sm:left-8 flex justify-start items-start">
+                        <div className="absolute sm:bottom-[140px] bottom-4 pr-10 sm:pr-0 left-4 sm:left-8 flex justify-start items-start">
+                            <div className='text-white flex items-center gap-x-8'>
+                                <p className={`${Days< 10 ? '0'+Days : Days}`}>{Days}</p>
+                                <p className={`${Hour< 10 ? '0'+Hour : Hour}`}>{Hour}</p>
+                                <p className={`${Minute< 10 ? '0'+Minute : Minute}`}>{Minute}</p>
+                                <p className={`${Second< 10 ? '0'+Second : Second}`}>{Second}</p>
+                            </div>
                         </div>
                 </div>
 

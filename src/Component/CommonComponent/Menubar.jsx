@@ -21,7 +21,7 @@ const Menubar = () => {
         <>
             <div>
                 {/* -----------sing in-----------  */}
-                <div className='bg-[#222132] py-4 '>
+                <div className='bg-[#222132] py-4'  >
                     <Link to={'/login'} className='flex items-center gap-x-6'>
                             <div className='ml-8 bg-white text-button_Color w-8 h-8 rounded-full flex items-center justify-center'>
                                 <FaUser className='text-[20px]' />
