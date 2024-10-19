@@ -12,7 +12,7 @@ const Banner = () => {
     },
     {
       id: 2,
-      img: BannerImg,
+      img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D",
     },
     {
       id: 3,

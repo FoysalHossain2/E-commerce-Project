@@ -1,14 +1,21 @@
-import React from 'react'
-import WishListAdd from '../../Component/WishListComponent/WishListAdd'
+import React from "react";
+import BreadCrumb from "../../Component/CommonComponent/BreadCrumb/BreadCrumb";
+import WishListAdd from "../../Component/WishListComponent/WishListAdd";
 
 const WishList = () => {
   return (
     <>
-        <div>
-            <WishListAdd />
+      <div className="container mx-auto">
+        <div className="py-3 max-sm:hidden max-md:hidden md:hidden lg:block">
+          <BreadCrumb />
         </div>
+        <hr />
+        <div>
+          <WishListAdd />
+        </div>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default WishList
+export default WishList;
