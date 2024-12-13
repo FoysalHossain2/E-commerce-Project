@@ -159,7 +159,7 @@ const CheckoutComponent = () => {
           <h1 className="pb-11">Shipping address</h1>
 
           <div className="flex max-sm:flex-col  gap-x-12">
-            <div className="w-[770px] bg-[#F8F8FD] py-4 px-5  rounded-lg flex flex-col sm:flex-col">
+            <div className="lg:w-[770px] sm:w-full bg-[#F8F8FD] py-4 px-5  rounded-lg flex flex-col sm:flex-col">
               <div className="lg:flex lg:flex-row sm:flex-col items-center justify-between">
                 <div className="flex flex-col">
                   <label>Name</label>
