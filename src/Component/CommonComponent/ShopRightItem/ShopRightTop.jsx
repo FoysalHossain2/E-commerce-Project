@@ -73,7 +73,7 @@ const ShopRightTop = ({
 
   return (
     <>
-      <div className="pb-10   max-sm:hidden max-md:hidden md:hidden lg:block">
+      <div className="pb-8   max-sm:hidden max-md:hidden md:hidden lg:block">
         <div className="flex items-center justify-between gap-x-20">
           <div></div>
 

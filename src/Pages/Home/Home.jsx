@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import Banner from "../../Component/HomeComponent/Banner/Banner";
 import Categories from "../../Component/HomeComponent/Categories/Categories";
-import NewArrival from "../../Component/HomeComponent/NewArrival/NewArrival";
 import Shipping from "../../Component/HomeComponent/Shipping/Shipping";
 // import Add from '../../Component/HomeComponent/Add/Add'
 import { useDispatch, useSelector } from "react-redux";
+import Add from "../../Component/HomeComponent/Add/Add";
+import Add02 from "../../Component/HomeComponent/Add02/Add02";
+import Add03 from "../../Component/HomeComponent/Add03/Add03";
 import Furniture from "../../Component/HomeComponent/Furniture/Furnituar";
 
 const Home = () => {
@@ -18,11 +20,11 @@ const Home = () => {
       <div className="overflow-x-hidden">
         <Banner />
         <Shipping />
-        {/* <Add /> */}
+        <Add02 />
         <Categories />
+        <Add />
         <Furniture status={status} />
-        <NewArrival headingTitle="NewArrival" />
-        <NewArrival headingTitle="Just For You" />
+        <Add03 />
       </div>
     </>
   );

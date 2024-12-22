@@ -1,66 +1,62 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-    --bg_Primary_color: #FFF;
-    --bg_Secondary_color: #F5F5F3;
-    --main_text_color: #262626;
-    --secondary_text_color: #151875;
-    --Paragraph__Color: #7E81A2;
-    --button_Color: #FB2E86;
-    --Footer_Color: #EEEFFB;
-    --DM__Sans: "DM Sans", sans-serif,;
-    --Josefin__Sans: "Josefin Sans", sans-serif;
-    --Roboto: "Roboto", sans-serif;
+  --bg_Primary_color: #fff;
+  --bg_Secondary_color: #f5f5f3;
+  --main_text_color: #262626;
+  --secondary_text_color: #151875;
+  --Paragraph__Color: #7e81a2;
+  --button_Color: #fb2e86;
+  --Footer_Color: #eeeffb;
+  --DM__Sans: "DM Sans", sans-serif;
+  --Josefin__Sans: "Josefin Sans", sans-serif;
+  --Roboto: "Roboto", sans-serif;
 }
 
-
 @layer base {
+  * {
+    @apply m-0 p-0 outline-none box-border;
+  }
 
-    *{
+  a {
+    @apply no-underline inline-block;
+  }
 
-        @apply m-0 p-0 outline-none box-border;
+  ul,
+  li,
+  ol {
+    @apply list-none;
+  }
 
-    }
-    
-    
-    a {
+  img {
+    @apply align-middle;
+  }
 
-         @apply no-underline inline-block;
+  body {
+    background-color: #f6f6f6;
+  }
 
-    }
+  .blackOverlay {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    z-index: 1;
+  }
 
-    ul,li,ol {
-        @apply list-none;
-    }
-    
-    img {
-        @apply align-middle;
+  .hideScrollbar {
+    overflow-y: hidden;
+  }
 
-    }
+  .no-scroll {
+    overflow: hidden;
+  }
 
-    .blackOverlay {
-        background-color: rgba(0, 0, 0, 0.8) !important;
-        z-index: 1;
-    }
-
-      .hideScrollbar {
-        overflow-y: hidden;
-    }
-
-    .no-scroll {
-        overflow: hidden;
-    }
-
-    .slick-dots ul .slick-active div  {
-        border-right: 4px solid #000 !important;
-        width: 16px;
-        padding: 20px 0;
-    }
-
-
+  .slick-dots ul .slick-active div {
+    border-right: 4px solid #000 !important;
+    width: 16px;
+    padding: 20px 0;
+  }
 }

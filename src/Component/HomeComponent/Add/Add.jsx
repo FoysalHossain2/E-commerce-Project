@@ -1,64 +1,117 @@
-import React from 'react'
-import Ad_1 from '../../../assets/Ad_1.png';
-import Ad_2 from '../../../assets/Ad_2.png';
-import Ad_3 from '../../../assets/Ad_3.png';
-import Overlay from '../../CommonComponent/Overlay';
+import React from "react";
+import Arrivals1 from "../../../assets/NewArrivals/Arrivals1.png";
 
 const Add = () => {
+  const products = [
+    {
+      id: 1,
+      tag: "17% Off",
+      tagStyle: "bg-yellow-500",
+      title: "HP 11.6” Chromebook, AMD A4, 4GB RAM, 32GB Storage",
+      price: "$2856.3",
+      oldPrice: "$3225.6",
+      rating: "65",
+      image: Arrivals1, // Replace with actual images
+    },
+    {
+      id: 1,
+      tag: "17% Off",
+      tagStyle: "bg-yellow-500",
+      title: "HP 11.6” Chromebook, AMD A4, 4GB RAM, 32GB Storage",
+      price: "$2856.3",
+      oldPrice: "$3225.6",
+      rating: "65",
+      image: Arrivals1, // Replace with actual images
+    },
+    {
+      id: 1,
+      tag: "17% Off",
+      tagStyle: "bg-yellow-500",
+      title: "HP 11.6” Chromebook, AMD A4, 4GB RAM, 32GB Storage",
+      price: "$2856.3",
+      oldPrice: "$3225.6",
+      rating: "65",
+      image: Arrivals1, // Replace with actual images
+    },
+    {
+      id: 1,
+      tag: "17% Off",
+      tagStyle: "bg-yellow-500",
+      title: "HP 11.6” Chromebook, AMD A4, 4GB RAM, 32GB Storage",
+      price: "$2856.3",
+      oldPrice: "$3225.6",
+      rating: "65",
+      image: Arrivals1, // Replace with actual images
+    },
+    {
+      id: 1,
+      tag: "17% Off",
+      tagStyle: "bg-yellow-500",
+      title: "HP 11.6” Chromebook, AMD A4, 4GB RAM, 32GB Storage",
+      price: "$2856.3",
+      oldPrice: "$3225.6",
+      rating: "65",
+      image: Arrivals1, // Replace with actual images
+    },
+  ];
+
   return (
-    <>
-    <div className='py-3 px-2 md:px-0 pt-[84px]'>
-        <div className="container mx-auto">
-            <div className={'sm:gap-x-5 md:gap-x-6 lg:gap-x-10 flex flex-row gap-y-4'}>
-              <div className='md:w-1/2 w-full relative border'>
-                <div className=' w-full h-full'>
-                  <img src={Ad_1} alt=""  className=' w-full h-full'  />
-                </div>
+    <div className="bg-gray-100 py-8">
+      <div className="container mx-auto ">
+        <div className="flex items-end justify-between ">
+          <div>
+            <h2 className="text-2xl font-bold mb-2 ">Weekly selection</h2>
+            <p className=" text-gray-600 mb-6">
+              Shop living room furniture, crafted by designers all over the
+              world
+            </p>
+          </div>
+          <div className="flex justify-center space-x-4 mb-6">
+            <button className="text-blue-600 font-medium border-b-2 border-blue-600">
+              All
+            </button>
+            <button className="text-gray-600">Best Seller</button>
+            <button className="text-gray-600">Most Viewed</button>
+            <button className="text-gray-600">Top Brands</button>
+          </div>
+        </div>
+        <hr className="border-t border-gray-300 mt-4 mb-8" />
 
-                <Overlay 
-                  className={'md:bottom-[72px] bottom-[30px] left-16'} 
-                  title={'Phone sale'}
-                  discountDetailsFirst={'up to'}
-                  discountAmount={'30%'}
-                  discountDetailsLast={'sale for all phones!'}
-                  btnTitle={'Shop Now'}
-                />
-               
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-6 ">
+          {products.map((product) => (
+            <div
+              key={product.id}
+              className="bg-white relative rounded-lg shadow hover:shadow-lg transition "
+            >
+              <div
+                className={`absolute top-2 left-2 text-white text-sm px-2 py-1 rounded ${product.tagStyle}`}
+              >
+                {product.tag}
               </div>
-
-              <div className='md:w-1/2 w-full flex flex-col gap-10'>
-                 <div className='w-full relative border'>
-                   <picture>
-                      <img src={Ad_2} alt="" />
-                   </picture>
-                    <Overlay 
-                      className={'top-1/2 -translate-y-1/2 left-10'} 
-                      title={'Electronics Sale'}
-                      discountDetailsFirst={'up to'}
-                      discountAmount={'70%'}
-                      discountDetailsLast={'sale for all electronics!'}
-                      btnTitle={'Shop Now'}
-                    />
-                 </div>
-                 <div className='w-full relative border'>
-                    <picture className='max-h-[200px]'>
-                       <img src={Ad_3} alt="" />
-                    </picture>
-                      <Overlay 
-                        className={'top-1/2 -translate-y-1/2 left-10'} 
-                        title={'Furniture Offer'}
-                        discountDetailsFirst={'up to'}
-                        discountAmount={'50%'}
-                        discountDetailsLast={'sale for all furniture items!'}
-                        btnTitle={'Shop Now'}
-                      />
-                 </div>
-               </div>
+              <img
+                src={product.image}
+                alt={product.title}
+                className="w-full h-48 object-cover rounded-lg"
+              />
+              <h3 className="text-lg font-medium mt-4">{product.title}</h3>
+              <div className="flex items-center mt-2 text-gray-500">
+                <span className="mr-2">⭐</span>
+                <span>({product.rating})</span>
+              </div>
+              <div className="mt-2">
+                <span className="text-xl font-bold text-gray-900">
+                  {product.price}
+                </span>
+                <span className="text-sm text-gray-500 line-through ml-2">
+                  {product.oldPrice}
+                </span>
+              </div>
             </div>
+          ))}
         </div>
       </div>
-    </>
-  )
-}
+    </div>
+  );
+};
 
-export default Add
+export default Add;

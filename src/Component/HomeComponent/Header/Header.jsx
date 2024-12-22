@@ -167,7 +167,7 @@ const Header = () => {
       {/*=================================== Header part =====================================*/}
       <div
         className={`py-4 max-sm:py-2
-       bg-white  `}
+       bg-button_Color `}
       >
         <div className="container mx-auto ">
           <div
@@ -234,13 +234,13 @@ const Header = () => {
                 <input
                   type="text"
                   name="q"
-                  className="w-full border py-[8px] shadow rounded-l-full dark:text-gray-800 border-button_Color dark:bg-gray-200 pl-4"
+                  className="w-full border py-[8px] shadow  dark:text-gray-800 border-button_Color dark:bg-gray-200 pl-4"
                   placeholder="search product"
                   onChange={HandleSearch}
                 />
                 <button
                   type="submit"
-                  className=" bg-button_Color py-[8px] rounded-r-full hover:bg-pink-600 "
+                  className="py-[8px] hover:bg-pink-600 bg-pink-300 "
                 >
                   <HiOutlineSearch
                     className="ml-3 text-[23px] 

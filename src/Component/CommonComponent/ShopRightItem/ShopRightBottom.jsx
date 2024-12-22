@@ -38,7 +38,7 @@ const ShopRightBottom = () => {
 
   return (
     <>
-      <div className="max-sm:hidden max-md:hidden lg:block xl:block">
+      <div className="mt-">
         {status === "LOADING" ? (
           <LoadingPage />
         ) : status === "ERROR" ? (
@@ -47,18 +47,9 @@ const ShopRightBottom = () => {
           AllProducts && (
             <div>
               <div
-                className={`xl:flex xl:flex-wrap xl:justify-between gap-y-8
-            max-sm:grid max-sm:grid-cols-2 max-sm:gap-x-[100px] max-sm:px-2  max-sm:gap-y-3 
-             max-md:px-2 md:px-2 
-            max-md:grid max-md:grid-cols-2 max-md:gap-x-[100px]
-            md:grid md:grid-cols-2 md:gap-x-[180px]  
-            lg:grid lg:grid-cols-3 lg:gap-x-4   
+                className={`grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6  
 
-            ${
-              GrideChange
-                ? "xl:grid xl:grid-cols-1  "
-                : "xl:flex flex-row lg:flex lg:flex-row justify-between"
-            }`}
+            `}
               >
                 {AllProducts?.slice(
                   Page * PageChange - PageChange,
@@ -66,7 +57,8 @@ const ShopRightBottom = () => {
                 ).map((productItems, id) => (
                   <div
                     key={id}
-                    className={` xl:w-[255px] lg:w-[230px] md:w-[350px] max-md:w-[290px] max-sm:w-[160px]
+                    className={` 
+                    
               `}
                   >
                     <Products
@@ -91,7 +83,7 @@ const ShopRightBottom = () => {
 
               {/*=================== pagination part ================== */}
 
-              <div className="max-sm:hidden">
+              <div className="sm:hidden md:hidden hidden lg:block">
                 <div className="flex items-center gap-x-10  mt-[70px] ">
                   <div
                     className="w-8 h-8 border flex items-center justify-center cursor-pointer"
@@ -130,58 +122,6 @@ const ShopRightBottom = () => {
               </div>
 
               {/*=================== pagination part ================== */}
-            </div>
-          )
-        )}
-      </div>
-
-      <div className="max-sm:block max-md:block lg:hidden xl:hidden">
-        {status === "LOADING" ? (
-          <LoadingPage />
-        ) : status === "ERROR" ? (
-          <NotFoundPage />
-        ) : (
-          AllProducts && (
-            <div>
-              <div
-                className={`xl:flex xl:flex-wrap xl:justify-between gap-y-8
-          max-sm:grid max-sm:grid-cols-2 max-sm:px-2  max-sm:gap-y-3 
-          max-md:px-2 md:px-2 
-          max-md:grid max-md:grid-cols-2 max-md:gap-x-[100px]
-          md:grid md:grid-cols-2 md:gap-x-[18px]  
-          lg:grid lg:grid-cols-3 lg:gap-x-4   
-
-          ${
-            GrideChange
-              ? "xl:grid xl:grid-cols-1  "
-              : "xl:flex flex-row lg:flex lg:flex-row justify-between"
-          }`}
-              >
-                {AllProducts?.map((productItems, id) => (
-                  <div
-                    key={id}
-                    className={` xl:w-[255px] lg:w-[230px] md:w-[350px] max-md:w-[290px] max-sm:w-[160px]
-            `}
-                  >
-                    <Products
-                      image={productItems.thumbnail}
-                      title={productItems.description}
-                      price={`$${Math.round(productItems.price)}`}
-                      discountPrice={Math.round(
-                        productItems.price -
-                          Math.floor(
-                            (productItems.price *
-                              productItems.discountPercentage) /
-                              100
-                          )
-                      )}
-                      ratingStar={productItems.rating}
-                      productId={productItems.id}
-                      GrideChange={GrideChange}
-                    />
-                  </div>
-                ))}
-              </div>
             </div>
           )
         )}

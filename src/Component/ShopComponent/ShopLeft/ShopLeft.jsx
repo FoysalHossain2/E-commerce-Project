@@ -68,9 +68,9 @@ const ShopLeft = ({ className }) => {
 
   return (
     <div className={`${className}`}>
-      <div className="border-r">
+      <div className="border px-5">
         <div className="pb-6">
-          <h1 className="font-Josefin__Sans font-bold border-b-2 border-black w-[227px] text-2xl text-secondary_text_color">
+          <h1 className="font-Josefin__Sans font-bold border-b-2 border-black w-[180px] text-2xl text-secondary_text_color">
             Product Filters
           </h1>
         </div>

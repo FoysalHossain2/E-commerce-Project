@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
-import { ShimmerThumbnail } from "react-shimmer-effects";
-import Slider from "react-slick";
 import { FetchDataProduct } from "../../../Redux/AllSliceFunction/ProductsSlice/ProductsSlice";
 
 // Next Arrow function
 function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
+  const { classNameName, style, onClick } = props;
   return (
     <div
-      className={className}
+      classNameName={classNameName}
       style={{
         ...style,
         display: "block",
@@ -24,7 +22,7 @@ function SampleNextArrow(props) {
       }}
       onClick={onClick}
     >
-      <div className="flex justify-center items-center  text-white text-2xl">
+      <div classNameName="flex justify-center items-center  text-white text-2xl">
         <MdChevronRight />
       </div>
     </div>
@@ -33,10 +31,10 @@ function SampleNextArrow(props) {
 
 // Previous arrow function
 function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
+  const { classNameName, style, onClick } = props;
   return (
     <div
-      className={className}
+      classNameName={classNameName}
       style={{
         ...style,
         display: "block",
@@ -51,7 +49,7 @@ function SamplePrevArrow(props) {
       }}
       onClick={onClick}
     >
-      <div className="flex justify-center items-center text-white text-2xl">
+      <div classNameName="flex justify-center items-center text-white text-2xl">
         <MdChevronLeft />
       </div>
     </div>
@@ -61,7 +59,7 @@ function SamplePrevArrow(props) {
 // slider Implementation
 var settings = {
   dots: false,
-  className: "center",
+  classNameName: "center",
   centerPadding: "60px",
   arrows: true,
   infinite: true,
@@ -118,60 +116,73 @@ const Categories = () => {
 
   return (
     <>
-      <div className="mt-[45px] ">
-        <div className="container mx-auto">
-          <h1 className="font-bold text-[38px] font-DM_Sans text-main_text_color pb-14">
-            Categories
-          </h1>
+      <div className="mt-[45px] bg-gray-50">
+        <div className=" container mx-auto">
+          <div className="max-w-7xl mx-auto px-4 py-8">
+            {/* <!-- Heading Section --> */}
+            <div className="mb-8">
+              <h2 className="text-3xl font-bold text-gray-800">
+                Featured Categories
+              </h2>
+              <p className="text-gray-600">
+                Choose your necessary products from this feature categories.
+              </p>
+              <hr className="border-t border-gray-300 mt-4" />
+            </div>
 
-          <div className="pb-16 ">
-            {status === "LOADING" ? (
-              <div className="grid grid-cols-5 ">
-                {[...Array.from({ length: 5 })].map((_, index) => (
-                  <div key={index} className="gap-x-1">
-                    <ShimmerThumbnail height={250} width={230} rounded />
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div>
-                <Slider {...settings} className=" bg-white">
-                  {AllProducts?.slice(160, 165).map((product, id) => (
-                    <div key={id}>
-                      <img
-                        src={product.thumbnail}
-                        alt=""
-                        className="border h-[250px]"
-                      />
-                    </div>
-                  ))}
-                </Slider>
-              </div>
-            )}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+              {AllProducts?.slice(150, 162).map((item) => (
+                <div className="text-center border border-gray-200 rounded-lg p-2 bg-white hover:border-gray-400 hover:scale-105 transition duration-500">
+                  <img
+                    src={item.thumbnail}
+                    alt="Air Purifier"
+                    className="mx-auto mb-3"
+                  />
+                  <h3 className="text-sm font-semibold text-gray-800">
+                    {item.price}
+                  </h3>
+                  <p className="text-xs text-gray-500">1025 items</p>
+                </div>
+              ))}
+            </div>
 
-            {status === "LOADING" ? (
-              <div className="grid grid-cols-5 ">
-                {[...Array.from({ length: 5 })].map((_, index) => (
-                  <div key={index} className="gap-x-1">
-                    <ShimmerThumbnail height={250} width={230} rounded />
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div>
-                <Slider {...settings} className="pt-5 ">
-                  {AllProducts?.slice(95, 100).map((product, id) => (
-                    <div key={id}>
-                      <img
-                        src={product.thumbnail}
-                        alt=""
-                        className="border h-[250px]"
-                      />
-                    </div>
-                  ))}
-                </Slider>
-              </div>
-            )}
+            {/* <!-- Navigation Arrows --> */}
+            <div className="flex justify-between items-center mt-6">
+              <button className="p-2 border border-gray-300 rounded-full bg-white hover:bg-gray-100">
+                <span className="sr-only">Previous</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 text-gray-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+              </button>
+              <button className="p-2 border border-gray-300 rounded-full bg-white hover:bg-gray-100">
+                <span className="sr-only">Next</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 text-gray-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -180,3 +191,21 @@ const Categories = () => {
 };
 
 export default Categories;
+
+// <div classNameName=" grid grid-cols-6 ">
+//   {AllProducts?.slice(150, 160).map((product, id) => (
+//     <div classNameName=" ">
+//       {/* <!-- Card 1 --> */}
+//       <div classNameName=" border">
+//         <img
+//           src={product.thumbnail}
+//           alt="Vegetables"
+//           classNameName=" w-20 "
+//         />
+//         <h3 classNameName="text-lg font-semibold text-gray-800">
+//           {product.title}
+//         </h3>
+//       </div>
+//     </div>
+//   ))}
+// </div>
