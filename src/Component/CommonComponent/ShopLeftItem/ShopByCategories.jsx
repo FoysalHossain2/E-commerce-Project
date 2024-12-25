@@ -24,12 +24,12 @@ const ShopByCategories = ({
 
   return (
     <>
-      <div className="mt-11 mb-8">
-        <h3 className="font-Josefin__Sans text-xl border-b-2 border-gray-400 w-[200px] text-secondary_text_color">
+      <div className=" mb-8">
+        <h3 className="font-Josefin__Sans text-xl border-b-2 p-3 text-secondary_text_color">
           {ShopLeftTitle}
         </h3>
 
-        <div className="mt-[11px]">
+        <div className="mt-2 p-3">
           {CatagoriesData?.map((value, index) =>
             value.subCategory.length > 0 ? (
               <div key={index}>

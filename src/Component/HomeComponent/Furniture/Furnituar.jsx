@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { useDispatch, useSelector } from "react-redux";
 import { FetchDataProduct } from "../../../Redux/AllSliceFunction/ProductsSlice/ProductsSlice";
-import MusicFrame from "../../../assets/MusicFrame.png";
 
 const Furniture = () => {
   const dispatch = useDispatch();
@@ -46,7 +44,7 @@ const Furniture = () => {
   return (
     <>
       <div className="py-14">
-        <div className="mx-auto container">
+        {/* <div className="mx-auto container">
           <div className="flex flex-col ">
             <div className="relative">
               <div>
@@ -122,6 +120,21 @@ const Furniture = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </div> */}
+
+        <div className="relative group ">
+          <img
+            src=""
+            alt="Baseball"
+            className="w-full lg:[600px] h-[500px] object-cover rounded-lg"
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition duration-300 rounded-lg"></div>
+          <div className="absolute bottom-4 left-4">
+            <p className="text-sm mb-1">TECHNIQUES · 2 months ago</p>
+            <h3 className="text-xl font-bold">
+              Exploring the Latest Changes in Baseball's Pitching Techniques
+            </h3>
           </div>
         </div>
       </div>

@@ -87,7 +87,7 @@ const Products = ({
             </div>
           </Link>
         ) : (
-          <div className={` ${className} `}>
+          <div className={` ${className} border`}>
             <div className="bg-white relative rounded-lg shadow hover:shadow-lg transition ">
               <div
                 className={`absolute top-2 left-2 text-white text-sm px-2 py-1 rounded ${bize}`}
@@ -148,8 +148,8 @@ const Products = ({
                 <ProductRatingStart ratingStar={ratingStar} />
 
                 {/* button part */}
-                <div className="flex items-center justify-center mt-4">
-                  <button className="border rounded-md px-10 lg:px-10 md:px-[120px] py-[6px] font-medium font-Roboto hover:bg-slate-600 hover:text-white transition">
+                <div className="flex items-center justify-center mt-4 px-2">
+                  <button className="border rounded-md w-full py-[5px] font-medium font-Roboto hover:bg-slate-600 hover:text-white transition">
                     Add To Cart
                   </button>
                 </div>

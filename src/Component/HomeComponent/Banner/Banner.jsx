@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import BannerImg from "../../../assets/BannerImg.png";
+import BannerImg2 from "../../../assets/BannerImg2.png";
 
 const Banner = () => {
   const BImage = [
@@ -16,7 +17,7 @@ const Banner = () => {
     },
     {
       id: 3,
-      img: BannerImg,
+      img: BannerImg2,
     },
     {
       id: 4,
@@ -25,7 +26,7 @@ const Banner = () => {
   ];
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     arrows: false,
     autoplay: true,

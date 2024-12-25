@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { DiscountOffer } from "../../../../Data/Data";
 import { FetchDataProduct } from "../../../Redux/AllSliceFunction/ProductsSlice/ProductsSlice";
 import ShopByCategories from "../../CommonComponent/ShopLeftItem/ShopByCategories";
+import ShopByColor from "../../CommonComponent/ShopLeftItem/ShopByColor";
 import ShopByDiscountOffer from "../../CommonComponent/ShopLeftItem/ShopByDiscountOffer";
 import ShopByPriceFilter from "../../CommonComponent/ShopLeftItem/ShopByPriceFilter";
 import ShopByProductBrand from "../../CommonComponent/ShopLeftItem/ShopByProductBrand";
@@ -68,16 +69,7 @@ const ShopLeft = ({ className }) => {
 
   return (
     <div className={`${className}`}>
-      <div className="border px-5">
-        <div className="pb-6">
-          <h1 className="font-Josefin__Sans font-bold border-b-2 border-black w-[180px] text-2xl text-secondary_text_color">
-            Product Filters
-          </h1>
-        </div>
-
-        <div>
-          <ShopByPriceFilter />
-        </div>
+      <div className="border ">
         <div>
           <ShopByCategories
             CatagoriesData={CategoryArr ? CategoryArr : []}
@@ -85,11 +77,9 @@ const ShopLeft = ({ className }) => {
             searchCategory={searchCategory}
           />
         </div>
+
         <div>
-          <ShopByProductBrand
-            ProductBrand={BrandArr ? BrandArr : []}
-            ShopLeftTitle={"Product Brand"}
-          />
+          <ShopByPriceFilter />
         </div>
         <div>
           <ShopByDiscountOffer
@@ -97,6 +87,17 @@ const ShopLeft = ({ className }) => {
             ShopLeftTitle={"Discount Offer"}
           />
         </div>
+        <div>
+          <ShopByProductBrand
+            ProductBrand={BrandArr ? BrandArr : []}
+            ShopLeftTitle={" Brand"}
+          />
+        </div>
+
+        <div>
+          <ShopByColor />
+        </div>
+
         <div>
           <ShopByRating />
         </div>

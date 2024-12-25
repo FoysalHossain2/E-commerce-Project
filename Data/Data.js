@@ -2,13 +2,9 @@ import Arrivals1 from "../src/assets/NewArrivals/Arrivals1.png";
 import Arrivals2 from "../src/assets/NewArrivals/Arrivals2.png";
 import Arrivals3 from "../src/assets/NewArrivals/Arrivals3.png";
 import Arrivals4 from "../src/assets/NewArrivals/Arrivals4.png";
-import Arrivals5 from "../src/assets/NewArrivals/Arrivals5.png";
-import Arrivals6 from "../src/assets/NewArrivals/Arrivals6.png";
 
 import Bestsellers1 from "../src/assets/Bestsellers/Bestsellers1.png";
 import Bestsellers2 from "../src/assets/Bestsellers/Bestsellers2.png";
-import Bestsellers3 from "../src/assets/Bestsellers/Bestsellers3.png";
-import Bestsellers4 from "../src/assets/Bestsellers/Bestsellers4.png";
 
 
 
@@ -194,10 +190,12 @@ export const CatagoriesData = [
 export const ColorFilter =[
   {id: 1, ColorCode: '#000000', title: 'Black'},
   {id: 2, ColorCode: '#FF8686', title: 'Pink'},
-  {id: 3, ColorCode: '#7ED321', title: 'Green'},
-  {id: 4, ColorCode: '#B6B6B6', title: 'Gray'},
-  {id: 5, ColorCode: '#15CBA5', title: 'Blue'},
-  {id: 5, ColorCode: '#C0C0C0', title: 'Silver'},
-  {id: 5, ColorCode: '#C0C0C0', title: 'Silver'},
-  {id: 5, ColorCode: '#C0C0C0', title: 'Silver'},
-]
+  {id: 3, ColorCode: '#5BC694', title: 'Green'},
+  {id: 4, ColorCode: '#F9D915', title: 'Yellow'},
+  {id: 5, ColorCode: '#1AAEED', title: 'Blue'},
+  {id: 6, ColorCode: '#C0C0C0', title: 'Silver'},
+  {id: 7, ColorCode: '#9C79FF', title: 'Blue'},
+  {id: 8, ColorCode: '#F53658', title: 'Red'},
+  {id: 9, ColorCode: '#AB5F3E', title: 'Browne'},
+
+]                   
