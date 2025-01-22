@@ -1,9 +1,10 @@
-import React, { createContext, useState } from "react";
+import { createContext, useState } from "react";
 import ShopRightBottom from "../../CommonComponent/ShopRightItem/ShopRightBottom";
 import ShopRightTop from "../../CommonComponent/ShopRightItem/ShopRightTop";
 
 export const ShopPageChangeContext = createContext();
 
+// eslint-disable-next-line react/prop-types
 const ShopRight = ({ className }) => {
   const [PageChange, setPageChange] = useState(16);
   const [GrideChange, setGrideChange] = useState(false);

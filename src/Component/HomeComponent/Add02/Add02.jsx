@@ -1,4 +1,3 @@
-import React from "react";
 import download from "../../../assets/download.png";
 
 const Add02 = () => {
@@ -67,7 +66,7 @@ const Add02 = () => {
             className="absolute top-4 right-4 w-32 bg-blue-400 "
           />
           <h2 className="text-2xl font-bold text-blue-700 mb-2">
-            World's Best RO Water Purifiers
+            Worlds Best RO Water Purifiers
           </h2>
           <p className="text-gray-600 mb-4">Water 100% Pure</p>
           <ul className="list-disc list-inside text-gray-600 mb-6">

@@ -104,7 +104,7 @@ const Categories = () => {
 
   useEffect(() => {
     dispatch(FetchDataProduct("https://dummyjson.com/products?limit=1000"));
-  }, []);
+  }, [dispatch]);
 
   const { data, status } = useSelector((state) => state.product);
 
@@ -116,7 +116,7 @@ const Categories = () => {
 
   return (
     <>
-      <div className="mt-[45px] bg-gray-50">
+      <div className="py-[100px] bg-gray-50">
         <div className=" container mx-auto">
           <div className="max-w-7xl mx-auto px-4 py-8">
             {/* <!-- Heading Section --> */}
@@ -130,13 +130,15 @@ const Categories = () => {
               <hr className="border-t border-gray-300 mt-4" />
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-              {AllProducts?.slice(150, 162).map((item) => (
-                <div className="text-center border border-gray-200 rounded-lg p-2 bg-white hover:border-gray-400 hover:scale-105 transition duration-500">
+            <></>
+
+            <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 ">
+              {AllProducts?.slice(150, 162).map((item, id) => (
+                <div key={id} className="text-center border border-gray-200  p-2 bg-white hover:border-gray-400 hover:scale-105 transition duration-500">
                   <img
                     src={item.thumbnail}
                     alt="Air Purifier"
-                    className="mx-auto mb-3"
+                    className="mx-auto h-28 mb-3"
                   />
                   <h3 className="text-sm font-semibold text-gray-800">
                     {item.price}
@@ -192,20 +194,4 @@ const Categories = () => {
 
 export default Categories;
 
-// <div classNameName=" grid grid-cols-6 ">
-//   {AllProducts?.slice(150, 160).map((product, id) => (
-//     <div classNameName=" ">
-//       {/* <!-- Card 1 --> */}
-//       <div classNameName=" border">
-//         <img
-//           src={product.thumbnail}
-//           alt="Vegetables"
-//           classNameName=" w-20 "
-//         />
-//         <h3 classNameName="text-lg font-semibold text-gray-800">
-//           {product.title}
-//         </h3>
-//       </div>
-//     </div>
-//   ))}
-// </div>
+

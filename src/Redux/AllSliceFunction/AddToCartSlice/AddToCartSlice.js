@@ -79,7 +79,7 @@ export const AddToCartSlice = createSlice({
       localStorage.setItem("CartItem", JSON.stringify(state.CartItem))
     },
 
-    GetTotalAmount: (state, action) => {
+    GetTotalAmount: (state,) => {
       const totalCartItems = state.CartItem.reduce((totalItem, CartItem) => {
         const {CartQuantity, price} = CartItem
         const totalPrice = CartQuantity * price 

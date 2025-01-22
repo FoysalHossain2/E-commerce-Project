@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import Arrivals1 from "../../../assets/NewArrivals/Arrivals1.png";
 
 const Add = () => {
@@ -62,32 +62,34 @@ const Add = () => {
       <div className="container mx-auto ">
         <div className="flex items-end justify-between ">
           <div>
-            <h2 className="text-2xl font-bold mb-2 ">Weekly selection</h2>
+            <h2 className="text-3xl font-bold mb-2 ">Weekly selection</h2>
             <p className=" text-gray-600 mb-6">
               Shop living room furniture, crafted by designers all over the
               world
             </p>
           </div>
+
           <div className="flex justify-center space-x-4 mb-6">
             <button
-              className={`text-gray-600`}
+              className={`text-gray-600 ${CurrentTab === "bestSeller" ? "text-orange-400" : "text-black"}`}
               onClick={() => setCurrentTab("bestSeller")}
             >
               Best Seller
             </button>
             <button
-              className={`text-gray-600`}
+              className={`text-gray-600  ${CurrentTab === "mostViewed" ? "text-orange-400" : "text-black"}`}
               onClick={() => setCurrentTab("mostViewed")}
             >
               Most Viewed
             </button>
             <button
-              className={`text-gray-600`}
+              className={`text-gray-600  ${CurrentTab === "topBrands" ? "text-orange-400" : "text-black"}`}
               onClick={() => setCurrentTab("topBrands")}
             >
               Top Brands
             </button>
           </div>
+          
         </div>
         <hr className="border-t border-gray-300 mt-4 mb-8" />
 

@@ -9,6 +9,7 @@ import ShopByPriceFilter from "../../CommonComponent/ShopLeftItem/ShopByPriceFil
 import ShopByProductBrand from "../../CommonComponent/ShopLeftItem/ShopByProductBrand";
 import ShopByRating from "../../CommonComponent/ShopLeftItem/ShopByRating";
 
+// eslint-disable-next-line react/prop-types
 const ShopLeft = ({ className }) => {
   const dispatch = useDispatch();
   const [AllProducts, setAllProducts] = useState([]);
@@ -61,7 +62,7 @@ const ShopLeft = ({ className }) => {
     }
   });
 
-  console.log(CategoryArr);
+
 
   const filteredProducts = CateName
     ? AllProducts.filter((product) => product.tags === CateName)

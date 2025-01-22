@@ -1,36 +1,25 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext ,useState } from "react";
 import { FaChevronLeft } from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
-import { FetchDataProduct } from "../../../Redux/AllSliceFunction/ProductsSlice/ProductsSlice";
-import LoadingPage from "../../CommonComponent/LoadingPage";
+import LoadingPage from "../LoadingSkeleton";
 import NotFoundPage from "../../CommonComponent/NotFoundPage";
 import { ShopPageChangeContext } from "../../ShopComponent/ShopRight/ShopRight";
 import Products from "../Products";
+import { useProductData } from "../../../hooks/useProductData";
+import LoadingSkeleton from "../LoadingSkeleton";
 
 const ShopRightBottom = () => {
   const { PageChange, GrideChange } = useContext(ShopPageChangeContext);
 
-  const dispatch = useDispatch();
-  const [AllProducts, setAllProducts] = useState([]);
+  const { data: ProductData, isLoading, Error  } = useProductData(false,);
+
   const [Page, setPage] = useState(1);
-  // const [Page, setPage] = useState(9)
+  const Skeleton = Array.from({length: 16})
 
-  useEffect(() => {
-    dispatch(FetchDataProduct("https://dummyjson.com/products?limit=1000"));
-  }, [dispatch]);
-
-  const { data, status } = useSelector((state) => state.product);
-
-  useEffect(() => {
-    if (status === "IDLE") {
-      setAllProducts(data.products);
-    }
-  }, [data, status, setAllProducts]);
 
   const HandleChangePage = (PageNumber) => {
     if (
       PageNumber > 0 &&
-      PageNumber <= Math.floor(AllProducts.length / PageChange + 1)
+      PageNumber <= Math.floor(ProductData.length / PageChange + 1)
     ) {
       setPage(PageNumber);
     }
@@ -39,47 +28,88 @@ const ShopRightBottom = () => {
   return (
     <>
       <div className="mt-">
-        {status === "LOADING" ? (
-          <LoadingPage />
-        ) : status === "ERROR" ? (
+        {isLoading ? (
+          (<div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
+            { Skeleton.map((_,index) => (
+            <div key={index} >
+              <LoadingSkeleton />
+            </div>
+          ))}
+          </div>)
+        ) : Error ? (
           <NotFoundPage />
         ) : (
-          AllProducts && (
+          ProductData && (
             <div>
-              <div
-                className={`grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4  
-
-            `}
-              >
-                {AllProducts?.slice(
-                  Page * PageChange - PageChange,
-                  Page * PageChange
-                ).map((productItems, id) => (
-                  <div
-                    key={id}
-                    className={` 
-                    
-              `}
-                  >
-                    <Products
-                      image={productItems.thumbnail}
-                      title={productItems.description}
-                      price={`$${Math.round(productItems.price)}`}
-                      discountPrice={Math.round(
-                        productItems.price -
-                          Math.floor(
-                            (productItems.price *
-                              productItems.discountPercentage) /
-                              100
-                          )
-                      )}
-                      ratingStar={productItems.rating}
-                      productId={productItems.id}
-                      GrideChange={GrideChange}
-                    />
-                  </div>
-                ))}
-              </div>
+              {GrideChange ? 
+              (
+                 <div
+                 className={`grid grid-cols-1 `}
+               >
+                 {ProductData?.slice(
+                   Page * PageChange - PageChange,
+                   Page * PageChange
+                 ).map((productItems, id) => (
+                   <div
+                     key={id}
+                     className={` 
+                     
+               `}
+                   >
+                     <Products
+                       image={productItems.thumbnail}
+                       title={productItems.description}
+                       price={`$${Math.round(productItems.price)}`}
+                       discountPrice={Math.round(
+                         productItems.price -
+                           Math.floor(
+                             (productItems.price *
+                               productItems.discountPercentage) /
+                               100
+                           )
+                       )}
+                       ratingStar={productItems.rating}
+                       productId={productItems.id}
+                       GrideChange={GrideChange}
+                     />
+                   </div>
+                 ))}
+               </div>
+              ) : (
+                 <div
+                 className={`grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 `}
+               >
+                 {ProductData?.slice(
+                   Page * PageChange - PageChange,
+                   Page * PageChange
+                 ).map((productItems, id) => (
+                   <div
+                     key={id}
+                     className={` 
+                     
+               `}
+                   >
+                     <Products
+                       image={productItems.thumbnail}
+                       title={productItems.description}
+                       price={`$${Math.round(productItems.price)}`}
+                       discountPrice={Math.round(
+                         productItems.price -
+                           Math.floor(
+                             (productItems.price *
+                               productItems.discountPercentage) /
+                               100
+                           )
+                       )}
+                       ratingStar={productItems.rating}
+                       productId={productItems.id}
+                       GrideChange={GrideChange}
+                     />
+                   </div>
+                 ))}
+               </div>
+              )}
+             
 
               {/*=================== pagination part ================== */}
 
@@ -92,11 +122,11 @@ const ShopRightBottom = () => {
                     <FaChevronLeft />
                   </div>
 
-                  {AllProducts?.length > 0 && (
+                  {ProductData?.length > 0 && (
                     <div className="flex items-center gap-x-3 ">
                       {[
                         ...Array(
-                          Math.floor(AllProducts.length / PageChange + 1)
+                          Math.floor(ProductData.length / PageChange + 1)
                         ),
                       ].map((_, index) => (
                         <div

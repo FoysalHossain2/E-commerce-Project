@@ -31,16 +31,16 @@ export const ProductsSlice = createSlice({
 // data fetch with async thunk function
 
 export const FetchDataProduct = (ApiUrl) => {
-    return async function (dispatch, getState) {
+    return async function (getdispatch, getState) {
       try {
-        dispatch(SetStatus(ApiStatus.LOADING))
+        getdispatch(SetStatus(ApiStatus.LOADING))
         const response = await fetch(ApiUrl);
         const data = await response.json();
-          dispatch(SetProduct(data));
-          dispatch(SetStatus(ApiStatus.IDLE));
+          getdispatch(SetProduct(data));
+          getdispatch(SetStatus(ApiStatus.IDLE));
       } catch (error) {
         console.log(error);
-        dispatch(SetStatus(ApiStatus.ERROR));
+        getdispatch(SetStatus(ApiStatus.ERROR));
       }
     }
   }

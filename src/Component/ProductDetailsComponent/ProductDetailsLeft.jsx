@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
+// eslint-disable-next-line react/prop-types
 const ProductDetailsLeft = ({ EachProductsDetailsImg, status }) => {
-  console.log(EachProductsDetailsImg);
+  // console.log(EachProductsDetailsImg);
 
   // custom Slider
   const [Slider, setSlider] = useState(0);
@@ -27,7 +28,8 @@ const ProductDetailsLeft = ({ EachProductsDetailsImg, status }) => {
       <div className="max-sm:px-3">
         <div className="container mx-auto">
           <div className="flex flex-col  ">
-            <p
+
+          <p
               onClick={HandlePevChange}
               className="w-16 border hover:bg-button_Color"
             >
