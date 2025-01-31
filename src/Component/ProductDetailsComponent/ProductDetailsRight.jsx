@@ -59,9 +59,9 @@ const ProductDetailsRight = () => {
 
   return (
     <>
-      <div className="max-sm:px-3  pb-14">
+      <div className=" pb-14">
         <div className="max-sm:mt-8">
-          <p className="font-Josefin__Sans text-4xl max-sm:text-[25px] font-bold mb-4 text-[#0D134E]">
+          <p className="font-Josefin__Sans lg:text-4xl text-[25px] font-bold mb-4 text-[#0D134E]">
             {status === "LOADING" ? (
               <Skeleton className="w-[140px] h-12" />
             ) : (
@@ -70,7 +70,7 @@ const ProductDetailsRight = () => {
           </p>
         </div>
 
-        <h1 className="font-DM_Sans text-lg font-semibold">
+        <h1 className="font-DM_Sans text-lg font-semibold lg:text-lg">
           {status === "LOADING" ? (
             <Skeleton count={2} className="px-[240px] h-8" />
           ) : (

@@ -16,6 +16,7 @@ import Login from "./Pages/Login/Login";
 import ProductDetails from "./Pages/ProductDetails/ProductDetails";
 import Shop from "./Pages/Shop/Shop";
 import WishList from "./Pages/WishList/WishList";
+import BottomNavbar from "./Component/CommonComponent/common/BottomNavbar";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

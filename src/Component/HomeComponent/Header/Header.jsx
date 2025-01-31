@@ -12,12 +12,15 @@ import Menubar from "../../CommonComponent/Menubar";
 // import SearchResult from "../../CommonComponent/SearchResult/SearchResult";
 import Search from "../../CommonComponent/Search";
 import BottomNavbar from '../../CommonComponent/common/BottomNavbar'
+import { useLocation } from "react-router-dom";
+
 
 const Header = () => {
   const [Filter, setFilter] = useState(false);
   const navigate = useNavigate();
   const [SlideshowMenu, setSlideshowMenu] = useState(false);
   const dispatch = useDispatch();
+  const location = useLocation()
 
   useEffect(() => {
     if (SlideshowMenu) {
@@ -81,6 +84,9 @@ const Header = () => {
   //   navigate('/wishList')
   // }
 
+
+
+
   return (
     <>
       {/* sideShowMenu overlay part*/}
@@ -139,9 +145,11 @@ const Header = () => {
 
 
       {/*=========== Header part =*/}
+
+      {/* for lg device */}
       <div
-        className={`py-[10px] max-sm:py-2
-       border-b `}
+        className={`py-[13px] max-sm:py-2
+       border-b lg:block hidden`}
       >
         <div className="container mx-auto ">
           <div
@@ -151,7 +159,7 @@ const Header = () => {
         "
           >
               <div className="flex items-center">
-              <h1 className="text-green-400 font-bold  text-[10px]">
+              <h1 className="text-green-400 font-bold  text-[10px] ">
                 <Link to={"/"} className="font-Josefin__Sans text-[20px]">
                   Shop.com
                 </Link>
@@ -212,24 +220,53 @@ const Header = () => {
           </div>
         </div>
       </div>
-      {/*=========== Header part =*/}
-       {/*========== sideShowMenu Btn ========*/}
-       <div className="bg-[#F6F5FF] py-1 max-sm:hidden md:hidden max-md:hidden lg:block">
-        <div className="container mx-auto">
+
+          {/* for sm, md device */}
+      <div  
+        className={`py-[10px] max-sm:py-2
+       border-b lg:hidden block`}
+      >
+        <div className="container mx-auto ">
           <div
-            className="flex items-center gap-x-1 text-center cursor-pointer w-20"
-            onClick={HandleSideMenu}
+            className="flex lg:items-center  justify-between  
+          max-sm:flex-col max-md:flex-col md:flex-col lg:flex-row 
+          max-sm:px-2 max-md:px-2 md:px-2 lg:px-0
+        "
           >
-            <IoMenu className="cursor-pointer text-2xl" />
-            <p className="font-Josefin__Sans font-bold text-[14px]">ALL</p>
+             <div className="flex justify-between items-center">
+                  {/*========== sideShowMenu Btn ========*/}
+                           <div className="bg-[#F6F5FF] py-1 ">
+                  <div className="container mx-auto">
+                    <div
+                      className="flex items-center gap-x-1 text-center cursor-pointer w-20"
+                      onClick={HandleSideMenu}
+                    >
+                      <IoMenu className="cursor-pointer text-2xl" />
+                    </div>
+                  </div>
+                </div>
+               {/* sideShowMenu Btn ===========*/}
+
+              <h1 className="text-green-400 font-bold  text-[10px] ">
+                <Link to={"/"} className="font-Josefin__Sans text-[20px]">
+                  Shop.com
+                </Link>
+              </h1>
+              <div></div>
+            </div>
+
+            {/*========== Search option ==========*/}
+            <div className="lg:max-w-[500px] max-md:max-w-[700px] w-full max-sm:mt-2 md:mt-4 max-md:mt-4 lg:mt-0">
+             <Search className="relative" />
+            </div>
+            {/*========== Search option ==========*/}
+
           </div>
         </div>
       </div>
-      {/* sideShowMenu Btn ===========*/}
-
-      <div className="lg:hidden sm:block md:block">
-        <BottomNavbar />
-      </div>
+      {/*=========== Header part =*/}
+      
+       
     </>
   );
 };

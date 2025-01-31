@@ -1,145 +1,121 @@
-import React, { useEffect, useState } from "react";
-import "react-loading-skeleton/dist/skeleton.css";
-import { useDispatch, useSelector } from "react-redux";
-import { FetchDataProduct } from "../../../Redux/AllSliceFunction/ProductsSlice/ProductsSlice";
+import React from "react";
 
-const Furniture = () => {
-  const dispatch = useDispatch();
-  const [AllProducts, setAllProducts] = useState([]);
-  const [Page, setPage] = useState(1);
+const products = [
+  {
+    id: 1,
+    brand: "SAMSUNG",
+    name: "SAMSUNG Galaxy Tab S7 Plus 12.4\" 128GB Mystic Black",
+    image: "https://via.placeholder.com/150", // Replace with actual image URL
+    price: 2556.3,
+    oldPrice: 3225.6,
+    rating: 65,
+  },
+  {
+    id: 2,
+    brand: "HP",
+    name: "HP 11.6\" Chromebook, AMD A4, 4GB RAM, 32GB Storage",
+    image: "https://via.placeholder.com/150",
+    price: 2556.3,
+    oldPrice: 3225.6,
+    rating: 65,
+  },
+  {
+    id: 3,
+    brand: "RCA",
+    name: "RCA 43\" Class 4K Ultra HD (2160P) HDR Roku Smart",
+    image: "https://via.placeholder.com/150",
+    price: 2556.3,
+    oldPrice: 3225.6,
+    rating: 65,
+  },
+  {
+    id: 4,
+    brand: "ASUS",
+    name: "ASUS VivoBook 15.6\" 1080p PC Laptops, Intel Core i3",
+    image: "https://via.placeholder.com/150",
+    price: 2556.3,
+    oldPrice: 3225.6,
+    rating: 65,
+  },
+  {
+    id: 5,
+    brand: "LG",
+    name: "LG 65\" Class 4K UHD Smart TV OLED A1 Series",
+    image: "https://via.placeholder.com/150",
+    price: 2556.3,
+    oldPrice: 3225.6,
+    rating: 65,
+  },
+  {
+    id: 6,
+    brand: "SAMSUNG",
+    name: "SAMSUNG Galaxy Tab A7 Lite, 8.7\" Tablet 32GB",
+    image: "https://via.placeholder.com/150",
+    price: 2556.3,
+    oldPrice: 3225.6,
+    rating: 65,
+  },
+  {
+    id: 7,
+    brand: "Apple",
+    name: "2022 Apple iMac with Retina 5K Display 8GB RAM, 256GB SSD",
+    image: "https://via.placeholder.com/150",
+    price: 2556.3,
+    oldPrice: 3225.6,
+    rating: 65,
+  },
+  {
+    id: 8,
+    brand: "Apple",
+    name: "Apple AirPods Pro with MagSafe Charging Case",
+    image: "https://via.placeholder.com/150",
+    price: 2556.3,
+    oldPrice: 3225.6,
+    rating: 65,
+  },
+  {
+    id: 9,
+    brand: "HP",
+    name: "HP Slim Desktop, Intel Celeron J4025, 4GB RAM",
+    image: "https://via.placeholder.com/150",
+    price: 2556.3,
+    oldPrice: 3225.6,
+    rating: 65,
+  }
+];
 
-  const [Days, setDays] = useState(0);
-  const [Hour, setHour] = useState(0);
-  const [Minute, setMinute] = useState(0);
-  const [Second, setSecond] = useState(0);
-
-  useEffect(() => {
-    dispatch(FetchDataProduct("https://dummyjson.com/products?limit=1000"));
-  }, []);
-
-  const { data, status } = useSelector((state) => state.product);
-
-  useEffect(() => {
-    if (status === "IDLE") {
-      setAllProducts(data.products);
-    }
-  }, [data, status, setAllProducts]);
-
-  const deadline = "OCTOBER, 31, 2024";
-
-  //   Create a Countdown Time
-  const getTime = () => {
-    const time = Date.parse(deadline) - Date.now();
-    setDays(Math.floor(time / (1000 * 60 * 60 * 24)));
-    setHour(Math.floor((time / (1000 * 60 * 60)) % 24));
-    setMinute(Math.floor((time / 1000 / 60) % 60));
-    setSecond(Math.floor((time / 1000) % 60));
-  };
-
-  useEffect(() => {
-    const interval = setInterval(() => getTime(), 1000);
-    return () => clearInterval(interval);
-  }, []);
-
+const Furnituar = ({ product }) => {
   return (
-    <>
-      <div className="py-14">
-        {/* <div className="mx-auto container">
-          <div className="flex flex-col ">
-            <div className="relative">
-              <div>
-                <img src={MusicFrame} alt="" />
-              </div>
-              <div className="absolute sm:bottom-[140px] bottom-4 pr-10 sm:pr-0 left-4 sm:left-8 flex justify-start items-start">
-                <div className="text-white flex items-center gap-x-8">
-                  <p className={`${Days < 10 ? "0" + Days : Days}`}>{Days}</p>
-                  <p className={`${Hour < 10 ? "0" + Hour : Hour}`}>{Hour}</p>
-                  <p className={`${Minute < 10 ? "0" + Minute : Minute}`}>
-                    {Minute}
-                  </p>
-                  <p className={`${Second < 10 ? "0" + Second : Second}`}>
-                    {Second}
-                  </p>
-                </div>
+    <div className="py-10 pb-24 pt-32">
+      <div className="container mx-auto">
+
+         <div className="mb-16">
+            <h2 className="text-3xl font-bold mb-2 ">Weekly selection</h2>
+            <p className=" text-gray-600 mb-6">
+              Shop living room furniture, crafted by designers all over the
+              world
+            </p>
+          </div>
+
+        <div className="grid gap-4 grid-cols-2 lg:grid-cols-3">
+          {products.map((product) => (
+          <div className="border rounded-lg p-4 shadow-md hover:shadow-lg transition-all flex flex-col md:flex-row items-center gap-4">
+            <img src={product.image} alt={product.image} className="w-24 h-24 object-cover" />
+            <div>
+              <p className="text-xs text-gray-500 font-semibold uppercase">{product.brand}</p>
+              <h3 className="text-sm font-semibold mb-1">{product.name}</h3>
+              <p className="text-yellow-500 text-sm">⭐⭐⭐⭐⭐ ({product.rating})</p>
+              <div className="flex items-center gap-2">
+                <span className="text-lg font-bold">${product.price}</span>
+                <span className="text-gray-400 line-through">${product.oldPrice}</span>
               </div>
             </div>
-
-            <div className="flex justify-between gap-x-2 mt-8">
-              {AllProducts?.slice(77, 78).map((item, id) => (
-                <div key={id} className="relative">
-                  <div className="bg-[#F6F7FB] py-3 px-[120px] max-sm:px-[10px] relative">
-                    <img src={item.thumbnail} alt="" />
-                  </div>
-
-                  <div className=" top-0 absolute">
-                    <div className="flex items-center gap-x-3">
-                      <div className="flex items-center font-DM_Sans">
-                        <p className="text-button_Color">$</p>
-                        <p className="text-button_Color text-[28px]">
-                          {Math.round(
-                            item.price -
-                              Math.floor(
-                                (item.price * item.discountPercentage) / 100
-                              )
-                          )}
-                        </p>
-                      </div>
-                      <div>-{Math.floor(item.discountPercentage)}%</div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-
-              {AllProducts?.slice(100, 101).map((item, id) => (
-                <div key={id}>
-                  {status === "LOADING" ? (
-                    <Skeleton className="h-[200px]" />
-                  ) : (
-                    <div className="relative">
-                      <div className=" py-3 px-[120px] max-sm:px-[10px] relative bg-[#F6F7FB]">
-                        <img src={item.thumbnail} alt="" />
-                      </div>
-                      <div className=" top-0 absolute">
-                        <div className="flex items-center gap-x-3">
-                          <div className="flex items-center gap-x-1 font-DM_Sans">
-                            <p className="text-button_Color">$</p>
-                            <p className="text-button_Color text-[28px]">
-                              {Math.round(
-                                item.price -
-                                  Math.floor(
-                                    (item.price * item.discountPercentage) / 100
-                                  )
-                              )}
-                            </p>
-                          </div>
-                          <div>-{Math.floor(item.discountPercentage)}%</div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
           </div>
-        </div> */}
-
-        <div className="relative group ">
-          <img
-            src=""
-            alt="Baseball"
-            className="w-full lg:[600px] h-[500px] object-cover rounded-lg"
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition duration-300 rounded-lg"></div>
-          <div className="absolute bottom-4 left-4">
-            <p className="text-sm mb-1">TECHNIQUES · 2 months ago</p>
-            <h3 className="text-xl font-bold">
-              Exploring the Latest Changes in Baseball's Pitching Techniques
-            </h3>
-          </div>
+          ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
-export default Furniture;
+export default Furnituar

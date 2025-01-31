@@ -87,8 +87,8 @@ const Products = ({
             </div>
           </Link>
         ) : (
-          <div className={`${className} border`}>
-          <div className="bg-white relative rounded-lg shadow hover:shadow-lg transition overflow-hidden group duration-500">
+          <div className={`${className}`}>
+          <div className="bg-white relative rounded-lg shadow hover:shadow-lg transition overflow-hidden group duration-500 ">
             <div
               className={`absolute top-2 left-2 text-white text-sm px-2 py-1 rounded ${bize}`}
             >
@@ -101,7 +101,7 @@ const Products = ({
               <img
                 src={image}
                 alt={title}
-                className="w-full lg:h-48 md:h-80 sm:h-80 h-48 object-cover rounded-lg"
+                className="w-full lg:h-48 md:h-80 sm:h-80 h-48 object-cover rounded-lg bg-white"
               />
             </Link>
             <div className="px-2 py-4">

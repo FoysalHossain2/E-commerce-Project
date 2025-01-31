@@ -9,6 +9,7 @@ import Add02 from "../../Component/HomeComponent/Add02/Add02";
 import Add03 from "../../Component/HomeComponent/Add03/Add03";
 import Furniture from "../../Component/HomeComponent/Furniture/Furnituar";
 import ProductGrid from "../../Component/HomeComponent/ProductGrid";
+import UniqueProduct from "../../Component/HomeComponent/UniqueProduct";
 
 const Home = () => {
 
@@ -25,8 +26,9 @@ const Home = () => {
         <Add02 />
         <Categories />
         <Add />
-        <Furniture status={status} />
+        <UniqueProduct />
         <Add03 />
+        <Furniture status={status} />
         {/* <ProductGrid /> */}
       </div>
     </>

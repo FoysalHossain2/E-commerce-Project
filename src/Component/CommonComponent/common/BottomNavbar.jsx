@@ -2,8 +2,8 @@ import React from "react";
 import { FiShoppingCart } from "react-icons/fi";
 import { FaUser } from "react-icons/fa";
 import { IoHomeOutline } from "react-icons/io5";
-import { TbCategory } from "react-icons/tb";
-import { Link } from "react-router-dom";
+import { FaRegHeart } from "react-icons/fa";
+import { Link, NavLink } from "react-router-dom";
 
 
 const BottomNavbar = () => {
@@ -12,19 +12,19 @@ const BottomNavbar = () => {
       <div className="flex justify-around items-center py-3">
         {/* Home */}
         <div className="flex flex-col items-center">
-          <Link to={'/'} className="text-lg cursor-pointer text-orange-500">< IoHomeOutline /></Link>
-        </div>
-        {/* Categories */}
-        <div className="flex flex-col items-center">
-          <Link to={'/shop'} className="text-lg cursor-pointer text-gray-500"> <TbCategory /> </Link>
+          <NavLink to={'/'} className="text-[24px] cursor-pointer text-orange-500">< IoHomeOutline /></NavLink>
         </div>
         {/* Cart */}
         <div className="flex flex-col items-center">
-          <Link to={'/cart'} className="text-lg cursor-pointer text-gray-500"> < FiShoppingCart/> </Link>
+          <NavLink to={'/cart'} className="text-[24px] cursor-pointer text-gray-500"> < FiShoppingCart/> </NavLink>
+        </div>
+        {/* Categories */}
+        <div className="flex flex-col items-center">
+          <NavLink to={'/WishList'} className="text-[24px] cursor-pointer text-gray-500"> <FaRegHeart /> </NavLink>
         </div>
         {/* Account */}
         <div className="flex flex-col items-center">
-          <Link to={'/login'} className="text-lg cursor-pointer text-gray-500"><FaUser /></Link>
+          <NavLink to={'/login'} className="text-[24px] cursor-pointer text-gray-500"><FaUser /></NavLink>
         </div>
       </div>
     </div>

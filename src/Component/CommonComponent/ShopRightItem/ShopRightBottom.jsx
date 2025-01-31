@@ -1,52 +1,69 @@
-import { useContext ,useState } from "react";
+import { useContext ,useEffect,useState } from "react";
 import { FaChevronLeft } from "react-icons/fa";
-import LoadingPage from "../LoadingSkeleton";
 import NotFoundPage from "../../CommonComponent/NotFoundPage";
 import { ShopPageChangeContext } from "../../ShopComponent/ShopRight/ShopRight";
 import Products from "../Products";
-import { useProductData } from "../../../hooks/useProductData";
-import LoadingSkeleton from "../LoadingSkeleton";
+import LoadingPage from "../LoadingPage";
+import { useDispatch, useSelector } from "react-redux";
+import { FetchDataProduct } from "../../../Redux/AllSliceFunction/ProductsSlice/ProductsSlice";
 
 const ShopRightBottom = () => {
   const { PageChange, GrideChange } = useContext(ShopPageChangeContext);
 
-  const { data: ProductData, isLoading, Error  } = useProductData(false,);
 
-  const [Page, setPage] = useState(1);
-  const Skeleton = Array.from({length: 16})
+    const [AllProducts, setAllProducts] = useState([]);
+    const [Page, setPage] = useState(1);
+    const dispatch = useDispatch()
+  
+    useEffect(() => {
+      dispatch(FetchDataProduct("https://dummyjson.com/products?limit=1000"));
+    }, [dispatch]);
+  
+    const { data, status } = useSelector((state) => state.product);
+  
+    useEffect(() => {
+      if (status === "IDLE") {
+        setAllProducts(data.products);
+      }
+    }, [data, status, setAllProducts]);
 
 
+  const Skeleton = Array.from({length: 194})
+
+// pagination functionality implementation 
   const HandleChangePage = (PageNumber) => {
     if (
       PageNumber > 0 &&
-      PageNumber <= Math.floor(ProductData.length / PageChange + 1)
+      PageNumber <= Math.floor(AllProducts.length / PageChange + 1)
     ) {
       setPage(PageNumber);
     }
   };
+  
 
   return (
     <>
-      <div className="mt-">
-        {isLoading ? (
+      <div className="lg:px-0 px-3">
+        {status === "LOADING" ? (
           (<div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
             { Skeleton.map((_,index) => (
-            <div key={index} >
-              <LoadingSkeleton />
-            </div>
+              <div>
+                <LoadingPage />
+              </div>
+         
           ))}
           </div>)
-        ) : Error ? (
+        ) : status === "Error" ? (
           <NotFoundPage />
         ) : (
-          ProductData && (
+          AllProducts && (
             <div>
               {GrideChange ? 
               (
                  <div
                  className={`grid grid-cols-1 `}
                >
-                 {ProductData?.slice(
+                 {AllProducts?.slice(
                    Page * PageChange - PageChange,
                    Page * PageChange
                  ).map((productItems, id) => (
@@ -79,7 +96,7 @@ const ShopRightBottom = () => {
                  <div
                  className={`grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 `}
                >
-                 {ProductData?.slice(
+                 {AllProducts?.slice(
                    Page * PageChange - PageChange,
                    Page * PageChange
                  ).map((productItems, id) => (
@@ -122,11 +139,11 @@ const ShopRightBottom = () => {
                     <FaChevronLeft />
                   </div>
 
-                  {ProductData?.length > 0 && (
+                  {AllProducts?.length > 0 && (
                     <div className="flex items-center gap-x-3 ">
                       {[
                         ...Array(
-                          Math.floor(ProductData.length / PageChange + 1)
+                          Math.floor(AllProducts.length / PageChange + 1)
                         ),
                       ].map((_, index) => (
                         <div
