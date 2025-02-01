@@ -19,9 +19,11 @@ const FooterTop = () => {
 
             <div>
               <Link to={'/'}>
-                <h1 className='font-DM_Sans font-bold pb-6 text-[34px] cursor-pointer w-[160px] h-[52px] text-green-500 '>
-                  Shop.com
-                </h1>
+                <img 
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyfaq85r_s_S9fZX5pVGNBLRslarE9H5UDiA&s"
+                 alt=""
+                 className='w-16'
+                 />
               </Link>
               <p className='pb-6 font-DM_Sans text-[20px] font-medium pt-6'>
                 Subscribe

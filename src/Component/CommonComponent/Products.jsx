@@ -34,7 +34,7 @@ const Products = ({
 
                 {/* ---------------overlay-------------- */}
                 <div className=" absolute -bottom-[40%]  transition-all group-hover:bottom-6">
-                  <div className="flex justify-end flex-col items-end py-6">
+                  {/* <div className="flex justify-end flex-col items-end py-6">
                     <div>
                       <div
                         className={"flex gap-x-5 items-center  pb-6 mr-[30px]"}
@@ -61,7 +61,7 @@ const Products = ({
                         </span>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
                 {/* ---------------overlay-------------- */}
               </div>
@@ -101,7 +101,7 @@ const Products = ({
               <img
                 src={image}
                 alt={title}
-                className="w-full lg:h-48 md:h-80 sm:h-80 h-48 object-cover rounded-lg bg-white"
+                className="w-full lg:h-48 md:h-80 sm:h-80 h-40 object-cover rounded-lg bg-white"
               />
             </Link>
             <div className="px-2 py-4">
@@ -109,17 +109,17 @@ const Products = ({
               <div
                 className="absolute top-0 left-full flex flex-col items-end py-6 transition-all duration-500 group-hover:-right-4 group-hover:opacity-100 opacity-0"
               >
-                <div className="text-[20=px] cursor-pointer pb-6 mr-6">
+                <div className="text-[20px] cursor-pointer pb-6 mr-6">
                   <span>
                     <FiHeart />
                   </span>
                 </div>
-                <div className="text-[20=px] cursor-pointer pb-6 mr-6">
+                <div className="text-[20px] cursor-pointer pb-6 mr-6">
                   <span className="text-orange-500 text-[25px]">
                     <IoCart />
                   </span>
                 </div>
-                <div className="text-[20=px] cursor-pointer pb-6 mr-6">
+                <div className="text-[20px] cursor-pointer pb-6 mr-6">
                   <span>
                     <FaEye />
                   </span>

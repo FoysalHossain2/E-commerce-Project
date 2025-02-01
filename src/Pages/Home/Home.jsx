@@ -23,12 +23,12 @@ const Home = () => {
         <Banner />
         <Add04 />
         <Shipping />
-        <Add02 />
         <Categories />
+        <Add02 />
         <Add />
         <UniqueProduct />
         <Add03 />
-        <Furniture status={status} />
+        <Furniture  />
         {/* <ProductGrid /> */}
       </div>
     </>

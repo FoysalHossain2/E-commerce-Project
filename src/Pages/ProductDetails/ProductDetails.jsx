@@ -64,7 +64,9 @@ const ProductDetails = () => {
 
 
       </div>
-      <ProductDetailsNavbar />
+      <div className='lg:hidden block'>
+         <ProductDetailsNavbar />
+      </div>
     </div>
   )
 }

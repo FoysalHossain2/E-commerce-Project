@@ -1,104 +1,125 @@
 import React, { useEffect, useState } from "react";
-import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { FetchDataProduct } from "../../../Redux/AllSliceFunction/ProductsSlice/ProductsSlice";
-
-// Next Arrow function
-function SampleNextArrow(props) {
-  const { classNameName, style, onClick } = props;
-  return (
-    <div
-      classNameName={classNameName}
-      style={{
-        ...style,
-        display: "block",
-        background: "gray",
-        padding: "13px",
-        cursor: "pointer",
-        position: "absolute",
-        right: "0px",
-        top: "50%",
-        transform: "translateY(-50%)",
-      }}
-      onClick={onClick}
-    >
-      <div classNameName="flex justify-center items-center  text-white text-2xl">
-        <MdChevronRight />
-      </div>
-    </div>
-  );
-}
-
-// Previous arrow function
-function SamplePrevArrow(props) {
-  const { classNameName, style, onClick } = props;
-  return (
-    <div
-      classNameName={classNameName}
-      style={{
-        ...style,
-        display: "block",
-        background: "gray",
-        padding: "8px",
-        cursor: "pointer",
-        position: "absolute",
-        left: "-20px",
-        zIndex: "1",
-        top: "50%",
-        transform: "translateY(-50%)",
-      }}
-      onClick={onClick}
-    >
-      <div classNameName="flex justify-center items-center text-white text-2xl">
-        <MdChevronLeft />
-      </div>
-    </div>
-  );
-}
-
-// slider Implementation
-var settings = {
-  dots: false,
-  classNameName: "center",
-  centerPadding: "60px",
-  arrows: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 5,
-  slidesToScroll: 1,
-  initialSlide: 0,
-  nextArrow: <SampleNextArrow />,
-  prevArrow: <SamplePrevArrow />,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 4,
-        slidesToScroll: 4,
-        infinite: true,
-        dots: false,
-      },
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
-        initialSlide: 2,
-      },
-    },
-    {
-      breakpoint: 375,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
-        arrows: false,
-      },
-    },
-  ],
-};
+import Slider from "react-slick";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const Categories = () => {
+
+  function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{
+          ...style,
+          position: "absolute",
+          top: "-20px",  // কার্ডের উপরে আনার জন্য
+          right: "10px", // ডান দিকে আনার জন্য
+          background: "orange",
+          width: "30px",
+          height: "30px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          borderRadius: "50%",
+          cursor: "pointer",
+          zIndex: "10"
+           }}
+        onClick={onClick}
+      >
+        <FaAngleRight />
+      </div>
+    );
+  }
+  
+  function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{
+            ...style,
+            position: "absolute",
+            top: "-20px",  // কার্ডের উপরে আনার জন্য
+            right: "50px", // ডান দিকে শিফট করার জন্য
+            background: "orange",
+            width: "30px",
+            height: "30px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            borderRadius: "50%",
+            cursor: "pointer",
+            zIndex: "10"
+           }}
+        onClick={onClick}
+      > 
+      <FaAngleLeft />
+      </div>
+    );
+  }
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 7,
+    slidesToScroll: 1,
+    autoplay: false,
+    autoplaySpeed: 2000,
+    pauseOnHover: true,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    appendDots: dots => (
+      <div
+        style={{
+          display:"block",
+          color: "red",
+        }}
+      >
+      </div>
+    ),
+    customPaging: i => (
+      <div
+        style={{
+          width: "3px",
+          color: "red",
+          border: "1px blue solid"
+        }}
+      >
+        {i + 1}
+      </div>
+    ),
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  };
+
+
   const dispatch = useDispatch();
   const [AllProducts, setAllProducts] = useState([]);
 
@@ -130,26 +151,26 @@ const Categories = () => {
               <hr className="border-t border-gray-300 mt-4" />
             </div>
 
-            <></>
-
-            <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 ">
-              {AllProducts?.slice(150, 162).map((item, id) => (
-                <div key={id} className="text-center border border-gray-200  p-2 bg-white hover:border-gray-400 hover:scale-105 transition duration-500">
-                  <img
-                    src={item.thumbnail}
-                    alt="Air Purifier"
-                    className="mx-auto h-28 mb-3"
-                  />
-                  <h3 className="text-sm font-semibold text-gray-800">
-                    {item.price}
-                  </h3>
-                  <p className="text-xs text-gray-500">1025 items</p>
-                </div>
-              ))}
-            </div>
+        
+            <Slider {...settings} >
+                {AllProducts?.slice(150, 162).map((item, id) => (
+              <Link to={"/shop"} className="px-3 pt-8">
+                  <div key={id} className="w-full max-w-[200px] text-center rounded-lg border border-gray-200  p-2 bg-gray-100 hover:scale-105 transition duration-500">
+                    <img
+                      src={item.thumbnail}
+                      alt="Air Purifier"
+                      className="mx-auto h-24 mb-3"
+                    />
+                    <h3 className="text-sm font-semibold text-gray-800">
+                      {item.name}
+                    </h3>
+                  </div>
+              </Link>
+                ))}
+            </Slider>
 
             {/* <!-- Navigation Arrows --> */}
-            <div className="flex justify-between items-center mt-6">
+            {/* <div className="flex justify-between items-center mt-6">
               <button className="p-2 border border-gray-300 rounded-full bg-white hover:bg-gray-100">
                 <span className="sr-only">Previous</span>
                 <svg
@@ -184,7 +205,7 @@ const Categories = () => {
                   />
                 </svg>
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

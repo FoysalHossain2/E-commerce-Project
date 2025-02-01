@@ -159,9 +159,13 @@ const Header = () => {
         "
           >
               <div className="flex items-center">
-              <h1 className="text-green-400 font-bold  text-[10px] ">
+              <h1 className=" ">
                 <Link to={"/"} className="font-Josefin__Sans text-[20px]">
-                  Shop.com
+                  <img 
+                  src="https://www.pngkey.com/png/detail/209-2092097_-img-nintendo-eshop-logo-png.png"
+                   alt=""
+                   className="w-16"
+                   />
                 </Link>
               </h1>
             </div>
@@ -264,8 +268,10 @@ const Header = () => {
           </div>
         </div>
       </div>
+      <div className=" xl:hidden lg:hidden block">
+        <BottomNavbar TotalCartItem={TotalCartItem}  />
+      </div>
       {/*=========== Header part =*/}
-      
        
     </>
   );

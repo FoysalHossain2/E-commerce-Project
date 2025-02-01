@@ -19,17 +19,17 @@ const ProductDetailsLeft = ({ EachProductsDetailsImg, status }) => {
                 <Skeleton className=" w-[380px] h-[400px]" />
               ) : (
                 <div>
-                  <div className="flex gap-y-6 mt-3 w-full lg:max-w-[380px] h-[400px]  overflow-hidden p">
+                  <div className="flex gap-y-6 mt-3 overflow-hidden p">
                     {EachProductsDetailsImg.images?.map((image) => (
                       <div
                         key={image}
 
                       >
-                        <div className="w-[380px] h-[400px] py-3 border">
+                        <div className=" w-full lg:max-w-[680px] lg:h-[400px] md:max-w-[740px] md:h-[700px] sm:max-w-[600px] sm:h-[650px] max-w-[380px] h-[400px] py-3 border">
                           <img
                             src={image}
                             alt=""
-                            className=" w-full aspect-square  object-contain"
+                            className="  aspect-square  object-contain"
                           />
                         </div>
                       </div>

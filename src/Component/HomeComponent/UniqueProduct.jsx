@@ -5,7 +5,7 @@ const UniqueProduct = () => {
   return (
     <div className='py-10 mt-20 mb-20'>
          <div className='container mx-auto'>
-            <div className="bg-[#F5F3FC] py-10 px-6 md:px-16 lg:px-24 flex flex-col md:flex-row items-center  gap-8">
+            <div className="bg-[#F5F3FC] py-10 px-6 md:px-16 lg:px-24 flex flex-col md:flex-row items-center gap-8 rounded-lg">
             {/* Product Image */}
             <div className="relative w-full md:w-1/2 flex justify-center">
             <div className="absolute  w-72 h-72 bg-pink-200 rounded-full opacity-30"></div>
