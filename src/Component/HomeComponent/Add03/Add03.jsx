@@ -4,6 +4,7 @@ import Furniture2 from "../../../assets/Furniture/Furniture2.png";
 import Furniture3 from "../../../assets/Furniture/Furniture3.png";
 import Lamp from "../../../assets/Furniture/Lamp.png";
 import Sofa from "../../../assets/Furniture/Sofa.png";
+import { Link } from "react-router-dom";
 
 const Add03 = () => {
   return (
@@ -51,9 +52,11 @@ const Add03 = () => {
               Top Rated Chair
             </h3>
             <p className="text-white">Under $120</p>
-            <button className="mt-4 px-4 py-2 bg-orange-400 text-white rounded-lg hover:bg-orange-500 hover:bg-black/40">
-              Shop Now
-            </button>
+            <Link to={'/shop'}>
+              <button className="mt-4 px-4 py-2 bg-orange-400 text-white rounded-lg hover:bg-orange-500 hover:bg-black/40">
+                Shop Now
+              </button>
+            </Link>
           </div>
         </div>
 
