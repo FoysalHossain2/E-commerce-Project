@@ -96,12 +96,12 @@ const Products = ({
             </div>
             <Link
               to={`/productDetails/${productId}`}
-              className="hover:scale-110 transition duration-500"
+              className="hover:scale-110 transition duration-500 flex justify-center items-center"
             >
               <img
                 src={image}
                 alt={title}
-                className="w-full lg:h-48 md:h-80 sm:h-80 h-40 object-cover rounded-lg bg-white"
+                className="w-full lg:h-52 md:h-80 sm:h-80 h-40 object-cover rounded-lg bg-white"
               />
             </Link>
             <div className="px-2 py-4">

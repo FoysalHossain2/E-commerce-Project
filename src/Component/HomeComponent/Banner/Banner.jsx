@@ -1,26 +1,23 @@
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
-import BannerImg from "../../../assets/BannerImg.png";
-import BannerImg2 from "../../../assets/BannerImg2.png";
+import banner01 from "../../../assets/Banner/banner01.png";
+import banner02 from "../../../assets/Banner/banner02.png";
+import banner03 from "../../../assets/Banner/banner03.png";
 
 const Banner = () => {
   const BImage = [
     {
       id: 1,
-      img: BannerImg,
+      img: banner01,
     },
     {
       id: 2,
-      img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D",
+      img: banner02,
     },
     {
       id: 3,
-      img: BannerImg2,
-    },
-    {
-      id: 4,
-      img: BannerImg,
+      img: banner03,
     },
   ];
 
@@ -105,23 +102,23 @@ const Banner = () => {
   ];
 
   return (
-    <>
-      <div className="">
-        <Slider {...settings} className="">
+    <div className="mt-4 lg:px-0 px-4 rounded-xl">
+      <div className="container mx-auto">
+        <Slider {...settings} className=" rounded-xl">
           {BImage?.map((items, id) => (
             <Link to={"/shop"} key={id}>
-              <div className="xl:h-[560px] lg:h-[300px] max-sm:h-[200px]">
+              <div className=" rounded-xl xl:h-[560px] lg:h-[300px] max-sm:h-[200px]">
                 <img
                   src={items.img}
                   alt={items.img}
-                  className=" w-full h-full aspect-auto"
+                  className=" rounded-xl w-full h-full aspect-auto"
                 />
               </div>
             </Link>
           ))}
         </Slider>
       </div>
-    </>
+    </div>
   );
 };
 

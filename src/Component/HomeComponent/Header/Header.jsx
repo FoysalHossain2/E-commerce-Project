@@ -239,15 +239,15 @@ const Header = () => {
           >
              <div className="flex justify-between items-center">
                   {/*========== sideShowMenu Btn ========*/}
-                           <div className="bg-[#F6F5FF] py-1 ">
-                  <div className="container mx-auto">
-                    <div
-                      className="flex items-center gap-x-1 text-center cursor-pointer w-20"
-                      onClick={HandleSideMenu}
-                    >
-                      <IoMenu className="cursor-pointer text-2xl" />
+                  <div className="bg-[#F6F5FF] py-1 ">
+                    <div className="container mx-auto">
+                      <div
+                        className="flex items-center gap-x-1 text-center cursor-pointer w-20"
+                        onClick={HandleSideMenu}
+                      >
+                        <IoMenu className="cursor-pointer text-2xl" />
+                      </div>
                     </div>
-                  </div>
                 </div>
                {/* sideShowMenu Btn ===========*/}
 

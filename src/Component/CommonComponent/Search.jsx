@@ -38,7 +38,7 @@ const Search = () => {
   return (
     <>
          <div className="relative flex " >
-                  <div className="flex items-center border border-orange-300 lg:max-w-[600px] md:max-w-[800px]  max-md:max-w-[800px] rounded-full overflow-hidden w-full ">
+                  <div className="flex items-center border border-orange-300 lg:max-w-[600px] md:max-w-[800px]  max-md:max-w-[800px] lg:rounded-xl md:rounded-xl rounded-full overflow-hidden w-full ">
                     <input
                       type="text"
                       placeholder="Search for restaurants and food"
