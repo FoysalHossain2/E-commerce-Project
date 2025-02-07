@@ -102,7 +102,7 @@ const Banner = () => {
   ];
 
   return (
-    <div className="mt-4 lg:px-0 px-4 rounded-xl">
+    <div className="mt-4 rounded-xl">
       <div className="container mx-auto">
         <Slider {...settings} className=" rounded-xl">
           {BImage?.map((items, id) => (

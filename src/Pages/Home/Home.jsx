@@ -19,7 +19,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="overflow-x-hidden">
+      <div className="overflow-x-hidden lg:px-0 px-4">
         <Banner />
         {/* <Add04 /> */}
         <Shipping />

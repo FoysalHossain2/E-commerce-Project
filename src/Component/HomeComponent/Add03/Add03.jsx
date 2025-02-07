@@ -9,10 +9,10 @@ import { Link } from "react-router-dom";
 const Add03 = () => {
   return (
     <div className="container mx-auto">
-      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 p-6">
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 ">
         <div>
           <div
-            className="bg-cover bg-center relative md:h-60 h-[505px] rounded-lg shadow-lg"
+            className="bg-cover bg-center relative md:h-60 h-60 rounded-lg shadow-lg"
             style={{
               backgroundImage: `url(${Furniture3})`,
             }}
@@ -25,7 +25,7 @@ const Add03 = () => {
           </div>
 
           <div
-            className="bg-cover bg-center relative rounded-lg shadow-lg mt-6 md:h-60 h-[505px]"
+            className="bg-cover bg-center relative rounded-lg shadow-lg mt-6 md:h-60 h-60"
             style={{
               backgroundImage: `url(${Sofa})`,
             }}
@@ -41,7 +41,7 @@ const Add03 = () => {
         </div>
 
         <div
-          className="bg-cover bg-center relative h-[505px] rounded-lg shadow-lg flex items-center justify-center"
+          className="bg-cover bg-center relative lg:h-[505px] h-60 rounded-lg shadow-lg flex items-center justify-center"
           style={{
             backgroundImage: `url(${Furniture2})`,
           }}

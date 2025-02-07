@@ -176,7 +176,7 @@ const Header = () => {
 
             {/*========== Search option ==========*/}
             <div className="lg:max-w-[500px] max-md:max-w-[700px] w-full max-sm:mt-2 md:mt-4 max-md:mt-4 lg:mt-0">
-             <Search className="relative" />
+              <Search className="relative" />
             </div>
             {/*========== Search option ==========*/}
 
@@ -273,7 +273,7 @@ const Header = () => {
         </div>
       </div>
       <div className=" xl:hidden lg:hidden block">
-        <BottomNavbar TotalCartItem={TotalCartItem}  />
+        {/* <BottomNavbar TotalCartItem={TotalCartItem}  /> */}
       </div>
       {/*=========== Header part =*/}
        

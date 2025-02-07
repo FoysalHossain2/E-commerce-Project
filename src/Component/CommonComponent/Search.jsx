@@ -38,26 +38,26 @@ const Search = () => {
   return (
     <>
          <div className="relative flex " >
-                  <div className="flex items-center border border-orange-300 lg:max-w-[600px] md:max-w-[800px]  max-md:max-w-[800px] lg:rounded-xl md:rounded-xl rounded-full overflow-hidden w-full ">
-                    <input
-                      type="text"
-                      placeholder="Search for restaurants and food"
-                      className="flex-grow px-4 lg:py-[9px] py-2 text-gray-700 focus:outline-none"
-                    />
-                    <button className="px-4 text-xl focus:outline-none">
-                      <IoSearchOutline />
-                    </button>
+            <div className="flex items-center border border-orange-300 lg:max-w-[600px] md:max-w-[800px]  max-md:max-w-[800px] lg:rounded-xl md:rounded-xl rounded-full overflow-hidden w-full ">
+                <input
+                  type="text"
+                  placeholder="Search for restaurants and food"
+                  className="flex-grow px-4 lg:py-[9px] py-2 text-gray-700 focus:outline-none"
+                />
+                <button className="px-4 text-xl focus:outline-none">
+                  <IoSearchOutline />
+                </button>
+            </div>
+              {SearchFunction.length > 0 && (
+                <div className="">
+                  <SearchResult
+                    className={
+                      "absolute left-[3%] top-[100%] z-10  h-[700px]  lg:max-w-[600px] max-md:max-w-[600px] w-full"
+                    }
+                    SearchProps={SearchFunction}
+                  />
                 </div>
-                {SearchFunction.length > 0 && (
-                  <div className="">
-                    <SearchResult
-                      className={
-                        "absolute left-[3%] top-[100%] z-10  h-[700px]  lg:max-w-[600px] max-md:max-w-[600px] w-full"
-                      }
-                      SearchProps={SearchFunction}
-                    />
-                  </div>
-                )}
+              )}
          </div>
     </>
   )

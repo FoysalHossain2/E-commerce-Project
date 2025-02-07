@@ -90,10 +90,9 @@ const Furnituar = ({ product }) => {
       <div className="container mx-auto">
 
          <div className="mb-16">
-            <h2 className="text-3xl font-bold mb-2 ">Weekly selection</h2>
+            <h2 className="text-3xl font-bold mb-2 ">Top Selling Products</h2>
             <p className=" text-gray-600 mb-6">
-              Shop living room furniture, crafted by designers all over the
-              world
+            Special products in this month.
             </p>
           </div>
 

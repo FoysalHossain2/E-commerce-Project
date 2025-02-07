@@ -80,95 +80,94 @@ const Cart = () => {
     <div className='pt-[120px] pb-[145px]'>
       <div className="container mx-auto">
 
-        <div className='  '>
-            <div className='flex max-sm:flex-col gap-x-10 '>
+        <div className='px-5'>
+            <div className='flex justify-between lg:items-start md:items-start items-center max-sm:flex-col gap-x-10 '>
           
-            <div className='w-[800px]'>
+            <div className="w-full max-w-[800px] overflow-x-auto">
+              <div className="bg-white shadow-md rounded-lg overflow-hidden">
+                <table className="w-full border-collapse min-w-[600px]">
+                  {/* Table Head */}
+                  <thead>
+                    <tr className="bg-gray-100 text-gray-600 uppercase text-sm">
+                      <th className="py-3 px-4 text-left">
+                        <input type="checkbox" />
+                        <span className="ml-2">Product</span>
+                      </th>
+                      <th className="py-3 px-4 text-center">Unit Price</th>
+                      <th className="py-3 px-4 text-center">Quantity</th>
+                      <th className="py-3 px-4 text-center">Subtotal</th>
+                      <th className="py-3 px-4 text-center">Remove</th>
+                    </tr>
+                  </thead>
 
-                    
-
-                    <div className="bg-white shadow-md rounded-lg overflow-hidden">
-                    <table className="w-full border-collapse">
-                      {/* Table Head */}
-                      <thead>
-                        <tr className="bg-gray-100 text-gray-600 uppercase text-sm">
-                          <th className="py-3 px-4 text-left">
-                            <input type="checkbox" />
-                            <span className="ml-2">Product</span>
-                          </th>
-                          <th className="py-3 px-4 text-center">Unit Price</th>
-                          <th className="py-3 px-4 text-center">Quantity</th>
-                          <th className="py-3 px-4 text-center">Subtotal</th>
-                          <th className="py-3 px-4 text-center">Remove</th>
-                        </tr>
-                      </thead>
-
-                      {/* Table Body */}
-                      <tbody>
-                        {CartItem.map((item) => (
-                          <tr key={item.id} className="border-t">
-                            <td className="py-4 px-4 flex items-center gap-3">
-                              <input type="checkbox" />
-                              <img src={item.thumbnail} alt={item.thumbnail} className="w-16 h-16 rounded-md object-cover" />
-
-                            </td>
-                            <td className="py-4 px-4 text-center font-semibold text-gray-700">${item.price.toFixed(2)}</td>
-                            <td className="py-4 px-4 text-center">
-                              <div className="flex items-center justify-center gap-2">
-                                <button
-                                  className="border px-2 py-1 rounded-md text-gray-600 hover:bg-gray-200"
-                                  onClick={() => HandleDecrementItem (item)}
-                                >
-                                  -
-                                </button>
-                                <span className="text-gray-800 font-semibold">{item.CartQuantity}</span>
-                                <button
-                                  className="border px-2 py-1 rounded-md text-gray-600 hover:bg-gray-200"
-                                  onClick={() => HandleIncrementItem (item)}
-                                >
-                                  +
-                                </button>
-                              </div>
-                            </td>
-                            <td className="py-4 px-4 text-center font-semibold text-gray-700">
-                            {TotalAmount}
-                            </td>
-                            <td className="py-4 px-4 text-center">
-                              <button className="text-red-500 hover:text-red-700" onClick={() => removeItem(item.id)}>
-                                <FaTrash />
-                              </button>
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                   </div>
+                  {/* Table Body */}
+                  <tbody>
+                    {CartItem.map((item) => (
+                      <tr key={item.id} className="border-t">
+                        <td className="py-4 px-4 flex items-center gap-3">
+                          <input type="checkbox" />
+                          <img src={item.thumbnail} alt={item.thumbnail} className="w-16 h-16 rounded-md object-cover" />
+                        </td>
+                        <td className="py-4 px-4 text-center font-semibold text-gray-700">${item.price.toFixed(2)}</td>
+                        <td className="py-4 px-4 text-center">
+                          <div className="flex items-center justify-center gap-2">
+                            <button
+                              className="border px-2 py-1 rounded-md text-gray-600 hover:bg-gray-200"
+                              onClick={() => HandleDecrementItem(item)}
+                            >
+                              -
+                            </button>
+                            <span className="text-gray-800 font-semibold">{item.CartQuantity}</span>
+                            <button
+                              className="border px-2 py-1 rounded-md text-gray-600 hover:bg-gray-200"
+                              onClick={() => HandleIncrementItem(item)}
+                            >
+                              +
+                            </button>
+                          </div>
+                        </td>
+                        <td className="py-4 px-4 text-center font-semibold text-gray-700">
+                          {TotalAmount}
+                        </td>
+                        <td className="py-4 px-4 text-center">
+                          <button className="text-red-500 hover:text-red-700" onClick={() => removeItem(item.id)}>
+                            <FaTrash />
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
 
-            {/* ======= Total & subTotal =========== */}
-              <div className='w-[340px] bg-[#E8E6F1] h-[300px] px-5'>
-                <div className='flex items-center justify-between mt-8'>
-                  <p>SubTotal:</p>
-                  <p>{TotalAmount}</p>
-                </div>
-                <div className='border-b-2 border-b-zinc-300 mt-3'></div>
-                <div className='flex items-center justify-between mt-8'>
-                  <p>Totals:</p>
-                  <p>{TotalAmount}</p>
-                </div>
-                <div className='border-b-2 border-b-zinc-300 mt-3'></div>
 
-                <div className='mt-8 flex items-center gap-x-2'>
-                  <p className='w-4 h-4 bg-[#19D16F] rounded-full'></p>
-                  <p className='text-[14px] font-Josefin__Sans'>Shipping & taxes calculated at checkout</p>
-                </div>
-                {/* --- Proceed To Checkout button --- */}
-                  <div className='mt-8'>
-                    <button className={`bg-[#19D16F] py-3 w-full rounded text-white font-Roboto font-bold`}  onClick={HandleCheckoutChange}>
-                      Proceed To Checkout
-                    </button>
+            {/* ======= Total & subTotal =========== */}
+              <div className='mt-5 lg:mt-0 md:mt-0 w-full max-w-[340px] bg-[#E8E6F1] h-[300px] '>
+                <div className='px-5'>
+                  <div className='flex items-center justify-between mt-8'>
+                    <p>SubTotal:</p>
+                    <p>{TotalAmount}</p>
                   </div>
-                {/* --- Proceed To Checkout button --- */}
+                  <div className='border-b-2 border-b-zinc-300 mt-3'></div>
+                  <div className='flex items-center justify-between mt-8'>
+                    <p>Totals:</p>
+                    <p>{TotalAmount}</p>
+                  </div>
+                  <div className='border-b-2 border-b-zinc-300 mt-3'></div>
+
+                  <div className='mt-8 flex items-center gap-x-2'>
+                    <p className='w-4 h-4 bg-[#19D16F] rounded-full'></p>
+                    <p className='text-[14px] font-Josefin__Sans'>Shipping & taxes calculated at checkout</p>
+                  </div>
+                  {/* --- Proceed To Checkout button --- */}
+                    <div className='mt-8'>
+                      <button className={`bg-[#19D16F] py-3 w-full rounded text-white font-Roboto font-bold`}  onClick={HandleCheckoutChange}>
+                        Proceed To Checkout
+                      </button>
+                    </div>
+                  {/* --- Proceed To Checkout button --- */}
+                </div>
               </div>
             {/* ======= Total & subTotal =========== */}
             </div>

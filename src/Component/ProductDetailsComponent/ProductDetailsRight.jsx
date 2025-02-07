@@ -226,6 +226,7 @@ const ProductDetailsRight = () => {
                 </button>
               )}
             </div>
+            <button onClick={HandleWishList}>Wish</button>
 
 
           </div>
