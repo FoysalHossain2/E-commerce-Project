@@ -8,32 +8,32 @@ const Add02 = () => {
   return (
     <div className='pb-10'>
       <div className="container mx-auto ">
-        <div className='px-4 py-8 flex gap-6 overflow-x-scroll'>
+        <div className='px-4 py-8 flex justify-between gap-6 overflow'>
           {/* Card 1 */}
-          <div className="w-[500px] ">
+          <div className=" ">
             <img
               src={AddImage01} // Replace this with the actual image URL
               alt="RO Water Purifiers"
-              className="rounded-lg"
+              className="rounded-lg w-[700px]"
             />
             
           </div>
 
           {/* Card 2 */}
-          <div className="w-[500px] ">
+          <div className=" ">
             <img
               src={AddImage02} // Replace this with the actual image URL
               alt="RO Water Purifiers"
-              className="rounded-lg"
+              className="rounded-lg w-[700px]"
             />
             
           </div>
           {/* Card 3 */}
-          <div className="w-[500px] ">
+          <div className=" ">
             <img
               src={AddImage03} // Replace this with the actual image URL
               alt="RO Water Purifiers"
-              className="rounded-lg"
+              className="rounded-lg w-[700px]"
             />
             
           </div>

@@ -64,7 +64,7 @@ const Categories = () => {
   const settings = {
     dots: true,
     infinite: true,
-    slidesToShow: 7,
+    slidesToShow: 9,
     slidesToScroll: 1,
     autoplay: false,
     autoplaySpeed: 2000,
@@ -137,7 +137,7 @@ const Categories = () => {
 
   return (
     <>
-      <div className="py-[100px] bg-gray-50">
+      <div className="py-[80px] bg-gray-50">
         <div className=" container mx-auto">
           <div className="max-w-7xl mx-auto px-4 py-8">
             {/* <!-- Heading Section --> */}
@@ -153,9 +153,9 @@ const Categories = () => {
 
         
             <Slider {...settings} >
-                {AllProducts?.slice(150, 162).map((item, id) => (
-              <Link to={"/shop"} className="px-3 pt-8">
-                  <div key={id} className="w-full max-w-[200px] text-center rounded-lg border border-gray-200  p-2 bg-gray-100 hover:scale-105 transition duration-500">
+                {AllProducts?.slice(150, 163).map((item, id) => (
+              <Link to={"/shop"} className="px-3 pt-8 ">
+                  <div key={id} className="hover:border hover:border-orange-600 w-full max-w-[170px] text-center rounded-lg border border-gray-200  p-2 bg-gray-100 hover:scale-105 transition duration-500">
                     <img
                       src={item.thumbnail}
                       alt="Air Purifier"

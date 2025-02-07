@@ -21,7 +21,7 @@ const Home = () => {
     <>
       <div className="overflow-x-hidden">
         <Banner />
-        <Add04 />
+        {/* <Add04 /> */}
         <Shipping />
         <Categories />
         <Add02 />

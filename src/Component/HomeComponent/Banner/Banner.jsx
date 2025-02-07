@@ -107,7 +107,7 @@ const Banner = () => {
         <Slider {...settings} className=" rounded-xl">
           {BImage?.map((items, id) => (
             <Link to={"/shop"} key={id}>
-              <div className=" rounded-xl xl:h-[560px] lg:h-[300px] max-sm:h-[200px]">
+              <div className=" rounded-xl xl:h-[460px] lg:h-[250px] max-sm:h-[150px]">
                 <img
                   src={items.img}
                   alt={items.img}

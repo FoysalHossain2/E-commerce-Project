@@ -13,6 +13,7 @@ import Menubar from "../../CommonComponent/Menubar";
 import Search from "../../CommonComponent/Search";
 import BottomNavbar from '../../CommonComponent/common/BottomNavbar'
 import { useLocation } from "react-router-dom";
+import HeaderTop from '../../CommonComponent/common/HeaderTop'
 
 
 const Header = () => {
@@ -147,8 +148,9 @@ const Header = () => {
       {/*=========== Header part =*/}
 
       {/* for lg device */}
+      <HeaderTop />
       <div
-        className={`py-[13px] max-sm:py-2
+        className={`py-[10px] max-sm:py-2
        border-b lg:block hidden`}
       >
         <div className="container mx-auto ">
