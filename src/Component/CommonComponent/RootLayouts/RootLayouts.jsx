@@ -6,17 +6,11 @@ import ProductDetailsNavbar from '../ProductDetailsNavbar';
 
 const RootLayouts = () => {
   const location = useLocation();
-  const { productId } = useParams(); // useParams দিয়ে ডাইনামিক রুট চেক করবো
+  const { productId } = useParams(); // useParams 
 
   return (
     <>
-      {productId ? 
-      <div className='hidden '>
-        <Header />
-      </div>
-      :
-      <Header />
-    }
+      {!productId  ? <Header /> : <Header />}
       <Outlet />
       <div className="lg:hidden sm:block md:block">
         {productId ? 

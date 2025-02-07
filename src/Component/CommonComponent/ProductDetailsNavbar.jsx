@@ -52,17 +52,20 @@ const ProductDetailsNavbar = () => {
       {/* Store & Chat Icons */}
 
       {/* Buy Now & Add to Cart Buttons */}
-      <div className="flex w-2/3">
-        <button 
-          
-          className="w-full flex-1 bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-semibold py-2 rounded-l-lg"
-        >
-          Buy Now
-        </button>
-        <button onClick={HandleAddToCart}  className="flex-1 bg-gradient-to-r from-orange-400 to-orange-600 text-white font-semibold py-2 rounded-r-lg">
-          Add to Cart
-        </button>
-      </div>
+      <div className="flex w-full">
+  <button 
+    className="w-1/2 bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-semibold py-2 rounded-l-lg"
+  >
+    Buy Now 
+  </button>
+  <button 
+    onClick={HandleAddToCart}  
+    className="w-1/2 bg-gradient-to-r from-orange-400 to-orange-600 text-white font-semibold py-2 rounded-r-lg"
+  >
+    Add to Cart
+  </button>
+</div>
+
     </div>
   );
 };

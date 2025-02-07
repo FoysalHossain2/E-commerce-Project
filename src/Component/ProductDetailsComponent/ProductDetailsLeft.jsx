@@ -25,7 +25,7 @@ const ProductDetailsLeft = ({ EachProductsDetailsImg, status }) => {
                         key={image}
 
                       >
-                        <div className=" w-full lg:max-w-[680px] lg:h-[400px] md:max-w-[740px] md:h-[700px] sm:max-w-[600px] sm:h-[650px] max-w-[380px] h-[400px] py-3 border">
+                        <div className=" w-full lg:max-w-[680px] lg:h-[400px] md:max-w-[740px] md:h-[700px] sm:max-w-[600px] sm:h-[650px] max-w-[400px] h-[400px] py-3 border">
                           <img
                             src={image}
                             alt=""
