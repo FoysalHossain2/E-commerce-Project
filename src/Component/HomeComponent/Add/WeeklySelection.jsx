@@ -4,7 +4,7 @@ import Products from '../../CommonComponent/Products'
 import { useDispatch, useSelector } from "react-redux";
 import { FetchDataProduct } from "../../../Redux/AllSliceFunction/ProductsSlice/ProductsSlice";
 
-const Add = () => {
+const WeeklySelection = () => {
 
   const [CurrentTab, setCurrentTab] = useState("bestSeller");
 
@@ -163,8 +163,8 @@ const Add = () => {
         {CurrentTab === "topBrands" && 
         <div>
            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-6 ">
-            {AllProducts?.slice(93,98).map((product) => (
-              <div>
+            {AllProducts?.slice(93,98).map((product, id) => (
+              <div key={id}>
                   <Products
                     image={product.thumbnail}
                     title={product.description}
@@ -190,4 +190,4 @@ const Add = () => {
   );
 };
 
-export default Add;
+export default WeeklySelection;

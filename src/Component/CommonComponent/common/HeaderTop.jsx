@@ -4,7 +4,7 @@ const HeaderTop = () => {
   return (
     <>
          <div className="w-full border-b border-gray-200">
-      <div className="px-20 flex justify-between items-center py-2 text-sm text-gray-600">
+      <div className="container mx-auto flex justify-between items-center py-2 text-sm text-gray-600">
         {/* Left Section */}
         <div className="flex gap-4">
           <a href="#" className="hover:underline">
@@ -22,7 +22,7 @@ const HeaderTop = () => {
 
         {/* Middle Section */}
         <div className="text-center">
-          <a href="#" className="text-blue-600 hover:underline">
+          <a href="#" className="text-orange-600 hover:underline">
             Free shipping for all orders over <span className="text-green-600 font-semibold">$70.00</span>
           </a>
         </div>

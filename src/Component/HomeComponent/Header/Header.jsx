@@ -148,7 +148,9 @@ const Header = () => {
       {/*=========== Header part =*/}
 
       {/* for lg device */}
-      <HeaderTop />
+      <div className="lg:block hidden">
+        <HeaderTop />
+      </div>
       <div
         className={`py-[10px] max-sm:py-2
        border-b lg:block hidden`}
