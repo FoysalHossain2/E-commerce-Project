@@ -70,24 +70,20 @@ const Cart = () => {
 
 
 
-      
-
-
-
 
   return (
     <>
-    <div className='pt-[120px] pb-[145px]'>
+    <div className='pt-[120px] pb-[230px]'>
       <div className="container mx-auto">
 
         <div className='px-5'>
-            <div className='flex justify-between lg:items-start md:items-start items-center max-sm:flex-col gap-x-10 '>
+            <div className='flex justify-between lg:items-start md:items-start sm:items-center items-center lg:flex-row sm:flex-col max-sm:flex-col gap-x-10 '>
           
-            <div className="w-full max-w-[800px] overflow-x-auto">
+            <div className="w-full max-w-[900px] overflow-x-auto">
               <div className="bg-white shadow-md rounded-lg overflow-hidden">
                 <table className="w-full border-collapse min-w-[600px]">
                   {/* Table Head */}
-                  <thead>
+                  <thead className=''>
                     <tr className="bg-gray-100 text-gray-600 uppercase text-sm">
                       <th className="py-3 px-4 text-left">
                         <input type="checkbox" />
@@ -143,7 +139,7 @@ const Cart = () => {
 
 
             {/* ======= Total & subTotal =========== */}
-              <div className='mt-5 lg:mt-0 md:mt-0 w-full max-w-[340px] bg-[#E8E6F1] h-[300px] '>
+              <div className='mt-5 md:mt-5 lg:mt-0 w-full lg:max-w-[340px] sm:max-w-[590px] md:max-w-[720px]  bg-[#E8E6F1] h-[300px] '>
                 <div className='px-5'>
                   <div className='flex items-center justify-between mt-8'>
                     <p>SubTotal:</p>

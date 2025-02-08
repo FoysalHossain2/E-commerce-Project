@@ -16,12 +16,8 @@ const Search = () => {
  
     const { data: ProductData } = useProductData(false);
 
-    
-
     console.log("SearchedData", searchData(ProductData));
     
-
-
    const DebounceData = useDebounce((item) => {
     const fetchuseDebounce = searchData(item)
     setSearchFunction({...fetchuseDebounce})
@@ -30,7 +26,6 @@ const Search = () => {
    const HandleSearch = (event) => {
      const { value } = event.target.value;
      DebounceData(value)
- 
 
    };
  
@@ -43,6 +38,8 @@ const Search = () => {
                   type="text"
                   placeholder="Search for restaurants and food"
                   className="flex-grow px-4 lg:py-[9px] py-2 text-gray-700 focus:outline-none"
+                  onChange={HandleSearch}
+                  value={SearchFunction}
                 />
                 <button className="px-4 text-xl focus:outline-none">
                   <IoSearchOutline />

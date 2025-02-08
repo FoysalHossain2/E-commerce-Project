@@ -257,7 +257,11 @@ const Header = () => {
 
               <h1 className="text-green-400 font-bold  text-[10px] ">
                 <Link to={"/"} className="font-Josefin__Sans text-[20px]">
-                  Shop.com
+                  <img 
+                    src="https://www.pngkey.com/png/detail/209-2092097_-img-nintendo-eshop-logo-png.png" 
+                    alt="" 
+                    className="w-16"
+                  />
                 </Link>
               </h1>
               <div></div>
