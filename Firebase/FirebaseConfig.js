@@ -1,20 +1,24 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAuth } from 'firebase/auth';
+import { initializeApp, getApps } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import { getAuth } from "firebase/auth";
 
-
+// Firebase Configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCs-ci9Qllf2XFaupqyvfv1jq9Jf9u0hgI",
-  authDomain: "e-commerce-38a1d.firebaseapp.com",
-  projectId: "e-commerce-38a1d",
-  storageBucket: "e-commerce-38a1d.appspot.com",
-  messagingSenderId: "521591357224",
-  appId: "1:521591357224:web:64be784e08eeab132fda1d",
-  measurementId: "G-NDKELSWLXW"
+  apiKey: "AIzaSyAfF57rqGKG2G37D0XnACGN6410i0u1KPE",
+  authDomain: "eshop-819a3.firebaseapp.com",
+  projectId: "eshop-819a3",
+  storageBucket: "eshop-819a3.firebasestorage.app",
+  messagingSenderId: "904076168266",
+  appId: "1:904076168266:web:8f75e6ae0157ccb07f6ab3",
+  measurementId: "G-E183WFMRM9"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+// Check if Firebase app is already initialized
+const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
 
-export const auth = getAuth()
+// Initialize Firebase Analytics (if needed)
+const analytics = getAnalytics(app);
+
+// Export auth
+export const auth = getAuth(app);
 export default app;

@@ -29,33 +29,17 @@ const LoginComponent = () => {
 
 
   // HandleLogin functionality
-  const HandleLogin = (e) => {
+  const HandleLogin = async (e) => {
     e.preventDefault()
-    const {email, password} = UserInLogin;
-    if (!email || !checkEmail (email)) {
-     ErrorMessage('Your email is not valid') 
-    } else if (!password) {
-      ErrorMessage('Your password is not valid')
-    } else {
-      createUserWithEmailAndPassword(auth, email, password)
-      .then((userInfo) => {
-        onAuthStateChanged(auth, (user) => {
-          console.log(user.emailVerified);
-          if (user.email) {
-            navigate('/checkout')
-            SuccessMessage(`${user.email} Login success`)
-
-          } else {
-             ErrorMessage(
-              `${user.email} Is Not verified Please check Your email`
-             )
-             alert('Not ')
-          }
-        })
-      }) .catch((err) => {
-        
-        ErrorMessage(err.message)
-      })
+    try {
+      await createUserWithEmailAndPassword(auth, email, password)
+      const user = auth.currentUser;
+      console.log(user);
+      console.log("User Resister successfully!");
+      
+    } catch (error) {
+      console.log(error.message);
+      
     }
   }
 
@@ -74,7 +58,7 @@ const LoginComponent = () => {
 
 
             <div className='border   '>
-                <form class="max-w-sm mx-auto px-4 py-8">
+                <form class="max-w-sm mx-auto px-4 py-8" onSubmit={HandleLogin}>
                 <div class="mb-5">
                     <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
                     <input 
@@ -103,7 +87,7 @@ const LoginComponent = () => {
                     </div>
                     <label for="terms" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree with the <a href="#" class="text-blue-600 hover:underline dark:text-blue-500">terms and conditions</a></label>
                 </div>
-                    <button onClick={HandleLogin}  type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ">
+                    <button  type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ">
                         LOGIN
                     </button>
 
@@ -114,8 +98,6 @@ const LoginComponent = () => {
                     </button>
                 </form>
             </div>
-
-
 
             </div>
     </div>

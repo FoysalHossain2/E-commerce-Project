@@ -26,7 +26,10 @@ const Header = () => {
   useEffect(() => {
     if (SlideshowMenu) {
       document.body.classList.add("no-scroll");
-    } else {
+    } else if (Filter) {
+      document.body.classList.add("no-scroll");
+    }
+     else {
       document.body.classList.remove("no-scroll");
     }
 
@@ -34,7 +37,7 @@ const Header = () => {
     return () => {
       document.body.classList.remove("no-scroll");
     };
-  }, [SlideshowMenu]);
+  }, [SlideshowMenu, Filter]);
 
   const HandleSideMenu = () => {
     setSlideshowMenu(!SlideshowMenu);
@@ -122,12 +125,24 @@ const Header = () => {
         onClick={HideMenuSlide}
       >
         <div
-          className="w-[400px] max-sm:w-[300px] h-full bg-slate-200 absolute duration-500 overflow-y-scroll "
+          className="w-full max-w-[400px] max-sm:w-[300px] h-full bg-slate-200 absolute duration-500 overflow-y-scroll "
           style={{
             right: Filter ? "0%" : "-100%",
           }}
           onClick={(e) => e.stopPropagation()}
         >
+          <div className=' w-[400px] bg-white py-2 px-2 flex justify-between border-t  right-0 top-0'>
+            <button
+              type="button"
+              aria-label="Close"
+              onClick={() => setFilter((Filter) => !Filter)}
+              className="flex items-center justify-center p-2 rounded-full hover:bg-gray-200 focus-visible:ring-2 focus-visible:ring-button_Color transition-all"
+            >
+              <RxCross2 className="text-[24px] text-button_Color" />
+            </button>
+            <p className='font-semibold text-[20px]'>CART</p>
+            <p></p>
+        </div>
           <AddToCartU toggleMenu={toggleMenu} />
         </div>
         {/* <button className='ml-[1650px] text-white text-[30px]'  onClick={toggleMenu}><RxCross2 /></button> */}
