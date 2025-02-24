@@ -1,24 +1,22 @@
-import { initializeApp, getApps } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { getAuth } from "firebase/auth";
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import {getAuth} from 'firebase/auth'
+import {getFirestore} from "firebase/firestore";
 
-// Firebase Configuration
+
+
 const firebaseConfig = {
-  apiKey: "AIzaSyAfF57rqGKG2G37D0XnACGN6410i0u1KPE",
-  authDomain: "eshop-819a3.firebaseapp.com",
-  projectId: "eshop-819a3",
-  storageBucket: "eshop-819a3.firebasestorage.app",
-  messagingSenderId: "904076168266",
-  appId: "1:904076168266:web:8f75e6ae0157ccb07f6ab3",
-  measurementId: "G-E183WFMRM9"
+  apiKey: "AIzaSyAXOZyRlE6agoj3hZn-rja5saJzwsUq1kE",
+  authDomain: "e-shopwebapp-8cbc6.firebaseapp.com",
+  projectId: "e-shopwebapp-8cbc6",
+  storageBucket: "e-shopwebapp-8cbc6.firebasestorage.app",
+  messagingSenderId: "521865318420",
+  appId: "1:521865318420:web:a89311b14ae998c52e5701",
+  measurementId: "G-NGM056BPD0"
 };
 
-// Check if Firebase app is already initialized
-const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
-
-// Initialize Firebase Analytics (if needed)
-const analytics = getAnalytics(app);
-
-// Export auth
-export const auth = getAuth(app);
-export default app;
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth()
+export const db=getFirestore(app);
+export default app

@@ -16,6 +16,7 @@ import Login from "./Pages/Login/Login";
 import ProductDetails from "./Pages/ProductDetails/ProductDetails";
 import Shop from "./Pages/Shop/Shop";
 import WishList from "./Pages/WishList/WishList";
+import Registration from "./Component/LoginComponent/Registration";
 // import BottomNavbar from "./Component/CommonComponent/common/BottomNavbar";
 
 const router = createBrowserRouter(
@@ -31,6 +32,7 @@ const router = createBrowserRouter(
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/wishList" element={<WishList />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/registration" element={<Registration />} />
         <Route path="/contact" element={<Contact />} />
       </Route>
     </Route>
