@@ -20,7 +20,7 @@ const ProductDetailsLeft = ({ EachProductsDetailsImg, status }) => {
               ) : (
                 <div>
                   <div className="flex gap-y-6 mt-3 overflow-hidden p">
-                    {EachProductsDetailsImg.images?.map((image) => (
+                    {EachProductsDetailsImg.images?.slice(0,1).map((image) => (
                       <div
                         key={image}
 
